@@ -1,0 +1,96 @@
+/* signupPage */
+
+position: relative;
+width: 1440px;
+height: 900px;
+
+background: #FFFFFF;
+
+
+/* SpotifyTopBar */
+
+box-sizing: border-box;
+
+position: absolute;
+height: 92px;
+left: 0px;
+right: 0px;
+top: 0px;
+
+border-bottom: 1px solid #D9DADC;
+
+
+/* SpotifyLogoStats1 */
+
+position: absolute;
+width: 155px;
+height: 33px;
+left: calc(50% - 155px/2 + 0.5px);
+top: 29px;
+
+background: url(SpotifyLogoStats.png);
+
+
+/* FrameMiddle */
+
+position: absolute;
+width: 450px;
+height: 270px;
+left: calc(50% - 450px/2 - 1px);
+top: 167px;
+
+
+
+/* SINGUPbutton 1 */
+
+position: absolute;
+width: 128px;
+height: 48px;
+left: 322px;
+top: 222px;
+
+background: url(SINGUPbutton.png);
+
+
+/* FrameLine */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 450px;
+height: 2px;
+left: calc(50% - 450px/2);
+top: 468px;
+
+border: 1px solid #D9DADC;
+
+
+/* donthaveaccount */
+
+position: absolute;
+width: 330px;
+height: 40px;
+left: calc(50% - 330px/2 + 61px);
+top: 480px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 17px;
+line-height: 21px;
+display: flex;
+align-items: center;
+
+color: #000000;
+
+
+
+/* signinbutton 1 */
+
+position: absolute;
+width: 450px;
+height: 48px;
+left: calc(50% - 450px/2 + 1px);
+top: 530px;
+
+background: url(signinbutton.png);

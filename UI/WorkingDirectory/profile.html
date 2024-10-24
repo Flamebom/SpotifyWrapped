@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <title>Sample HTML Structure</title>
+    <style>
+        * {
+            color: white;
+            font-family: 'Inter';font-size: 22px;
+        }
+        body {
+            margin: 0px;
+        }
+    </style>
+</head>
+
+<body style="overflow: hidden; position: absolute; width: 100%; height: 900px; background: #FFFFFF;">
+<div class="spotifytopbar" style="overflow: hidden; position: absolute; box-sizing: border-box; height: 92px; left: 0px; right: 0px; top: 0px; border-bottom: 1px solid #D9DADC;">
+<img class="spotifylogostats1" style="overflow: hidden; position: absolute; width: 155px; height: 33px; left: calc(50% - 155px/2 + 0.5px); top: 29px;" src="img/spotifylogostats1.png" />
+  </div>
+<div class="framemiddle" style="overflow: hidden; position: absolute; width: 450px; height: 270px; left: calc(50% - 450px/2 - 1px); top: 167px;">
+<img class="singupbutton1" style="overflow: hidden; position: absolute; width: 128px; height: 48px; left: 322px; top: 222px;" src="img/singupbutton1.png" />
+  </div>
+<div class="frameline" style="overflow: hidden; position: absolute; box-sizing: border-box; width: 450px; height: 2px; left: calc(50% - 450px/2); top: 468px; border: 1px solid #D9DADC;"></div>
+<div class="donthaveaccount" style="overflow: hidden; position: absolute; width: 330px; height: 40px; left: calc(50% - 330px/2 + 61px); top: 480px; font-style: normal; font-weight: 700; font-size: 17px; line-height: 21px; display: flex; align-items: center; color: #000000;">Already got an Account?</div>
+<img class="signinbutton1" style="overflow: hidden; position: absolute; width: 450px; height: 48px; left: calc(50% - 450px/2 + 1px); top: 530px;" src="img/signinbutton1.png" />
+<script>
+var frameline = document.getElementsByClassName('frameline')[0];
+var framemiddle = document.getElementsByClassName('framemiddle')[0];
+var signinbutton1 = document.getElementsByClassName('signinbutton1')[0];
+var singupbutton1 = document.getElementsByClassName('singupbutton1')[0];
+var signuppage = document.getElementsByClassName('signuppage')[0];
+var spotifylogostats1 = document.getElementsByClassName('spotifylogostats1')[0];
+var spotifytopbar = document.getElementsByClassName('spotifytopbar')[0];
+var donthaveaccount = document.getElementsByClassName('donthaveaccount')[0];
+</script>
+<script src='main.js'></script>
+</body>
+</html>

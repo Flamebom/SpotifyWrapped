@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <title>Sample HTML Structure</title>
+    <style>
+        * {
+            color: white;
+            font-family: 'Inter';font-size: 22px;
+        }
+        body {
+            margin: 0px;
+        }
+    </style>
+</head>
+
+<body style="overflow: hidden; position: absolute; width: 100%; height: 900px; background: #FFFFFF;">
+<div class="spotifytopbar" style="overflow: hidden; position: absolute; box-sizing: border-box; height: 92px; left: 0px; right: 0px; top: 0px; border-bottom: 1px solid #D9DADC;">
+<img class="spotifylogostats1" style="overflow: hidden; position: absolute; width: 155px; height: 33px; left: calc(50% - 155px/2 + 0.5px); top: 29px;" src="img/spotifylogostats1.png" />
+    </div>
+<div class="framemiddle" style="overflow: hidden; position: absolute; width: 450px; height: 270px; left: calc(50% - 450px/2 - 1px); top: 132px;">
+<div class="forgotyourpass" style="overflow: hidden; position: absolute; width: 374px; height: 18px; left: 0px; top: 186px; font-style: normal; font-weight: 400; font-size: 16px; line-height: 18px; display: flex; align-items: center; text-decoration-line: underline; color: #000000;">Forgot your password?</div>
+<img class="login1" style="overflow: hidden; position: absolute; width: 122px; height: 48px; left: 328px; top: 222px;" src="img/login1.png" />
+    </div>
+<div class="frameline" style="overflow: hidden; position: absolute; box-sizing: border-box; width: 450px; height: 2px; left: calc(50% - 450px/2); top: 433px; border: 1px solid #D9DADC;"></div>
+<img class="signup1" style="overflow: hidden; position: absolute; width: 450px; height: 48px; left: calc(50% - 450px/2 - 1px); top: 495px;" src="img/signup1.png" />
+<div class="donthaveaccount" style="overflow: hidden; position: absolute; width: 220px; height: 40px; left: calc(50% - 220px/2 + 19px); top: 445px; font-style: normal; font-weight: 700; font-size: 17px; line-height: 21px; display: flex; align-items: center; color: #000000;">Don't have an account?</div>
+<script>
+var thisone = document.getElementsByClassName('thisone')[0];
+var login1 = document.getElementsByClassName('login1')[0];
+var spotifytopbar = document.getElementsByClassName('spotifytopbar')[0];
+var signup1 = document.getElementsByClassName('signup1')[0];
+var donthaveaccount = document.getElementsByClassName('donthaveaccount')[0];
+var spotifylogostats1 = document.getElementsByClassName('spotifylogostats1')[0];
+var framemiddle = document.getElementsByClassName('framemiddle')[0];
+var frameline = document.getElementsByClassName('frameline')[0];
+var forgotyourpass = document.getElementsByClassName('forgotyourpass')[0];
+</script>
+<script src='main.js'></script>
+</body>
+</html>
