@@ -1,4 +1,4 @@
-/* signupPage */
+/* forgotpassword */
 
 position: relative;
 width: 1440px;
@@ -31,66 +31,35 @@ top: 29px;
 background: url(SpotifyLogoStats.png);
 
 
-/* FrameMiddle */
+/* middleframe */
 
 position: absolute;
-width: 450px;
+width: 465px;
 height: 270px;
-left: calc(50% - 450px/2 - 1px);
-top: 167px;
+left: calc(50% - 465px/2 + 0.5px);
+top: 98px;
 
 
 
-/* SINGUPbutton 1 */
-
-position: absolute;
-width: 128px;
-height: 48px;
-left: 322px;
-top: 222px;
-
-background: url(SINGUPbutton.png);
-
-
-/* FrameLine */
+/* lineframe */
 
 box-sizing: border-box;
 
 position: absolute;
 width: 450px;
 height: 2px;
-left: calc(50% - 450px/2);
-top: 468px;
+left: calc(50% - 450px/2 + 1.5px);
+top: 92px;
 
 border: 1px solid #D9DADC;
 
 
-/* donthaveaccount */
+/* sendresetrequest 1 */
 
 position: absolute;
-width: 330px;
-height: 40px;
-left: calc(50% - 330px/2 + 61px);
-top: 480px;
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 700;
-font-size: 17px;
-line-height: 21px;
-display: flex;
-align-items: center;
-
-color: #000000;
-
-
-
-/* signinbutton 1 */
-
-position: absolute;
-width: 450px;
+width: 452px;
 height: 48px;
-left: calc(50% - 450px/2 + 1px);
-top: 530px;
+left: calc(50% - 452px/2 + 1.5px);
+top: 111px;
 
-background: url(signinbutton.png);
+background: url(sendresetrequest.png);

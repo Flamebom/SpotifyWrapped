@@ -18,8 +18,8 @@ profileContainer.style.cssText = `
     font-family: 'Inter', sans-serif; /* Apply the Inter font to the container */
 `;
 
-// Function to add profile items
-function addProfileItem(name, defaultValue) {
+// Function to add profile items with name attributes
+function addProfileItem(name, defaultValue, inputName) {
     let itemFrame = document.createElement("div");
     profileContainer.appendChild(itemFrame);
 
@@ -54,10 +54,11 @@ function addProfileItem(name, defaultValue) {
         z-index: 2; /* Make sure the label is in front */
     `;
 
-    // Create and style the inputField
+    // Create and style the inputField with name attribute
     let inputField = document.createElement("input");
     inputField.type = "text";
     inputField.placeholder = defaultValue;
+    inputField.name = inputName;  // Set unique name for each input
 
     inputField.style.cssText = `
         width: 100%; height: 100%;
@@ -70,27 +71,6 @@ function addProfileItem(name, defaultValue) {
         box-sizing: border-box;
         outline: none;
     `;
-
-    // Ensure placeholder text is gray and visible
-    inputField.style.setProperty("color", "#000000"); // Black text inside input
-    inputField.style.setProperty("--placeholder-color", "rgba(0, 0, 0, 0.5)");
-
-    inputField.style.cssText += `
-        ::placeholder {
-            color: rgba(0, 0, 0, 0.5); /* Set placeholder color to gray */
-        }
-    `;
-
-    // Add event listeners for placeholder handling
-    inputField.addEventListener("focus", function () {
-        inputField.placeholder = ''; // Remove placeholder text on focus
-    });
-
-    inputField.addEventListener("blur", function () {
-        if (inputField.value === '') {
-            inputField.placeholder = defaultValue; // Restore placeholder if no input
-        }
-    });
 
     itemFrame.appendChild(inputField);
 
@@ -105,16 +85,11 @@ function addProfileItem(name, defaultValue) {
     return itemFrame;
 }
 
-// Example of adding profile items
-addProfileItem('Email', 'penguin@penguin.com');
-addProfileItem('Password', 'Password');
+// Add profile items with unique names
+addProfileItem('Email', 'penguin@penguin.com', 'email');
+addProfileItem('Password', 'Password', 'password');
 
-
-
-
-// Dynamically set up the hover effects, click events, and the wrong password message using JavaScript.
-
-// Define the function to add hover effect
+// Define the function to add hover effect to buttons
 function addHoverEffect(element) {
     element.style.cursor = 'pointer';
     element.addEventListener('mouseenter', function () {
@@ -125,7 +100,7 @@ function addHoverEffect(element) {
     });
 }
 
-// Get references to the required elements
+// Get references to the required buttons
 var login1 = document.getElementsByClassName('login1')[0];
 var signup1 = document.getElementsByClassName('signup1')[0];
 var forgotyourpass = document.getElementsByClassName('forgotyourpass')[0];
@@ -157,23 +132,35 @@ addHoverEffect(forgotyourpass);  // Hover effect for forgot your password
 
 // Set up click event for signup button to redirect to signup page
 signup1.addEventListener('click', function () {
-    window.location.href = 'signup.html'; // Redirect to signup page
-    console.log("redirecting to signup page")
+    window.location.href = 'register.html'; // Redirect to signup page
+    console.log("Redirecting to signup page");
 });
 
 // Set up click event for forgot password link to redirect to forgot password page
 forgotyourpass.addEventListener('click', function () {
-    window.location.href = 'forgotpassword.html'; // Redirect to forgot password page
-    console.log("redirecting to forgotpassword page")
+    window.location.href = 'resetpassword.html'; // Redirect to forgot password page
+    console.log("Redirecting to forgot password page");
 });
 
 // Set up click event for login button to handle login logic
 login1.addEventListener('click', function () {
-    var loginSuccess = false; // Assume login failure for demonstration
+    // Selecting input fields by name attributes
+    var email = document.querySelector('input[name="email"]');
+    var password = document.querySelector('input[name="password"]');
 
-    if (loginSuccess) {
-        window.location.href = 'mainpage.html'; // Redirect to main page if login successful
+    // Log values for debugging
+    console.log("Email:", email ? email.value : "Not found");
+    console.log("Password:", password ? password.value : "Not found");
+
+    // Display the top one if login FAILED. Buttom One if Login Sucessful
+    if (!email || email.value.trim() === '' || !password || password.value.trim() === '') {
+        wrongPasswordMessage.style.display = 'block';  // Show wrong password message
+        console.log("Validation failed: One or more fields are empty.");
     } else {
-        wrongPasswordMessage.style.display = 'block'; // Show wrong password message
+        wrongPasswordMessage.style.display = 'none';  // Hide validation message
+        console.log("All fields are filled. Proceeding with login.");
+        window.location.href = 'profile.html'; // NOT EXISTENT YET
+
+        // Add your login logic here (e.g., authenticate the user)
     }
 });

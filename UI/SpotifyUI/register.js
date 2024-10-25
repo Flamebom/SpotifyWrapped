@@ -22,8 +22,8 @@ profileContainer.style.cssText = `
     overflow: visible; /* Ensure items outside the container are visible */
 `;
 
-// Function to add profile items
-function addProfileItem(name, defaultValue) {
+// Function to add profile items with name attributes
+function addProfileItem(name, defaultValue, inputName) {
     let itemFrame = document.createElement("div");
     profileContainer.appendChild(itemFrame);
 
@@ -58,10 +58,11 @@ function addProfileItem(name, defaultValue) {
         z-index: 2; /* Make sure the label is in front */
     `;
 
-    // Create and style the inputField
+    // Create and style the inputField with name attribute
     let inputField = document.createElement("input");
     inputField.type = "text";
     inputField.placeholder = defaultValue;
+    inputField.name = inputName;  // Set unique name for each input
 
     inputField.style.cssText = `
         width: 100%; height: 100%;
@@ -75,21 +76,17 @@ function addProfileItem(name, defaultValue) {
         outline: none;
     `;
 
-    // Ensure placeholder text is gray and visible
-    inputField.style.setProperty("color", "#000000"); // Black text inside input
-    inputField.style.setProperty("--placeholder-color", "rgba(0, 0, 0, 0.5)");
-
+    // Add placeholder styling
     inputField.style.cssText += `
         ::placeholder {
             color: rgba(0, 0, 0, 0.5); /* Set placeholder color to gray */
         }
     `;
 
-    // Add event listeners for placeholder handling
+    // Add placeholder handling for focus/blur events
     inputField.addEventListener("focus", function () {
         inputField.placeholder = ''; // Remove placeholder text on focus
     });
-
     inputField.addEventListener("blur", function () {
         if (inputField.value === '') {
             inputField.placeholder = defaultValue; // Restore placeholder if no input
@@ -109,14 +106,12 @@ function addProfileItem(name, defaultValue) {
     return itemFrame;
 }
 
-// Example of adding profile items
-addProfileItem('Username', 'penguin');
-addProfileItem('Email', 'penguin@penguin.com');
-addProfileItem('Password', 'Password');
+// Add profile items with unique names
+addProfileItem('Username', 'penguin', 'username');
+addProfileItem('Email', 'penguin@penguin.com', 'email');
+addProfileItem('Password', 'Password', 'password');
 
-
-
-// Define the function to add hover effect
+// Define the function to add hover effect to buttons
 function addHoverEffect(element) {
     element.style.cursor = 'pointer';
     element.addEventListener('mouseenter', function () {
@@ -127,7 +122,7 @@ function addHoverEffect(element) {
     });
 }
 
-// Get references to the required elements
+// Get references to the required buttons
 var signinbutton1 = document.getElementsByClassName('signinbutton1')[0];  // Sign in button
 var singupbutton1 = document.getElementsByClassName('singupbutton1')[0];  // Sign up button
 
@@ -143,10 +138,11 @@ addHoverEffect(singupbutton1);
 var validationMessage = document.createElement('div');
 validationMessage.className = 'validation-message';
 validationMessage.style.position = 'absolute';
-validationMessage.style.top = '300px';
+validationMessage.style.top = '354px';
 validationMessage.style.left = '50%';
 validationMessage.style.transform = 'translateX(-50%)';
 validationMessage.style.color = 'red';
+validationMessage.style.zIndex = '100';
 validationMessage.style.fontSize = '16px';
 validationMessage.style.display = 'none'; // Hidden by default
 validationMessage.textContent = 'Fill in all fields.';
@@ -162,19 +158,25 @@ signinbutton1.addEventListener('click', function () {
 
 // Set up click event for singupbutton1 to handle registration logic
 singupbutton1.addEventListener('click', function () {
-    // Assuming you have input fields for Username, Email, and Password
-    var username = document.querySelector('input[placeholder="Username"]');
-    var email = document.querySelector('input[placeholder="Email"]');
-    var password = document.querySelector('input[placeholder="Password"]');
+    // Selecting input fields by name attributes
+    var username = document.querySelector('input[name="username"]');
+    var email = document.querySelector('input[name="email"]');
+    var password = document.querySelector('input[name="password"]');
+
+    // Log values for debugging
+    console.log("Username:", username ? username.value : "Not found");
+    console.log("Email:", email ? email.value : "Not found");
+    console.log("Password:", password ? password.value : "Not found");
 
     // Check if any of the fields are empty
-    if (!username || username.value === '' ||
-        !email || email.value === '' ||
-        !password || password.value === '') {
+    if (!username || username.value.trim() === '' ||
+        !email || email.value.trim() === '' ||
+        !password || password.value.trim() === '') {
         validationMessage.style.display = 'block';  // Show 'Fill in all fields' message
+        console.log("Validation failed: One or more fields are empty.");
     } else {
         validationMessage.style.display = 'none';  // Hide validation message
-        console.log("All fields are filled. Proceed with registration.");
+        console.log("All fields are filled. Proceeding with registration.");
         // Add your registration logic here (e.g., send the registration request to the server)
     }
 });
