@@ -7,6 +7,7 @@ REDIRECT_URI = 'http://localhost:8888/callback'
 
 SCOPE = 'user-top-read'
 
+# Set up Spotify client with OAuth
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
     client_id=CLIENT_ID,
     client_secret=CLIENT_SECRET,
@@ -41,8 +42,21 @@ def get_top_tracks(limit=5):
 def get_top_artists(limit=5):
     results = sp.current_user_top_artists(limit=limit)
     print("\nYour Top Artists:")
+
     for idx, artist in enumerate(results['items'], start=1):
-        print(f"{idx}. {artist['name']}")
+        artist_name = artist['name']
+        artist_id = artist['id']
+        artist_image = artist['images'][0]['url'] if artist['images'] else None
+
+        # Get artist's best track by searching for tracks by this artist
+        top_track = sp.artist_top_tracks(artist_id, country='US')['tracks'][0]
+        top_track_name = top_track['name']
+        top_track_audio = top_track['preview_url']
+
+        print(f"{idx}. {artist_name}")
+        print(f"   Profile Picture: {artist_image}")
+        print(f"   Top Track: {top_track_name}")
+        print(f"   Top Track Audio Preview: {top_track_audio}")
 
 
 def get_top_genres(limit=5):
