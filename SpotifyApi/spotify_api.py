@@ -7,7 +7,6 @@ REDIRECT_URI = 'http://localhost:8888/callback'
 
 SCOPE = 'user-top-read'
 
-# Set up Spotify client with OAuth
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
     client_id=CLIENT_ID,
     client_secret=CLIENT_SECRET,
