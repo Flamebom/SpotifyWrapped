@@ -19,6 +19,7 @@ profileContainer.style.cssText = `
 `;
 
 // Function to add profile items with name attributes
+
 function addProfileItem(name, defaultValue, inputName) {
     let itemFrame = document.createElement("div");
     profileContainer.appendChild(itemFrame);

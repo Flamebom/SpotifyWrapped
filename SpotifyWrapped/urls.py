@@ -16,7 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from . import views
 
+app_name = 'SpotifyWrapped'
 urlpatterns = [
+    path('/profile.html', views.profile, name='profile'),
+    path('', views.index, name='login'),
     path('admin/', admin.site.urls),
 ]
