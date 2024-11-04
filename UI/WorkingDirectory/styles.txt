@@ -1,65 +1,263 @@
-/* forgotpassword */
+/* Main Frame */
 
 position: relative;
 width: 1440px;
 height: 900px;
 
-background: #FFFFFF;
+background: #1E1E1E;
 
 
-/* SpotifyTopBar */
-
-box-sizing: border-box;
+/* topbar */
 
 position: absolute;
-height: 92px;
-left: 0px;
+height: 64px;
+left: 241px;
 right: 0px;
 top: 0px;
 
-border-bottom: 1px solid #D9DADC;
+background: rgba(0, 0, 0, 0.5);
 
 
-/* SpotifyLogoStats1 */
+/* Button */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 15px 32.375px 15px 32px;
+
+position: absolute;
+width: 112.38px;
+height: 48px;
+left: 1076px;
+top: 8px;
+
+background: #FFFFFF;
+border-radius: 500px;
+
+
+/* James */
+
+width: 48px;
+height: 18px;
+
+font-family: 'Helvetica Neue';
+font-style: normal;
+font-weight: 700;
+font-size: 15px;
+line-height: 18px;
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #000000;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* sideframe */
+
+position: absolute;
+width: 241px;
+height: 900px;
+left: 0px;
+top: 0px;
+
+background: #000000;
+
+
+/* SpotifyStats 2 */
 
 position: absolute;
 width: 155px;
 height: 33px;
-left: calc(50% - 155px/2 + 0.5px);
-top: 29px;
+left: 43px;
+top: 25px;
 
-background: url(SpotifyLogoStats.png);
+background: url(SpotifyStats.png);
 
 
-/* middleframe */
+/* sidegroupbar */
 
 position: absolute;
-width: 465px;
-height: 270px;
-left: calc(50% - 465px/2 + 0.5px);
+width: 250px;
+height: 159.39px;
+left: 15px;
 top: 98px;
 
 
 
-/* lineframe */
-
-box-sizing: border-box;
+/* homebar */
 
 position: absolute;
-width: 450px;
-height: 2px;
-left: calc(50% - 450px/2 + 1.5px);
-top: 92px;
+width: 221px;
+height: 39.39px;
+left: 8px;
+top: 0px;
 
-border: 1px solid #D9DADC;
+border-radius: 4px;
 
 
-/* sendresetrequest 1 */
+/* Vector */
 
 position: absolute;
-width: 452px;
-height: 48px;
-left: calc(50% - 452px/2 + 1.5px);
-top: 111px;
+width: 20px;
+height: 20.89px;
+left: 16px;
+top: 8px;
 
-background: url(sendresetrequest.png);
+background: #FFFFFF;
+
+
+/* Home */
+
+position: absolute;
+width: 37px;
+height: 23px;
+left: 52px;
+top: 8px;
+
+font-family: 'Helvetica Neue';
+font-style: normal;
+font-weight: 700;
+font-size: 13px;
+line-height: 22px;
+/* identical to box height, or 172% */
+display: flex;
+align-items: center;
+
+color: #FFFFFF;
+
+
+
+/* searchbara */
+
+position: absolute;
+width: 225px;
+height: 40px;
+left: 8px;
+top: 40px;
+
+border-radius: 4px;
+
+
+/* vectorsearch */
+
+position: absolute;
+left: 7.61%;
+right: 82.88%;
+top: 23.19%;
+bottom: 23.91%;
+
+background: #FFFFFF;
+
+
+/* Search */
+
+position: absolute;
+width: 44px;
+height: 23px;
+left: 56px;
+top: 8px;
+
+font-family: 'Helvetica Neue';
+font-style: normal;
+font-weight: 700;
+font-size: 13px;
+line-height: 22px;
+/* identical to box height, or 172% */
+display: flex;
+align-items: center;
+
+color: #FFFFFF;
+
+
+
+/* Youraccountbar */
+
+position: absolute;
+width: 234px;
+height: 40px;
+left: 8px;
+top: 80px;
+
+border-radius: 4px;
+
+
+/* Vectorhouse */
+
+position: absolute;
+left: 7.69%;
+right: 83.76%;
+top: 25%;
+bottom: 25%;
+
+background: #FFFFFF;
+
+
+/* Your Account */
+
+position: absolute;
+width: 84px;
+height: 23px;
+left: 56px;
+top: 8px;
+
+font-family: 'Helvetica Neue';
+font-style: normal;
+font-weight: 700;
+font-size: 13px;
+line-height: 22px;
+/* identical to box height, or 172% */
+display: flex;
+align-items: center;
+
+color: #FFFFFF;
+
+
+
+/* Discoverybar */
+
+position: absolute;
+width: 213px;
+height: 39.39px;
+left: 8px;
+top: 120px;
+
+border-radius: 4px;
+
+
+/* Discovery */
+
+position: absolute;
+width: 62px;
+height: 23px;
+left: 57px;
+top: 8px;
+
+font-family: 'Helvetica Neue';
+font-style: normal;
+font-weight: 700;
+font-size: 13px;
+line-height: 22px;
+/* identical to box height, or 172% */
+display: flex;
+align-items: center;
+
+color: #FFFFFF;
+
+
+
+/* Discovery 1 1 */
+
+position: absolute;
+width: 25px;
+height: 23.5px;
+left: 16px;
+top: 8px;
+
+background: url(Discovery 1.png);
