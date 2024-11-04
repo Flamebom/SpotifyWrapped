@@ -1,17 +1,13 @@
 from django.shortcuts import render
 
-def login(request):
-    """This method renders the index page.
 
-    Returns the login page.
-    """
+def login(request):
+ """Render the index page (login on startup)."""
     return render(request, '../UI/SpotifyUI/login.html', {})
 
-def profile(request):
-    """This method renders the profile page.
 
-    Returns the user's profile page.
-    """
+def profile(request):
+    """Render the profile page (after login)."""
     return render(request, '../UI/SpotifyUI/profile.html', {})
 
 def register(request):
