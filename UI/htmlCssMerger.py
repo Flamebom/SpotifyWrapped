@@ -140,11 +140,11 @@ print("=============================================")
 
 
 # File paths
-HTML_SRC = 'logininput.html'
+HTML_SRC = 'mainframe.html'
 CSS_SRC = 'styles.txt'
 HEADER_SRC = '/header.html'
 JS_SRC = 'main.js'
-OUTPUT_NAME = 'profile.html'
+OUTPUT_NAME = 'output.html'
 
 # Read the files
 html_lines = read_file(FOLDER_PATH+"/"+HTML_SRC)
