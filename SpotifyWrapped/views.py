@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from .models import User
 
 
+
 def register_view(request):
     if request.method == 'POST':
         email = request.POST['email']
@@ -49,11 +50,10 @@ def toggle_dark_mode(request):
     return JsonResponse({'is_dark_mode': user.is_dark_mode})
 
 
-def profile(request):
-    """This method renders the profile page.
 
-    Returns the user's profile page.
-    """
+
+def profile(request):
+    """Render the profile page (after login)."""
     return render(request, '../UI/SpotifyUI/profile.html', {})
 
 
