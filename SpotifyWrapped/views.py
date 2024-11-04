@@ -4,7 +4,6 @@ from django.contrib.auth import authenticate, login, logout
 from .models import User
 
 
-
 def register_view(request):
     if request.method == 'POST':
         email = request.POST['email']
@@ -48,8 +47,6 @@ def toggle_dark_mode(request):
     user.save()
     # Return the new state
     return JsonResponse({'is_dark_mode': user.is_dark_mode})
-
-
 
 
 def profile(request):
