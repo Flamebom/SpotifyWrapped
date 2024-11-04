@@ -39,6 +39,7 @@ class User(AbstractBaseUser):
     @property
     def is_staff(self):
         return self.is_admin
+
 class SpotifyWrapped(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     year = models.IntegerField()
