@@ -10,7 +10,7 @@ def register_view(request):
         user = User.objects.create_user(email=email, password=password)
         login(request, user)
         return redirect('home')  # for registration redirect
-    return render(request, 'register.html')
+    return render(request, '../UI/SpotifyUI/register.html')
 
 def login_view(request):
     if request.method == 'POST':
@@ -21,8 +21,8 @@ def login_view(request):
             login(request, user)
             return redirect('home')
         else:
-            return render(request, 'login.html', {'error': 'Invalid credentials'})
-    return render(request, 'login.html')
+            return render(request, '../UI/SpotifyUI/login.html', {'error': 'Invalid credentials'})
+    return render(request, '../UI/SpotifyUI/login.html')
 
 def logout_view(request):
     logout(request)
@@ -48,12 +48,6 @@ def profile(request):
     """
     return render(request, '../UI/SpotifyUI/profile.html', {})
 
-def register(request):
-    """This method allows the user to register for Spotify.
-
-    Returns the Spotify register page.
-    """
-    return render(request, '../UI/SpotifyUI/register.html', {})
 
 def reset(request):
     """This method allows the user to reset their password.
