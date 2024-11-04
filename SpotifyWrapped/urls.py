@@ -20,7 +20,13 @@ from . import views
 
 app_name = 'SpotifyWrapped'
 urlpatterns = [
-    path('/profile.html', views.profile, name='profile'),
-    path('', views.index, name='login'),
+    path('', views.login, name='login'),
+    path('login.html', views.login, name='login'),
+    path('profile/', views.profile, name='profile'),
+    path('profile.html', views.profile, name='profile'),
+    path('register/', views.register, name='register'),
+    path('register.html', views.register, name='register'),
+    path('reset/', views.reset, name='reset'),
+    path('resetpassword.html', views.reset, name='reset'),
     path('admin/', admin.site.urls),
 ]
