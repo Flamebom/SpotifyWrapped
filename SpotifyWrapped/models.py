@@ -17,6 +17,7 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
+
 class User(AbstractBaseUser):
     email = models.EmailField(max_length=255, unique=True)
     is_active = models.BooleanField(default=True)
@@ -39,6 +40,7 @@ class User(AbstractBaseUser):
     @property
     def is_staff(self):
         return self.is_admin
+
 
 class SpotifyWrapped(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
