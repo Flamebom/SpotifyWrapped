@@ -1,19 +1,41 @@
-// Ensure that the Inter font is loaded and applied to the body
-document.head.innerHTML += `
-<link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
-<meta charset="UTF-8">
-`;
 
-// Get the correct container (framemiddle)
-var framemiddle = document.getElementsByClassName('middleframe')[0];
+// Global variable to track the current selected mode
+let currentMode = 'homebar';
 
-// Create a container for all profile items inside framemiddle
-let profileContainer = document.createElement("div");
-framemiddle.appendChild(profileContainer); // Append to the framemiddle container
+// Function to set opacity for a given element
+function setOpacity(element, opacity) {
+    element.style.opacity = opacity;
+}
 
-// Add CSS to the container (using a simple inline style)
-profileContainer.style.cssText = `
-    position: absolute; top: 10px; left: 0; right: 0; bottom: 0; align-items: center;
-    gap: 20px; display: flex; flex-wrap: wrap; flex-direction: column;
-    font-family: 'Inter', sans-serif; /* Apply the Inter font to the container */
-`;
+// Function to handle mode change
+function changeMode(newModeElement, newModeName) {
+    // Set current mode opacity to 0.7
+    const previousModeElement = document.getElementsByClassName(currentMode)[0];
+    setOpacity(previousModeElement, 0.7);
+
+    // Set new mode opacity to 1
+    setOpacity(newModeElement, 1);
+
+    // Update the global currentMode
+    currentMode = newModeName;
+}
+
+// Add event listeners to each bar
+document.addEventListener('DOMContentLoaded', () => {
+    const homebar = document.getElementsByClassName('homebar')[0];
+    const searchbara = document.getElementsByClassName('searchbara')[0];
+    const youraccountbar = document.getElementsByClassName('youraccountbar')[0];
+    const discoverybar = document.getElementsByClassName('discoverybar')[0];
+
+    // Initialize default selected mode
+    setOpacity(homebar, 1);
+    setOpacity(searchbara, 0.7);
+    setOpacity(youraccountbar, 0.7);
+    setOpacity(discoverybar, 0.7);
+
+    // Add click event listeners
+    homebar.addEventListener('click', () => changeMode(homebar, 'homebar'));
+    searchbara.addEventListener('click', () => changeMode(searchbara, 'searchbara'));
+    youraccountbar.addEventListener('click', () => changeMode(youraccountbar, 'youraccountbar'));
+    discoverybar.addEventListener('click', () => changeMode(discoverybar, 'discoverybar'));
+});

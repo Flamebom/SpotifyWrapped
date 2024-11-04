@@ -1,4 +1,4 @@
-/* Main Frame */
+/* MainFrame */
 
 position: relative;
 width: 1440px;
@@ -18,45 +18,50 @@ top: 0px;
 background: rgba(0, 0, 0, 0.5);
 
 
-/* Button */
-
-/* Auto layout */
-display: flex;
-flex-direction: row;
-align-items: flex-start;
-padding: 15px 32.375px 15px 32px;
+/* namebutton */
 
 position: absolute;
-width: 112.38px;
-height: 48px;
-left: 1076px;
-top: 8px;
+width: 116px;
+height: 42px;
+right: 25px;
+top: 11px;
+
+
+
+/* Rectangle 26 */
+
+position: absolute;
+width: 116px;
+height: 42px;
+left: 0px;
+top: 0px;
 
 background: #FFFFFF;
-border-radius: 500px;
+border-radius: 50px;
 
 
 /* James */
 
-width: 48px;
-height: 18px;
+position: absolute;
+width: 64px;
+height: 17px;
+left: 26px;
+top: 12px;
 
-font-family: 'Helvetica Neue';
+font-family: 'Inter';
 font-style: normal;
 font-weight: 700;
-font-size: 15px;
-line-height: 18px;
+font-size: 14px;
+line-height: 17px;
+/* identical to box height */
 display: flex;
 align-items: center;
 text-align: center;
+letter-spacing: 1.498px;
+text-transform: uppercase;
 
 color: #000000;
 
-
-/* Inside auto layout */
-flex: none;
-order: 0;
-flex-grow: 0;
 
 
 /* sideframe */
@@ -102,23 +107,12 @@ top: 0px;
 border-radius: 4px;
 
 
-/* Vector */
-
-position: absolute;
-width: 20px;
-height: 20.89px;
-left: 16px;
-top: 8px;
-
-background: #FFFFFF;
-
-
 /* Home */
 
 position: absolute;
-width: 37px;
+width: 161px;
 height: 23px;
-left: 52px;
+left: 55px;
 top: 8px;
 
 font-family: 'Helvetica Neue';
@@ -132,6 +126,17 @@ align-items: center;
 
 color: #FFFFFF;
 
+
+
+/* homeicon */
+
+position: absolute;
+width: 20px;
+height: 21px;
+left: 17px;
+top: 8px;
+
+background: url(homeicon.png);
 
 
 /* searchbara */
@@ -139,29 +144,18 @@ color: #FFFFFF;
 position: absolute;
 width: 225px;
 height: 40px;
-left: 8px;
+left: 4px;
 top: 40px;
 
 border-radius: 4px;
 
 
-/* vectorsearch */
-
-position: absolute;
-left: 7.61%;
-right: 82.88%;
-top: 23.19%;
-bottom: 23.91%;
-
-background: #FFFFFF;
-
-
 /* Search */
 
 position: absolute;
-width: 44px;
+width: 153px;
 height: 23px;
-left: 56px;
+left: 59px;
 top: 8px;
 
 font-family: 'Helvetica Neue';
@@ -175,6 +169,17 @@ align-items: center;
 
 color: #FFFFFF;
 
+
+
+/* searchicon */
+
+position: absolute;
+width: 21.5px;
+height: 21.5px;
+left: 21px;
+top: 9px;
+
+background: url(searchicon.png);
 
 
 /* Youraccountbar */
@@ -188,21 +193,10 @@ top: 80px;
 border-radius: 4px;
 
 
-/* Vectorhouse */
-
-position: absolute;
-left: 7.69%;
-right: 83.76%;
-top: 25%;
-bottom: 25%;
-
-background: #FFFFFF;
-
-
 /* Your Account */
 
 position: absolute;
-width: 84px;
+width: 162px;
 height: 23px;
 left: 56px;
 top: 8px;
@@ -218,6 +212,17 @@ align-items: center;
 
 color: #FFFFFF;
 
+
+
+/* houseicon */
+
+position: absolute;
+width: 20px;
+height: 20px;
+left: 19px;
+top: 10px;
+
+background: url(houseicon.png);
 
 
 /* Discoverybar */
@@ -234,7 +239,7 @@ border-radius: 4px;
 /* Discovery */
 
 position: absolute;
-width: 62px;
+width: 156px;
 height: 23px;
 left: 57px;
 top: 8px;

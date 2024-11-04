@@ -117,7 +117,7 @@ def update_html_with_css(html_lines, css_dict):
             if img_match:
                 updated_lines.pop()  # Remove the last line since we will replace it
                 img_src = img_match.group(1)
-                img_path = f"SpotifyUI/img/{class_name}.png"  # Construct image path based on class name
+                img_path = f"img/{class_name}.png"  # Construct image path based on class name
                 if not os.path.exists(FOLDER_PATH+"/"+img_path):
                     print("\033[91m{}\033[00m".format(f"ERROR: Image src not found for {img_src}, looking for {img_path}"))
                 
