@@ -15,6 +15,11 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Spotify API credentials
+SPOTIFY_CLIENT_ID = 'put_you_client_id_here'
+SPOTIFY_CLIENT_SECRET = 'put_you_client_secret_here'
+SPOTIFY_REDIRECT_URI = 'http://localhost:8000/callback/'
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -25,7 +30,7 @@ SECRET_KEY = 'django-insecure-^kfkq7w)f@i$r$231!_-shlz^3j#cjy&12=_9s@l=i2t)b(c&o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -37,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'spotify_app',
 ]
 
 MIDDLEWARE = [

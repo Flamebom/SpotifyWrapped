@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ user_name }}'s Spotify Profile</title>
+    <style>
+        /* Simple styling for presentation */
+        body { font-family: Arial, sans-serif; background-color: #121212; color: #FFFFFF; margin: 0; padding: 0; }
+        h1, h2, h3 { color: #1DB954; }
+        .container { width: 90%; margin: auto; padding: 20px; }
+        .section { margin-bottom: 40px; }
+        .item { display: flex; align-items: center; margin-bottom: 10px; }
+        .item img { margin-right: 15px; border-radius: 5px; }
+        .item a { color: #1DB954; text-decoration: none; }
+        .stats { font-size: 1.2em; }
+        .listening-habits { display: flex; justify-content: space-around; flex-wrap: wrap; }
+        .habits-section { width: 30%; margin-bottom: 20px; }
+        .habits-section h3 { text-align: center; }
+        .share-button { background-color: #1DB954; color: #FFFFFF; padding: 10px 20px; border: none; border-radius: 50px; cursor: pointer; }
+        .share-button:hover { background-color: #1ED760; }
+        .infographic { text-align: center; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome, {{ user_name }}!</h1>
+
+        <!-- Summary of Key Stats -->
+        <div class="section">
+            <h2>Summary of Your Listening</h2>
+            <p class="stats">Total Listening Time (Top Tracks): {{ total_listening_minutes }} min {{ total_listening_seconds }} sec</p>
+            <p class="stats">Total Listening Time (Recently Played): {{ total_recently_played_minutes }} min {{ total_recently_played_seconds }} sec</p>
+            <!-- Additional stats can be added here -->
+        </div>
+
+        <!-- Top 5 Songs -->
+        <div class="section">
+            <h2>Your Top 5 Songs</h2>
+            {% if tracks_data %}
+            <ul>
+                {% for track in tracks_data %}
+                <li class="item">
+                    {% if track.album_cover %}
+                    <img src="{{ track.album_cover }}" alt="{{ track.name }}" width="50">
+                    {% endif %}
+                    <div>
+                        <strong>{{ track.name }}</strong> by {{ track.artist }}<br>
+                        Duration: {{ track.minutes }} min {{ track.seconds }} sec
+                        {% if track.preview_url %}
+                        - <a href="{{ track.preview_url }}" target="_blank">Preview</a>
+                        {% endif %}
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>You have no top tracks available.</p>
+            {% endif %}
+        </div>
+
+        <!-- Top 5 Artists -->
+        <div class="section">
+            <h2>Your Top 5 Artists</h2>
+            {% if artists_data %}
+            <ul>
+                {% for artist in artists_data %}
+                <li class="item">
+                    {% if artist.image %}
+                    <img src="{{ artist.image }}" alt="{{ artist.name }}" width="50">
+                    {% endif %}
+                    <div>
+                        <strong>{{ artist.name }}</strong><br>
+                        Genres: {{ artist.genres|join:", " }}<br>
+                        {% if artist.top_track_name %}
+                        Top Track: {{ artist.top_track_name }}
+                        {% if artist.top_track_preview %}
+                        (<a href="{{ artist.top_track_preview }}" target="_blank">Preview</a>)
+                        {% endif %}
+                        {% endif %}
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>You have no top artists available.</p>
+            {% endif %}
+        </div>
+
+        <!-- Genres Breakdown Top 5 -->
+        <div class="section">
+            <h2>Your Top 5 Genres</h2>
+            {% if top_genres %}
+            <ul>
+                {% for genre in top_genres %}
+                <li>{{ genre }}</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>You have no genres available.</p>
+            {% endif %}
+        </div>
+
+        <!-- Listening Habits Over Time -->
+        <div class="section">
+            <h2>Your Listening Habits Over Time</h2>
+            <div class="listening-habits">
+                {% for time_label, data in listening_habits.items %}
+                <div class="habits-section">
+                    <h3>{{ time_label }}</h3>
+                    <h4>Top Tracks</h4>
+                    <ul>
+                        {% for track in data.tracks %}
+                        <li class="item">
+                            {% if track.album_cover %}
+                            <img src="{{ track.album_cover }}" alt="{{ track.name }}" width="50">
+                            {% endif %}
+                            <div>
+                                <strong>{{ track.name }}</strong> by {{ track.artist }}
+                                {% if track.preview_url %}
+                                - <a href="{{ track.preview_url }}" target="_blank">Preview</a>
+                                {% endif %}
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <h4>Top Artists</h4>
+                    <ul>
+                        {% for artist in data.artists %}
+                        <li class="item">
+                            {% if artist.image %}
+                            <img src="{{ artist.image }}" alt="{{ artist.name }}" width="50">
+                            {% endif %}
+                            <div>
+                                <strong>{{ artist.name }}</strong>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Playlists and Albums -->
+        <div class="section">
+            <h2>Your Favorite Playlists</h2>
+            {% if playlists_data %}
+            <ul>
+                {% for playlist in playlists_data %}
+                <li class="item">
+                    {% if playlist.image %}
+                    <img src="{{ playlist.image }}" alt="{{ playlist.name }}" width="50">
+                    {% endif %}
+                    <div>
+                        <strong>{{ playlist.name }}</strong><br>
+                        Total Tracks: {{ playlist.tracks_total }}
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>You have no playlists available.</p>
+            {% endif %}
+        </div>
+
+        <div class="section">
+            <h2>Your Saved Albums</h2>
+            {% if albums_data %}
+            <ul>
+                {% for album in albums_data %}
+                <li class="item">
+                    {% if album.image %}
+                    <img src="{{ album.image }}" alt="{{ album.name }}" width="50">
+                    {% endif %}
+                    <div>
+                        <strong>{{ album.name }}</strong> by {{ album.artist }}<br>
+                        Released: {{ album.release_date }}
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>You have no saved albums available.</p>
+            {% endif %}
+        </div>
+
+        <!-- Recommendations Based on Top Tracks and Artists -->
+        <div class="section">
+            <h2>Recommended Tracks for You</h2>
+            {% if recommended_tracks %}
+            <ul>
+                {% for track in recommended_tracks %}
+                <li class="item">
+                    {% if track.album_cover %}
+                    <img src="{{ track.album_cover }}" alt="{{ track.name }}" width="50">
+                    {% endif %}
+                    <div>
+                        <strong>{{ track.name }}</strong> by {{ track.artist }}
+                        {% if track.preview_url %}
+                        - <a href="{{ track.preview_url }}" target="_blank">Preview</a>
+                        {% endif %}
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>No recommendations available at this time.</p>
+            {% endif %}
+        </div>
+
+        <!-- Special Achievements and Fun Facts -->
+        <div class="section">
+            <h2>Special Achievements and Fun Facts 🎉</h2>
+
+            <!-- Milestones -->
+            <h3>Milestones 🎖️</h3>
+            <p>You listened to {{ total_minutes_listened }} minutes of music this year!</p>
+            {% if top_track_name %}
+            <p>Your favorite track, {{ top_track_name }}, was played {{ top_track_plays }} times!</p>
+            {% else %}
+            <p>Your favorite track is unavailable.</p>
+            {% endif %}
+            <p>You discovered {{ new_artist_count }} new artists this year—always exploring!</p>
+
+            <!-- Listening Personality Type -->
+            <h3>Listening Personality Type 🌟</h3>
+            <p>{{ listening_personality_type }}</p>
+
+            <!-- Fun Facts and Shareable Insights -->
+            <h3>Fun Facts and Shareable Insights</h3>
+            {% if top_genre %}
+            <p>You spent the most time in {{ top_genre }}, vibing to its tracks for {{ genre_minutes }} minutes.</p>
+            {% endif %}
+
+            <!-- Shareable Card -->
+            <h3>Your Music Summary</h3>
+            <p>Top Track: {{ top_track_name }}</p>
+            <p>Top Artist: {{ top_artist_name }}</p>
+            <p>Top Genre: {{ top_genre }}</p>
+        </div>
+
+        <!-- Social Sharing and Interactive Components -->
+        <div class="section">
+            <h2>Share Your Music Journey</h2>
+            <div class="infographic">
+                <p>Share your top music moments with friends!</p>
+                <button class="share-button">Generate Shareable Image</button>
+                <!-- Implement functionality using JavaScript or server-side image generation -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
