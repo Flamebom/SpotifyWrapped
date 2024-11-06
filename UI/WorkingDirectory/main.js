@@ -39,3 +39,32 @@ document.addEventListener('DOMContentLoaded', () => {
     youraccountbar.addEventListener('click', () => changeMode(youraccountbar, 'youraccountbar'));
     discoverybar.addEventListener('click', () => changeMode(discoverybar, 'discoverybar'));
 });
+
+
+
+
+function addHoverEffect70(element) {
+    element.style.cursor = 'pointer';
+    element.addEventListener('mouseenter', function () {
+        element.style.opacity = '0.5';  // Reduce opacity on hover
+    });
+    element.addEventListener('mouseleave', function () {
+        element.style.opacity = '0.7';  // Restore original opacity when not hovered
+    });
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Select the element
+    const goToTeamWebsite = document.querySelector(".goteamwebsite");
+    addHoverEffect70(goToTeamWebsite);
+  
+    // Set a high z-index value
+    goToTeamWebsite.style.zIndex = "1000";
+  
+    // Make it clickable and redirect to a specified website
+    goToTeamWebsite.addEventListener("click", function() {
+      window.location.href = "https://kharanshsingh.wixsite.com/atlfoodfinder-team-w";
+    });
+  });
+  
+

@@ -2,7 +2,7 @@
 
 position: relative;
 width: 1440px;
-height: 900px;
+height: 825px;
 
 background: #1E1E1E;
 
@@ -68,9 +68,9 @@ color: #000000;
 
 position: absolute;
 width: 241px;
-height: 900px;
 left: 0px;
-top: 0px;
+top: 0%;
+bottom: 0%;
 
 background: #000000;
 
@@ -266,3 +266,25 @@ left: 16px;
 top: 8px;
 
 background: url(Discovery 1.png);
+
+
+/* goteamwebsite */
+
+position: absolute;
+width: 124px;
+height: 23px;
+left: 42px;
+bottom: 52px;
+
+font-family: 'Helvetica Neue';
+font-style: normal;
+font-weight: 700;
+font-size: 13px;
+line-height: 22px;
+/* identical to box height, or 172% */
+display: flex;
+align-items: center;
+
+color: #FFFFFF;
+
+opacity: 0.7;
