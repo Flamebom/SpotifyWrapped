@@ -4,25 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81154dd3-6948-420f-b9ab-36f75ef6a8e3" name="Changes" comment="updated: without using spotipy">
-      <change afterPath="$PROJECT_DIR$/spotify_app/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spotify_app/templates/spotify_app/home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spotify_app/templates/spotify_app/profile.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spotify_app/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spotify_app/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="81154dd3-6948-420f-b9ab-36f75ef6a8e3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/spotify_app/spotify_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpotifyApi/spotify_api.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/SpotifyWrapped/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpotifyWrapped/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpotifyWrapped/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpotifyWrapped/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spotify_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/spotify_app/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
-    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -42,13 +33,13 @@
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
     &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;Xyrro&quot;
+    &quot;assignee&quot;: &quot;ARKNAV&quot;
   }
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Flamebom/SpotifyWrapped.git&quot;,
-    &quot;accountId&quot;: &quot;bbc63f23-1cc8-442c-a351-bdc1d7666c10&quot;
+    &quot;accountId&quot;: &quot;24bedebc-9877-4546-a4de-120ae0b25c3d&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -65,7 +56,6 @@
     "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "SpotifyApiFile",
-    "last_opened_file_path": "C:/Users/Xytai/PycharmProjects/SpotifyWrapped",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -74,13 +64,6 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Xytai\PycharmProjects" />
-      <recent name="C:\Users\Xytai\PycharmProjects\SpotifyWrapped" />
-      <recent name="C:\Users\Xytai\PycharmProjects\SpotifyWrapped\SpotifyWrapped\spotify_app" />
-    </key>
-  </component>
   <component name="RunManager">
     <configuration name="SpotifyWrapped" type="Python.DjangoServer" factoryName="Django server">
       <module name="SpotifyWrapped" />
@@ -91,6 +74,7 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.12 (pythonProject)" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -110,8 +94,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-PY-242.21829.153" />
-        <option value="bundled-python-sdk-464836ebc622-b74155a9e76b-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.21829.153" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PY-242.23339.19" />
+        <option value="bundled-python-sdk-0029f7779945-399fe30bd8c1-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.23339.19" />
       </set>
     </attachedChunks>
   </component>
@@ -124,70 +108,12 @@
       <option name="presentableId" value="Default" />
       <updated>1728604108696</updated>
       <workItem from="1728604110062" duration="33000" />
-      <workItem from="1730045446933" duration="36589000" />
-      <workItem from="1730740046885" duration="5929000" />
-      <workItem from="1730747927482" duration="22819000" />
+      <workItem from="1729536815401" duration="4338000" />
+      <workItem from="1730687656104" duration="105000" />
     </task>
-    <task id="LOCAL-00001" summary="Add spotify api file: top artists, top songs, top genres, total time listening, artist and song recommendations">
-      <option name="closed" value="true" />
-      <created>1730080495103</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1730080495103</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Added audios and album covers for songs">
-      <option name="closed" value="true" />
-      <created>1730081188598</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1730081188598</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Added audios and album covers for songs">
-      <option name="closed" value="true" />
-      <created>1730081204781</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1730081204781</updated>
-    </task>
-    <task id="LOCAL-00004" summary="add top artists' profile picture and best track and it's audio">
-      <option name="closed" value="true" />
-      <created>1730082347789</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1730082347791</updated>
-    </task>
-    <task id="LOCAL-00005" summary="added top artists' profile picture and best track and it's audio">
-      <option name="closed" value="true" />
-      <created>1730082435230</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1730082435230</updated>
-    </task>
-    <task id="LOCAL-00006" summary="updated: without using spotipy">
-      <option name="closed" value="true" />
-      <created>1730332750799</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1730332750799</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add spotify api file: top artists, top songs, top genres, total time listening, artist and song recommendations" />
-    <MESSAGE value="Added audios and album covers for songs" />
-    <MESSAGE value="add top artists' profile picture and best track and it's audio" />
-    <MESSAGE value="added top artists' profile picture and best track and it's audio" />
-    <MESSAGE value="updated: without using spotipy" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated: without using spotipy" />
   </component>
 </project>
