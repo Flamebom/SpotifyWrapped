@@ -1,0 +1,39 @@
+name: 'coverage'
+on:
+  pull_request:
+    branches:
+      - master
+      - main
+
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install coverage
+
+      - name: Run tests and generate coverage report
+        run: |
+          coverage run -m pytest
+          coverage xml -o coverage.xml
+
+      - name: Python Coverage
+        # Using the latest release of the action, adjust the version if needed
+        uses: orgoro/coverage@v3.1
+        with:
+          coverageFile: coverage.xml  # Local path to the coverage XML file
+          token: ${{ secrets.GITHUB_TOKEN }}
+          thresholdAll: 0.8          # Optional: Set coverage threshold for all files
+          thresholdNew: 0.9          # Optional: Set coverage threshold for new files
+          thresholdModified: 0.75    # Optional: Set coverage threshold for modified files
