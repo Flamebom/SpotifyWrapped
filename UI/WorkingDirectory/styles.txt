@@ -1,8 +1,8 @@
 /* MainFrame */
 
 position: relative;
-width: 1440px;
-height: 825px;
+width: 1443px;
+height: 756px;
 
 background: #1E1E1E;
 
@@ -271,7 +271,7 @@ background: url(Discovery 1.png);
 /* goteamwebsite */
 
 position: absolute;
-width: 124px;
+width: 184px;
 height: 23px;
 left: 42px;
 bottom: 52px;
@@ -288,3 +288,219 @@ align-items: center;
 color: #FFFFFF;
 
 opacity: 0.7;
+
+
+/* email */
+
+position: absolute;
+width: 189px;
+height: 14px;
+left: 42px;
+bottom: 36px;
+
+font-family: 'Helvetica Neue';
+font-style: normal;
+font-weight: 700;
+font-size: 11px;
+line-height: 14px;
+/* identical to box height, or 127% */
+display: flex;
+align-items: center;
+
+color: #FFFFFF;
+
+opacity: 0.85;
+
+
+/* WorkingFrame */
+
+position: absolute;
+height: 761px;
+left: 16.94%;
+right: 0%;
+top: 64px;
+
+
+
+/* GoToStats */
+
+position: absolute;
+height: 118px;
+left: 17.85%;
+right: 2.85%;
+top: 71px;
+
+background: #42C83C;
+border-radius: 30px;
+
+
+/* newStatsForThisWeek */
+
+position: absolute;
+left: 5.69%;
+right: 52.1%;
+top: 11.86%;
+bottom: 77.12%;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 10px;
+line-height: 12px;
+/* identical to box height */
+text-transform: capitalize;
+
+color: #FBFBFB;
+
+
+
+/* Go to Stats */
+
+position: absolute;
+left: 5.69%;
+right: 72.46%;
+top: 72.03%;
+bottom: 14.41%;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 13px;
+line-height: 16px;
+/* identical to box height */
+text-transform: capitalize;
+
+color: #FBFBFB;
+
+
+
+/* Your Listening Stats */
+
+position: absolute;
+left: 5.69%;
+right: 50.3%;
+top: 25.42%;
+bottom: 35.59%;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 19px;
+line-height: 23px;
+text-transform: capitalize;
+
+color: #FBFBFB;
+
+
+
+/* NewFeaturesFrame */
+
+position: absolute;
+left: 17.85%;
+right: 42.36%;
+top: 27.52%;
+bottom: 0.85%;
+
+background: #1E3264;
+
+
+/* sickline */
+
+position: absolute;
+width: 279px;
+height: 5px;
+left: 37px;
+top: 84px;
+
+background: #FFFFFF;
+
+
+/* New Features */
+
+position: absolute;
+width: 557px;
+left: 38.93px;
+top: 24.08%;
+bottom: 36.9%;
+
+font-family: 'Helvetica Neue';
+font-style: normal;
+font-weight: 700;
+font-size: 86px;
+line-height: 90%;
+/* or 77px */
+font-feature-settings: 'ss01' on;
+
+color: #FFFFFF;
+
+
+
+/* SpotifyStats */
+
+position: absolute;
+width: 344px;
+height: 26px;
+left: 39px;
+top: 48px;
+
+font-family: 'Helvetica';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 110%;
+/* or 26px */
+letter-spacing: 0.02em;
+font-feature-settings: 'ss01' on;
+
+color: #FFFFFF;
+
+
+
+/* ChatBot Review Dark Mode More Animations */
+
+position: absolute;
+width: 322px;
+height: 113px;
+left: 36.93px;
+top: 409.26px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 29px;
+text-transform: capitalize;
+
+color: #FFFFFF;
+
+
+
+/* GoAccountClickClick */
+
+position: absolute;
+left: 59.86%;
+right: 2.85%;
+top: 27.52%;
+bottom: 0.85%;
+
+background: #56AFD5;
+
+
+/* Gotoyouraccount */
+
+position: absolute;
+width: 207px;
+height: 44px;
+left: calc(50% - 207px/2 + 0.64px);
+top: calc(50% - 44px/2 - 12.8px);
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 36px;
+line-height: 44px;
+/* identical to box height */
+text-transform: capitalize;
+
+color: #FFFFFF;
+
