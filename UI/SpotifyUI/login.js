@@ -161,6 +161,5 @@ login1.addEventListener('click', function () {
         wrongPasswordMessage.style.display = 'none';  // Hide validation message
         console.log("All fields are filled. Proceeding with login.");
         window.location.href = "http://localhost:8000/spotify-auth/";
-
     }
 });

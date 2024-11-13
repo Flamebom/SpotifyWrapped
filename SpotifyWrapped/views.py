@@ -56,10 +56,7 @@ def profile_view(request):
             login(request, user)
             return redirect('home')
         else:
-            return render(request, '../UI/SpotifyUI/login.html',
-                          {'error': 'Invalid credentials'})
-    elif 'spotify' in request.GET:
-        return redirect(get_auth_url())
+            return render(request, '../UI/SpotifyUI/login.html',{'error': 'Invalid credentials'})
     access_token = request.session.get('access_token')
     if not access_token:
         return redirect('login')
