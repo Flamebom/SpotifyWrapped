@@ -14,11 +14,10 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-AUTH_USER_MODEL = 'SpotifyWrapped.User'
 
 # Spotify API credentials
-SPOTIFY_CLIENT_ID = 'put_you_client_id_here'
-SPOTIFY_CLIENT_SECRET = 'put_you_client_secret_here'
+SPOTIFY_CLIENT_ID = '3d21abf5fddb4b6bb59ac2fbbff27dfd'
+SPOTIFY_CLIENT_SECRET = 'f4b1dfa7b9484877b388d905a0464f81'
 SPOTIFY_REDIRECT_URI = 'http://localhost:8000/callback/'
 
 
