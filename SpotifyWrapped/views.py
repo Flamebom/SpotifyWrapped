@@ -8,6 +8,7 @@ from SpotifyWrapped.spotify_data import (
     process_spotify_data,
 )
 
+
 def register_view(request):
     if request.method == 'POST':
         email = request.POST['email']
@@ -16,6 +17,7 @@ def register_view(request):
         login(request, user)
         return redirect('home')  # for registration redirect
     return render(request, '../UI/SpotifyUI/register.html')
+
 
 def login_view(request):
     return render(request, '../UI/SpotifyUI/login.html')
@@ -41,8 +43,11 @@ def toggle_dark_mode(request):
     # Return the new state
     return JsonResponse({'is_dark_mode': user.is_dark_mode})
 
+
 def spotify_auth(request):
     return redirect(get_auth_url())
+
+
 def profile_view(request):
     """This method renders the profile page.
 
@@ -56,7 +61,8 @@ def profile_view(request):
             login(request, user)
             return redirect('home')
         else:
-            return render(request, '../UI/SpotifyUI/login.html',{'error': 'Invalid credentials'})
+            return render(request, '../UI/SpotifyUI/login.html',
+                          {'error': 'Invalid credentials'})
     access_token = request.session.get('access_token')
     if not access_token:
         return redirect('login')
@@ -71,6 +77,7 @@ def reset(request):
     Returns the reset password page.
     """
     return render(request, '../UI/SpotifyUI/resetpassword.html', {})
+
 
 def spotify_callback(request):
     """Handle Spotify callback and retrieve access token."""
