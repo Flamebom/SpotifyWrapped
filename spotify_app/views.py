@@ -6,9 +6,11 @@ from .spotify_data import (
     process_spotify_data,
 )
 
+
 def spotify_login(request):
     """Redirect user to Spotify login page."""
     return redirect(get_auth_url())
+
 
 def spotify_callback(request):
     """Handle Spotify callback and retrieve access token."""
@@ -21,6 +23,7 @@ def spotify_callback(request):
     request.session['access_token'] = access_token
     return redirect('spotify_profile')
 
+
 def spotify_profile(request):
     """Display user profile with detailed Spotify data."""
     access_token = request.session.get('access_token')
@@ -30,6 +33,7 @@ def spotify_profile(request):
     context = process_spotify_data(access_token)
 
     return render(request, 'spotify_app/profile.html', context)
+
 
 def home(request):
     """Render the home page."""
