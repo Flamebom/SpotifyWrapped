@@ -7,6 +7,7 @@ SPOTIFY_AUTH_URL = "https://accounts.spotify.com/authorize"
 SPOTIFY_TOKEN_URL = "https://accounts.spotify.com/api/token"
 SPOTIFY_API_BASE_URL = "https://api.spotify.com/v1"
 
+
 def get_auth_url():
     """Construct the Spotify authorization URL with the required scopes."""
     params = {
@@ -17,9 +18,11 @@ def get_auth_url():
     }
     return f"{SPOTIFY_AUTH_URL}?{urlencode(params)}"
 
+
 def get_token(code):
     """Exchange authorization code for access token."""
-    auth_header = base64.b64encode(f"{settings.SPOTIFY_CLIENT_ID}:{settings.SPOTIFY_CLIENT_SECRET}".encode()).decode()
+    auth_header = base64.b64encode(
+        f"{settings.SPOTIFY_CLIENT_ID}:{settings.SPOTIFY_CLIENT_SECRET}".encode()).decode()
     headers = {"Authorization": f"Basic {auth_header}"}
     data = {
         'grant_type': 'authorization_code',
@@ -32,43 +35,66 @@ def get_token(code):
     access_token = response.json().get('access_token')
     return access_token, None
 
+
 def get_spotify_data(endpoint, access_token, params=None):
     """Helper function to interact with the Spotify API."""
     headers = {"Authorization": f"Bearer {access_token}"}
-    response = requests.get(f"{SPOTIFY_API_BASE_URL}/{endpoint}", headers=headers, params=params)
+    response = requests.get(
+        f"{SPOTIFY_API_BASE_URL}/{endpoint}",
+        headers=headers,
+        params=params)
     if response.status_code != 200:
         return {}
     return response.json()
+
 
 def get_user_profile(access_token):
     """Retrieve the user's Spotify profile information."""
     return get_spotify_data("me", access_token)
 
+
 def get_user_top_tracks(access_token, time_range='long_term', limit=5):
     """Retrieve the user's top tracks."""
     return get_spotify_data(
-        "me/top/tracks", access_token, params={'limit': limit, 'time_range': time_range}
-    )
+        "me/top/tracks",
+        access_token,
+        params={
+            'limit': limit,
+            'time_range': time_range})
+
 
 def get_user_top_artists(access_token, time_range='long_term', limit=5):
     """Retrieve the user's top artists."""
     return get_spotify_data(
-        "me/top/artists", access_token, params={'limit': limit, 'time_range': time_range}
-    )
+        "me/top/artists",
+        access_token,
+        params={
+            'limit': limit,
+            'time_range': time_range})
+
 
 def get_artist_top_tracks(artist_id, access_token, country='US'):
     """Retrieve an artist's top tracks."""
     return get_spotify_data(
-        f"artists/{artist_id}/top-tracks", access_token, params={'country': country}
-    )
+        f"artists/{artist_id}/top-tracks",
+        access_token,
+        params={
+            'country': country})
+
 
 def get_user_playlists(access_token, limit=5):
     """Retrieve the user's playlists."""
-    return get_spotify_data("me/playlists", access_token, params={'limit': limit})
+    return get_spotify_data(
+        "me/playlists",
+        access_token,
+        params={
+            'limit': limit})
+
 
 def get_user_saved_albums(access_token, limit=5):
     """Retrieve the user's saved albums."""
     return get_spotify_data("me/albums", access_token, params={'limit': limit})
+
 
 def get_recommendations(seed_artists, seed_tracks, access_token, limit=5):
     """Get recommendations based on seed artists and tracks."""
@@ -79,9 +105,15 @@ def get_recommendations(seed_artists, seed_tracks, access_token, limit=5):
     }
     return get_spotify_data("recommendations", access_token, params=params)
 
+
 def get_recently_played(access_token, limit=50):
     """Retrieve the user's recently played tracks."""
-    return get_spotify_data("me/player/recently-played", access_token, params={'limit': limit})
+    return get_spotify_data(
+        "me/player/recently-played",
+        access_token,
+        params={
+            'limit': limit})
+
 
 def process_spotify_data(access_token):
     """Fetch and process all Spotify data needed for the profile view."""
@@ -100,13 +132,14 @@ def process_spotify_data(access_token):
     user_name = user_profile.get('display_name', 'User')
 
     # Top tracks for long term
-    top_tracks_long_term = get_user_top_tracks(access_token, time_range='long_term', limit=5)
+    top_tracks_long_term = get_user_top_tracks(
+        access_token, time_range='long_term', limit=5)
 
     if top_tracks_long_term.get('items'):
         # Total listening time for top tracks
         total_listening_time = sum(
-            track['duration_ms'] for track in top_tracks_long_term.get('items', [])
-        ) // 1000  # Convert to seconds
+            track['duration_ms'] for track in top_tracks_long_term.get(
+                'items', [])) // 1000  # Convert to seconds
 
         # Top tracks data
         for track in top_tracks_long_term.get('items', []):
@@ -116,7 +149,8 @@ def process_spotify_data(access_token):
             track_info = {
                 "id": track['id'],
                 "name": track['name'],
-                "artist": ', '.join(artist['name'] for artist in track['artists']),
+                "artist": ', '.join(
+                    artist['name'] for artist in track['artists']),
                 "duration": duration_seconds,
                 "minutes": minutes,
                 "seconds": seconds,
@@ -126,7 +160,8 @@ def process_spotify_data(access_token):
             tracks_data.append(track_info)
 
     # Top artists (long term)
-    top_artists_long_term = get_user_top_artists(access_token, time_range='long_term', limit=5)
+    top_artists_long_term = get_user_top_artists(
+        access_token, time_range='long_term', limit=5)
 
     genres_count = {}
     if top_artists_long_term.get('items'):
@@ -135,7 +170,9 @@ def process_spotify_data(access_token):
                 "id": artist['id'],
                 "name": artist['name'],
                 "image": artist['images'][0]['url'] if artist['images'] else None,
-                "genres": artist.get('genres', []),
+                "genres": artist.get(
+                    'genres',
+                    []),
             }
             # Top track of the artist
             top_track_data = get_artist_top_tracks(artist['id'], access_token)
@@ -152,7 +189,10 @@ def process_spotify_data(access_token):
                 genres_count[genre] = genres_count.get(genre, 0) + 1
 
     # Sort genres by count in descending order and get top 5 genres
-    sorted_genres = sorted(genres_count.items(), key=lambda x: x[1], reverse=True)
+    sorted_genres = sorted(
+        genres_count.items(),
+        key=lambda x: x[1],
+        reverse=True)
     top_genres = [genre for genre, count in sorted_genres[:5]]
 
     # Listening habits over different time ranges
@@ -163,7 +203,8 @@ def process_spotify_data(access_token):
     }
     for label, time_range in time_ranges.items():
         # Top tracks
-        top_tracks = get_user_top_tracks(access_token, time_range=time_range, limit=5)
+        top_tracks = get_user_top_tracks(
+            access_token, time_range=time_range, limit=5)
         tracks = [
             {
                 "name": track['name'],
@@ -174,7 +215,8 @@ def process_spotify_data(access_token):
             for track in top_tracks.get('items', [])
         ]
         # Top artists
-        top_artists = get_user_top_artists(access_token, time_range=time_range, limit=5)
+        top_artists = get_user_top_artists(
+            access_token, time_range=time_range, limit=5)
         artists = [
             {
                 "name": artist['name'],
@@ -206,7 +248,8 @@ def process_spotify_data(access_token):
             album = item['album']
             album_info = {
                 "name": album['name'],
-                "artist": ', '.join(artist['name'] for artist in album['artists']),
+                "artist": ', '.join(
+                    artist['name'] for artist in album['artists']),
                 "image": album['images'][0]['url'] if album['images'] else None,
                 "release_date": album['release_date'],
             }
@@ -214,28 +257,34 @@ def process_spotify_data(access_token):
 
     # Recommendations based on top tracks and artists
     if tracks_data and artists_data:
-        seed_artists = [artist['id'] for artist in top_artists_long_term.get('items', [])][:2]
-        seed_tracks = [track['id'] for track in top_tracks_long_term.get('items', [])][:2]
-        recommendations = get_recommendations(seed_artists, seed_tracks, access_token, limit=5)
+        seed_artists = [artist['id']
+                        for artist in top_artists_long_term.get('items', [])][:2]
+        seed_tracks = [track['id']
+                       for track in top_tracks_long_term.get('items', [])][:2]
+        recommendations = get_recommendations(
+            seed_artists, seed_tracks, access_token, limit=5)
         if recommendations.get('tracks'):
             recommended_tracks = [
                 {
                     "name": track['name'],
-                    "artist": ', '.join(artist['name'] for artist in track['artists']),
+                    "artist": ', '.join(
+                        artist['name'] for artist in track['artists']),
                     "preview_url": track.get('preview_url'),
                     "album_cover": track['album']['images'][0]['url'] if track['album']['images'] else None,
-                } for track in recommendations.get('tracks', [])
-            ]
+                } for track in recommendations.get(
+                    'tracks',
+                    [])]
 
     # Recently played tracks for total listening time approximation
     recently_played = get_recently_played(access_token, limit=50)
     if recently_played.get('items'):
         total_recently_played_time = sum(
-            item['track']['duration_ms'] for item in recently_played.get('items', [])
-        ) // 1000  # Convert to seconds
+            item['track']['duration_ms'] for item in recently_played.get(
+                'items', [])) // 1000  # Convert to seconds
 
     # Total minutes listened
-    total_minutes_listened = (total_listening_time + total_recently_played_time) // 60  # Convert to minutes
+    total_minutes_listened = (
+        total_listening_time + total_recently_played_time) // 60  # Convert to minutes
 
     # Top track name
     if tracks_data:
@@ -247,7 +296,10 @@ def process_spotify_data(access_token):
     top_track_plays = "many"
 
     # New artist count
-    new_artist_count = len(top_artists_long_term.get('items', [])) if top_artists_long_term.get('items') else 0
+    new_artist_count = len(
+        top_artists_long_term.get(
+            'items',
+            [])) if top_artists_long_term.get('items') else 0
 
     # Top genre count
     top_genre_count = len(top_genres)
