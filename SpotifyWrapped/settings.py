@@ -16,8 +16,8 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Spotify API credentials
-SPOTIFY_CLIENT_ID = '3d21abf5fddb4b6bb59ac2fbbff27dfd'
-SPOTIFY_CLIENT_SECRET = 'f4b1dfa7b9484877b388d905a0464f81'
+SPOTIFY_CLIENT_ID = 'client_id'
+SPOTIFY_CLIENT_SECRET = 'client_secret'
 SPOTIFY_REDIRECT_URI = 'http://localhost:8000/callback/'
 
 
