@@ -2,6 +2,12 @@ import requests
 import base64
 from django.conf import settings
 from urllib.parse import urlencode
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from GeminiAPI.GeminiAPI import gemini_api_request
+
+
 
 SPOTIFY_AUTH_URL = "https://accounts.spotify.com/authorize"
 SPOTIFY_TOKEN_URL = "https://accounts.spotify.com/api/token"
@@ -357,5 +363,28 @@ def process_spotify_data(access_token):
         'genre_minutes': genre_minutes,
         'top_artist_name': top_artist_name,
     }
+
+    # Data for the Prompt
+    top_artist_names = [artist['name'] for artist in artists_data]
+    top_track_names = [track['name'] for track in tracks_data]
+    top_genres = context['top_genres']
+
+    # Build the prompt
+    prompt = (
+        f"Based on the following music preferences:\n"
+        f"Top genres: {', '.join(top_genres)}.\n"
+        f"Top artists: {', '.join(top_artist_names)}.\n"
+        f"Top tracks: {', '.join(top_track_names)}.\n"
+        "Describe how someone who listens to this kind of music tends to act, think, and dress."
+    )
+
+    # Call Gemini API
+    try:
+        gemini_response = gemini_api_request(prompt)
+    except Exception as e:
+        gemini_response = "We couldn't generate your musical personality at this time."
+
+    # Include the Gemini API response in the context
+    context['gemini_description'] = gemini_response
 
     return context

@@ -208,35 +208,10 @@
             {% endif %}
         </div>
 
-        <!-- Special Achievements and Fun Facts -->
+        <!-- Your Musical Personality -->
         <div class="section">
-            <h2>Special Achievements and Fun Facts 🎉</h2>
-
-            <!-- Milestones -->
-            <h3>Milestones 🎖️</h3>
-            <p>You listened to {{ total_minutes_listened }} minutes of music this year!</p>
-            {% if top_track_name %}
-            <p>Your favorite track, {{ top_track_name }}, was played {{ top_track_plays }} times!</p>
-            {% else %}
-            <p>Your favorite track is unavailable.</p>
-            {% endif %}
-            <p>You discovered {{ new_artist_count }} new artists this year—always exploring!</p>
-
-            <!-- Listening Personality Type -->
-            <h3>Listening Personality Type 🌟</h3>
-            <p>{{ listening_personality_type }}</p>
-
-            <!-- Fun Facts and Shareable Insights -->
-            <h3>Fun Facts and Shareable Insights</h3>
-            {% if top_genre %}
-            <p>You spent the most time in {{ top_genre }}, vibing to its tracks for {{ genre_minutes }} minutes.</p>
-            {% endif %}
-
-            <!-- Shareable Card -->
-            <h3>Your Music Summary</h3>
-            <p>Top Track: {{ top_track_name }}</p>
-            <p>Top Artist: {{ top_artist_name }}</p>
-            <p>Top Genre: {{ top_genre }}</p>
+            <h2>Your Musical Personality</h2>
+            <p>{{ gemini_description }}</p>
         </div>
 
         <!-- Social Sharing and Interactive Components -->
