@@ -4,7 +4,7 @@ import google.generativeai as genai
 
 
 def gemini_api_request(text):
-    genai.configure(api_key="AIzaSyBA8dfMv-seJt574yESEVJ_6d-nmXzHGx0")
+    genai.configure(api_key="")
     model = genai.GenerativeModel("gemini-1.5-flash")
     response = model.generate_content(
         text + "Give a concise response.",

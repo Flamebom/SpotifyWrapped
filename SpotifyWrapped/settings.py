@@ -17,8 +17,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 AUTH_USER_MODEL = 'SpotifyWrapped.User'
 
 # Spotify API credentials
-SPOTIFY_CLIENT_ID = '3d21abf5fddb4b6bb59ac2fbbff27dfd'
-SPOTIFY_CLIENT_SECRET = 'a51a3c8f57f84b8eb6122b51b8d517b7'
+SPOTIFY_CLIENT_ID = ''
+SPOTIFY_CLIENT_SECRET = ''
 SPOTIFY_REDIRECT_URI = 'http://localhost:8000/callback/'
 
 
