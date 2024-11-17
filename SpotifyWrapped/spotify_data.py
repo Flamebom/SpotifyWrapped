@@ -1,3 +1,4 @@
+from GeminiAPI.GeminiAPI import gemini_api_request
 import requests
 import base64
 from django.conf import settings
@@ -5,8 +6,6 @@ from urllib.parse import urlencode
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from GeminiAPI.GeminiAPI import gemini_api_request
-
 
 
 SPOTIFY_AUTH_URL = "https://accounts.spotify.com/authorize"
@@ -375,8 +374,7 @@ def process_spotify_data(access_token):
         f"Top genres: {', '.join(top_genres)}.\n"
         f"Top artists: {', '.join(top_artist_names)}.\n"
         f"Top tracks: {', '.join(top_track_names)}.\n"
-        "Describe how someone who listens to this kind of music tends to act, think, and dress."
-    )
+        "Describe how someone who listens to this kind of music tends to act, think, and dress.")
 
     # Call Gemini API
     try:
