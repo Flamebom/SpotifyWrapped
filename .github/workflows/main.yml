@@ -1,8 +1,6 @@
 name: Format python code
 on: push
 jobs:
-  build:
-    name: Code Formatting
   autopep8:
     runs-on: ubuntu-latest
     steps:
