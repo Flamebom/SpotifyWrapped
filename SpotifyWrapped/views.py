@@ -1,7 +1,12 @@
-from django.http import JsonResponse
-from django.shortcuts import render, redirect
+from django.http import JsonResponse, HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from .models import User
+from django.shortcuts import redirect, render
+from SpotifyWrapped.spotify_data import (
+    get_auth_url,
+    get_token,
+    process_spotify_data,
+)
 
 
 def register_view(request):
@@ -12,20 +17,6 @@ def register_view(request):
         login(request, user)
         return redirect('home')  # for registration redirect
     return render(request, '../UI/SpotifyUI/register.html')
-
-
-def login_view(request):
-    if request.method == 'POST':
-        email = request.POST['email']
-        password = request.POST['password']
-        user = authenticate(request, email=email, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect('home')
-        else:
-            return render(request, '../UI/SpotifyUI/login.html',
-                          {'error': 'Invalid credentials'})
-    return render(request, '../UI/SpotifyUI/login.html')
 
 
 def logout_view(request):
@@ -49,9 +40,35 @@ def toggle_dark_mode(request):
     return JsonResponse({'is_dark_mode': user.is_dark_mode})
 
 
-def profile(request):
-    """Render the profile page (after login)."""
-    return render(request, '../UI/SpotifyUI/profile.html', {})
+def login_view(request):
+    return render(request, '../UI/SpotifyUI/login.html')
+
+
+def spotify_auth(request):
+    return redirect(get_auth_url())
+
+
+def profile_view(request):
+    """This method renders the profile page.
+
+    Returns the user's profile page.
+    """
+    if request.method == 'POST':
+        email = request.POST['email']
+        password = request.POST['password']
+        user = authenticate(request, email=email, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+        else:
+            return render(request, '../UI/SpotifyUI/login.html',
+                          {'error': 'Invalid credentials'})
+    access_token = request.session.get('access_token')
+    if not access_token:
+        return redirect('login')
+
+    context = process_spotify_data(access_token)
+    return render(request, '../UI/SpotifyUI/profile.html', context)
 
 
 def reset(request):
@@ -60,3 +77,15 @@ def reset(request):
     Returns the reset password page.
     """
     return render(request, '../UI/SpotifyUI/resetpassword.html', {})
+
+
+def spotify_callback(request):
+    """Handle Spotify callback and retrieve access token."""
+    code = request.GET.get('code')
+    if not code:
+        return HttpResponse('No code provided in the callback.')
+    access_token, error = get_token(code)
+    if error:
+        return HttpResponse(f"Failed to get token: {error}")
+    request.session['access_token'] = access_token
+    return redirect('profile')

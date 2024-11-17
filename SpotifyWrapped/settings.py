@@ -16,6 +16,12 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 AUTH_USER_MODEL = 'SpotifyWrapped.User'
 
+# Spotify API credentials
+SPOTIFY_CLIENT_ID = ''
+SPOTIFY_CLIENT_SECRET = ''
+SPOTIFY_REDIRECT_URI = 'http://localhost:8000/callback/'
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
@@ -25,7 +31,7 @@ SECRET_KEY = 'django-insecure-^kfkq7w)f@i$r$231!_-shlz^3j#cjy&12=_9s@l=i2t)b(c&o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
