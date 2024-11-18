@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <title>Sample HTML Structure</title>
+    <style>
+        * {
+            color: white;
+            font-family: 'Inter';font-size: 22px;
+        }
+        body {
+            margin: 0px;
+        }
+    </style>
+</head>
+
+<body style="overflow: hidden; position: absolute; width: 100%; height: 796px;">
+<img class="backgroundslide2" style="overflow: hidden; position: absolute; left: 0%; right: 0%; top: 0%; bottom: 0%;" src="img/backgroundslide2.png" />
+<div class="yourex" style="overflow: hidden; position: absolute; width: 606px; height: 180px; left: calc(50% - 606px/2 + 0.5px); top: calc(50% - 180px/2 - 40px); font-style: normal; font-weight: 700; font-size: 40px; line-height: 150%; text-align: center; letter-spacing: -0.05em; color: #22306D;">You explored countless tracks, but it seems the silence truly stole the spotlight…</div>
+<img class="spotifystats" style="overflow: hidden; position: absolute; width: 155px; height: 33px; right: 49px; top: 69px;" src="img/spotifystats.png" />
+<div class="ofpla" style="overflow: hidden; position: absolute; width: 152px; height: 30px; left: calc(50% - 152px/2 + 282.5px); top: calc(50% - 30px/2 + 83px); font-style: normal; font-weight: 300; font-size: 20px; line-height: 150%; text-align: center; letter-spacing: -0.05em; color: #22306D;">of playtime.</div>
+<div class="time1" style="overflow: hidden; position: absolute; width: 322px; height: 30px; left: calc(50% - 322px/2 + 86.5px); top: calc(50% - 30px/2 + 83px); font-style: normal; font-weight: 300; font-size: 20px; line-height: 150%; text-align: center; letter-spacing: -0.05em; color: #ABEDBB;">10000 minutes and 59 seconds</div>
+<div class="your" style="overflow: hidden; position: absolute; width: 314px; height: 30px; left: calc(50% - 314px/2 - 203.5px); top: calc(50% - 30px/2 + 83px); font-style: normal; font-weight: 300; font-size: 20px; line-height: 150%; text-align: center; letter-spacing: -0.05em; color: #22306D; z-index: 1000;">
+  Your top tracks kept it mellow with 
+</div>
+<div class="ofpure" style="overflow: hidden; position: absolute; width: 252px; height: 30px; left: calc(50% - 252px/2 + 258.5px); top: calc(50% - 30px/2 + 113px); font-style: normal; font-weight: 300; font-size: 20px; line-height: 150%; text-align: center; letter-spacing: -0.05em; color: #22306D; z-index: 1000;">
+  of pure, uninterrupted calm.
+</div>
+
+<div class="recentpl" style="overflow: hidden; position: absolute; width: 266px; height: 30px; left: calc(50% - 266px/2 - 250.5px); top: calc(50% - 30px/2 + 113px); font-style: normal; font-weight: 300; font-size: 20px; line-height: 150%; text-align: center; letter-spacing: -0.05em; color: #22306D;">Recently played? Another </div>
+<div class="time2" style="overflow: hidden; position: absolute; width: 322px; height: 30px; left: calc(50% - 322px/2 - 1.5px); top: calc(50% - 30px/2 + 113px); font-style: normal; font-weight: 300; font-size: 20px; line-height: 150%; text-align: center; letter-spacing: -0.05em; color: #ABEDBB;">10000 minutes and 59 seconds</div>
+<script>
+var backgroundslide2 = document.getElementsByClassName('backgroundslide2')[0];
+var time2 = document.getElementsByClassName('time2')[0];
+var story2slide2 = document.getElementsByClassName('story2slide2')[0];
+var time1 = document.getElementsByClassName('time1')[0];
+var spotifystats = document.getElementsByClassName('spotifystats')[0];
+var yourex = document.getElementsByClassName('yourex')[0];
+var ofpla = document.getElementsByClassName('ofpla')[0];
+var ofpure = document.getElementsByClassName('ofpure')[0];
+var your = document.getElementsByClassName('your')[0];
+var recentpl = document.getElementsByClassName('recentpl')[0];
+</script>
+<script src='slide2.js'></script>
+</body>
+</html>

@@ -205,11 +205,11 @@ print("=============================================")
 
 
 # File paths
-HTML_SRC = 'mainframe.html'
-CSS_SRC = 'styles.txt'
+HTML_SRC = 'slidesinput.html'
+CSS_SRC = 'stylesslide.txt'
 HEADER_SRC = '/header.html'
-JS_SRC = 'main.js'
-OUTPUT_NAME = 'output.html'
+JS_SRC = 'slide2.js'
+OUTPUT_NAME = 'story2slide2.html'
 
 # Read the files
 html_lines = read_file(FOLDER_PATH + "/" + HTML_SRC)

@@ -6,7 +6,7 @@ height: 796px;
 
 
 
-/* backgroundpage2 1 */
+/* backgroundslide2 */
 
 position: absolute;
 left: 0%;
@@ -39,7 +39,7 @@ color: #22306D;
 
 
 
-/* SpotifyStats 3 */
+/* spotifystats */
 
 position: absolute;
 width: 155px;
