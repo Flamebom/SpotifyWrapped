@@ -1,12 +1,12 @@
-/* story2slide2 */
+/* story2slide8 */
 
 position: relative;
-width: 1217px;
+width: 1185px;
 height: 796px;
 
 
 
-/* backgroundslide2 */
+/* lastpagebackground */
 
 position: absolute;
 left: 0%;
@@ -14,167 +14,66 @@ right: 0%;
 top: 0%;
 bottom: 0%;
 
-background: url(backgroundpage2.png);
+background: url(8.png);
 
 
-/* yourex */
+/* line */
 
 position: absolute;
-width: 606px;
-height: 180px;
-left: calc(50% - 606px/2 + 0.5px);
-top: calc(50% - 180px/2 - 40px);
+width: 452px;
+height: 5px;
+left: 41px;
+top: 115px;
 
-font-family: 'Inter';
+background: #FFFFFF;
+
+
+/* Now go check the other features */
+
+position: absolute;
+width: 904px;
+height: 32px;
+left: 44px;
+top: 310px;
+
+font-family: 'Helvetica Neue';
 font-style: normal;
 font-weight: 700;
-font-size: 40px;
-line-height: 150%;
-/* or 60px */
-text-align: center;
-letter-spacing: -0.05em;
+font-size: 36px;
+line-height: 90%;
+/* or 32px */
+font-feature-settings: 'ss01' on;
 
-/* Marine Blue */
-color: #22306D;
+color: #FFFFFF;
 
 
 
-/* spotifystats */
+/* That was your SpotifyStats Summary */
+
+position: absolute;
+width: 904px;
+height: 167px;
+left: 44px;
+top: 143px;
+
+font-family: 'Helvetica Neue';
+font-style: normal;
+font-weight: 700;
+font-size: 64px;
+line-height: 90%;
+/* or 58px */
+font-feature-settings: 'ss01' on;
+
+color: #FFFFFF;
+
+
+
+/* SpotifyStats */
 
 position: absolute;
 width: 155px;
 height: 33px;
-right: 49px;
-top: 69px;
+left: 44px;
+top: 59px;
 
 background: url(SpotifyStats.png);
-
-
-/* ofpla */
-
-position: absolute;
-width: 152px;
-height: 30px;
-left: calc(50% - 152px/2 + 282.5px);
-top: calc(50% - 30px/2 + 83px);
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 300;
-font-size: 20px;
-line-height: 150%;
-/* identical to box height, or 30px */
-text-align: center;
-letter-spacing: -0.05em;
-
-/* Marine Blue */
-color: #22306D;
-
-
-
-/* time1 */
-
-position: absolute;
-width: 322px;
-height: 30px;
-left: calc(50% - 322px/2 + 86.5px);
-top: calc(50% - 30px/2 + 83px);
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 300;
-font-size: 20px;
-line-height: 150%;
-/* identical to box height, or 30px */
-text-align: center;
-letter-spacing: -0.05em;
-
-color: #ABEDBB;
-
-
-
-/* your */
-
-position: absolute;
-width: 314px;
-height: 30px;
-left: calc(50% - 314px/2 - 203.5px);
-top: calc(50% - 30px/2 + 83px);
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 300;
-font-size: 20px;
-line-height: 150%;
-/* identical to box height, or 30px */
-text-align: center;
-letter-spacing: -0.05em;
-
-/* Marine Blue */
-color: #22306D;
-
-
-
-/* ofpure */
-
-position: absolute;
-width: 252px;
-height: 30px;
-left: calc(50% - 252px/2 + 258.5px);
-top: calc(50% - 30px/2 + 113px);
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 300;
-font-size: 20px;
-line-height: 150%;
-/* identical to box height, or 30px */
-text-align: center;
-letter-spacing: -0.05em;
-
-/* Marine Blue */
-color: #22306D;
-
-
-
-/* recentpl */
-
-position: absolute;
-width: 266px;
-height: 30px;
-left: calc(50% - 266px/2 - 250.5px);
-top: calc(50% - 30px/2 + 113px);
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 300;
-font-size: 20px;
-line-height: 150%;
-/* identical to box height, or 30px */
-text-align: center;
-letter-spacing: -0.05em;
-
-/* Marine Blue */
-color: #22306D;
-
-
-
-/* time2 */
-
-position: absolute;
-width: 322px;
-height: 30px;
-left: calc(50% - 322px/2 - 1.5px);
-top: calc(50% - 30px/2 + 113px);
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 300;
-font-size: 20px;
-line-height: 150%;
-/* identical to box height, or 30px */
-text-align: center;
-letter-spacing: -0.05em;
-
-color: #ABEDBB;
-
