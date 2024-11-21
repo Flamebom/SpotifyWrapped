@@ -1,12 +1,385 @@
-/* story2slide2 */
+/* MainFrame */
 
 position: relative;
-width: 1217px;
-height: 796px;
+width: 1495px;
+height: 793px;
+
+background: #1E1E1E;
+
+
+/* topbar */
+
+position: absolute;
+height: 64px;
+left: 241px;
+right: 0px;
+top: 0px;
+
+background: rgba(0, 0, 0, 0.5);
+
+
+/* namebutton */
+
+position: absolute;
+width: 116px;
+height: 42px;
+right: 25px;
+top: 11px;
 
 
 
-/* backgroundpage2 1 */
+/* rectangename */
+
+position: absolute;
+width: 116px;
+height: 42px;
+left: 0px;
+top: 0px;
+
+background: #FFFFFF;
+border-radius: 50px;
+
+
+/* nameplaceholder */
+
+position: absolute;
+width: 64px;
+height: 17px;
+left: 26px;
+top: 12px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 17px;
+/* identical to box height */
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: 1.498px;
+text-transform: uppercase;
+
+color: #000000;
+
+
+
+/* sideframe */
+
+position: absolute;
+width: 241px;
+left: 0px;
+top: 0%;
+bottom: 0%;
+
+background: #000000;
+
+
+/* spotifystats */
+
+position: absolute;
+width: 155px;
+height: 33px;
+left: 43px;
+top: 25px;
+
+background: url(SpotifyStats.png);
+
+
+/* homebar */
+
+position: absolute;
+width: 221px;
+height: 39.39px;
+left: 10px;
+top: 101px;
+
+border-radius: 4px;
+
+
+/* Home */
+
+position: absolute;
+width: 161px;
+height: 23px;
+left: 55px;
+top: 8px;
+
+font-family: 'Helvetica Neue';
+font-style: normal;
+font-weight: 700;
+font-size: 13px;
+line-height: 22px;
+/* identical to box height, or 172% */
+display: flex;
+align-items: center;
+
+color: #FFFFFF;
+
+
+
+/* homeicon */
+
+position: absolute;
+width: 20px;
+height: 21px;
+left: 17px;
+top: 8px;
+
+background: url(homeicon.png);
+
+
+/* Youraccountbar */
+
+position: absolute;
+width: 234px;
+height: 40px;
+left: 10px;
+top: 147px;
+
+border-radius: 4px;
+
+
+/* Your Account */
+
+position: absolute;
+width: 162px;
+height: 23px;
+left: 56px;
+top: 8px;
+
+font-family: 'Helvetica Neue';
+font-style: normal;
+font-weight: 700;
+font-size: 13px;
+line-height: 22px;
+/* identical to box height, or 172% */
+display: flex;
+align-items: center;
+
+color: #FFFFFF;
+
+
+
+/* houseicon */
+
+position: absolute;
+width: 20px;
+height: 20px;
+left: 19px;
+top: 10px;
+
+background: url(houseicon.png);
+
+
+/* goteamwebsite */
+
+position: absolute;
+width: 184px;
+height: 23px;
+left: 42px;
+bottom: 52px;
+
+font-family: 'Helvetica Neue';
+font-style: normal;
+font-weight: 700;
+font-size: 13px;
+line-height: 22px;
+/* identical to box height, or 172% */
+display: flex;
+align-items: center;
+
+color: #FFFFFF;
+
+opacity: 0.7;
+
+
+/* email */
+
+position: absolute;
+width: 189px;
+height: 14px;
+left: 42px;
+bottom: 36px;
+
+font-family: 'Helvetica Neue';
+font-style: normal;
+font-weight: 700;
+font-size: 11px;
+line-height: 14px;
+/* identical to box height, or 127% */
+display: flex;
+align-items: center;
+
+color: #FFFFFF;
+
+opacity: 0.85;
+
+
+/* GoToStats */
+
+position: absolute;
+left: 17.85%;
+right: 2.85%;
+top: 9.18%;
+bottom: 75.55%;
+
+background: #42C83C;
+border-radius: 30px;
+
+
+/* newStatsForThisWeek */
+
+position: absolute;
+left: 5.67%;
+right: 52.08%;
+top: 11.7%;
+bottom: 71.78%;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 10px;
+line-height: 12px;
+text-transform: capitalize;
+
+color: #FBFBFB;
+
+
+
+/* New Records */
+
+position: absolute;
+left: 5.67%;
+right: 72.49%;
+top: 72%;
+bottom: 4.87%;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 13px;
+line-height: 16px;
+text-transform: capitalize;
+
+color: #FBFBFB;
+
+
+
+/* Go to Your Account */
+
+position: absolute;
+left: 5.69%;
+right: 50.3%;
+top: 25.42%;
+bottom: 35.59%;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 19px;
+line-height: 23px;
+text-transform: capitalize;
+
+color: #FBFBFB;
+
+
+
+/* NewFeaturesFrame */
+
+position: absolute;
+left: 17.88%;
+right: 24.88%;
+top: 27.51%;
+bottom: 0.79%;
+
+background: #1E3264;
+
+
+/* sickline */
+
+position: absolute;
+width: 279px;
+height: 5px;
+left: 37px;
+top: 84px;
+
+background: #FFFFFF;
+
+
+/* New Features */
+
+position: absolute;
+width: 557px;
+left: 38.93px;
+top: 24.08%;
+bottom: 36.9%;
+
+font-family: 'Helvetica Neue';
+font-style: normal;
+font-weight: 700;
+font-size: 86px;
+line-height: 90%;
+/* or 77px */
+font-feature-settings: 'ss01' on;
+
+color: #FFFFFF;
+
+
+
+/* titlestats */
+
+position: absolute;
+width: 344px;
+height: 26px;
+left: 39px;
+top: 48px;
+
+font-family: 'Helvetica';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 110%;
+/* or 26px */
+letter-spacing: 0.02em;
+font-feature-settings: 'ss01' on;
+
+color: #FFFFFF;
+
+
+
+/* ChatBot Review Dark Mode More Animations */
+
+position: absolute;
+width: 322px;
+height: 113px;
+left: 36.93px;
+top: calc(50% - 113px/2 + 181.5px);
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 29px;
+text-transform: capitalize;
+
+color: #FFFFFF;
+
+
+
+/* Frame 36 */
+
+position: absolute;
+left: 75.87%;
+right: 1.62%;
+top: 27.55%;
+bottom: 0.78%;
+
+
+
+/* Gostats 1 */
+
+box-sizing: border-box;
 
 position: absolute;
 left: 0%;
@@ -14,167 +387,5 @@ right: 0%;
 top: 0%;
 bottom: 0%;
 
-background: url(backgroundpage2.png);
-
-
-/* yourex */
-
-position: absolute;
-width: 606px;
-height: 180px;
-left: calc(50% - 606px/2 + 0.5px);
-top: calc(50% - 180px/2 - 40px);
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 700;
-font-size: 40px;
-line-height: 150%;
-/* or 60px */
-text-align: center;
-letter-spacing: -0.05em;
-
-/* Marine Blue */
-color: #22306D;
-
-
-
-/* SpotifyStats 3 */
-
-position: absolute;
-width: 155px;
-height: 33px;
-right: 49px;
-top: 69px;
-
-background: url(SpotifyStats.png);
-
-
-/* ofpla */
-
-position: absolute;
-width: 152px;
-height: 30px;
-left: calc(50% - 152px/2 + 282.5px);
-top: calc(50% - 30px/2 + 83px);
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 300;
-font-size: 20px;
-line-height: 150%;
-/* identical to box height, or 30px */
-text-align: center;
-letter-spacing: -0.05em;
-
-/* Marine Blue */
-color: #22306D;
-
-
-
-/* time1 */
-
-position: absolute;
-width: 322px;
-height: 30px;
-left: calc(50% - 322px/2 + 86.5px);
-top: calc(50% - 30px/2 + 83px);
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 300;
-font-size: 20px;
-line-height: 150%;
-/* identical to box height, or 30px */
-text-align: center;
-letter-spacing: -0.05em;
-
-color: #ABEDBB;
-
-
-
-/* your */
-
-position: absolute;
-width: 314px;
-height: 30px;
-left: calc(50% - 314px/2 - 203.5px);
-top: calc(50% - 30px/2 + 83px);
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 300;
-font-size: 20px;
-line-height: 150%;
-/* identical to box height, or 30px */
-text-align: center;
-letter-spacing: -0.05em;
-
-/* Marine Blue */
-color: #22306D;
-
-
-
-/* ofpure */
-
-position: absolute;
-width: 252px;
-height: 30px;
-left: calc(50% - 252px/2 + 258.5px);
-top: calc(50% - 30px/2 + 113px);
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 300;
-font-size: 20px;
-line-height: 150%;
-/* identical to box height, or 30px */
-text-align: center;
-letter-spacing: -0.05em;
-
-/* Marine Blue */
-color: #22306D;
-
-
-
-/* recentpl */
-
-position: absolute;
-width: 266px;
-height: 30px;
-left: calc(50% - 266px/2 - 250.5px);
-top: calc(50% - 30px/2 + 113px);
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 300;
-font-size: 20px;
-line-height: 150%;
-/* identical to box height, or 30px */
-text-align: center;
-letter-spacing: -0.05em;
-
-/* Marine Blue */
-color: #22306D;
-
-
-
-/* time2 */
-
-position: absolute;
-width: 322px;
-height: 30px;
-left: calc(50% - 322px/2 - 1.5px);
-top: calc(50% - 30px/2 + 113px);
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 300;
-font-size: 20px;
-line-height: 150%;
-/* identical to box height, or 30px */
-text-align: center;
-letter-spacing: -0.05em;
-
-color: #ABEDBB;
-
+background: url(Gostats.png);
+border: 1px solid #000000;
