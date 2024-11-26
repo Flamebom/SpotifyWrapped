@@ -208,8 +208,8 @@ print("=============================================")
 HTML_SRC = 'mainframe.html'
 CSS_SRC = 'styles.txt'
 HEADER_SRC = '/header.html'
-JS_SRC = 'mainhome.js'
-OUTPUT_NAME = 'mainhome.html'
+JS_SRC = 'accounthome.js'
+OUTPUT_NAME = 'account.html'
 
 # Read the files
 html_lines = read_file(FOLDER_PATH + "/" + HTML_SRC)

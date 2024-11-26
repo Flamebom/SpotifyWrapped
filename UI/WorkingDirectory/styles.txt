@@ -1,8 +1,8 @@
-/* MainFrame */
+/* AccountPage */
 
 position: relative;
-width: 1495px;
-height: 793px;
+width: 1234px;
+height: 673px;
 
 background: #1E1E1E;
 
@@ -43,9 +43,9 @@ border-radius: 50px;
 /* nameplaceholder */
 
 position: absolute;
-width: 64px;
+width: 116px;
 height: 17px;
-left: 26px;
+left: 0px;
 top: 12px;
 
 font-family: 'Inter';
@@ -172,6 +172,48 @@ top: 10px;
 background: url(houseicon.png);
 
 
+/* AccountFraming */
+
+position: absolute;
+width: 993px;
+height: 610px;
+left: 241px;
+top: 63px;
+
+
+
+/* sickline */
+
+position: absolute;
+width: 184px;
+height: 5px;
+left: 44px;
+top: 83px;
+
+background: #FFFFFF;
+
+
+/* titlestats */
+
+position: absolute;
+width: 344px;
+height: 26px;
+left: 41px;
+top: 46px;
+
+font-family: 'Helvetica';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 110%;
+/* or 26px */
+letter-spacing: 0.02em;
+font-feature-settings: 'ss01' on;
+
+color: #FFFFFF;
+
+
+
 /* goteamwebsite */
 
 position: absolute;
@@ -214,178 +256,3 @@ align-items: center;
 color: #FFFFFF;
 
 opacity: 0.85;
-
-
-/* GoToStats */
-
-position: absolute;
-left: 17.85%;
-right: 2.85%;
-top: 9.18%;
-bottom: 75.55%;
-
-background: #42C83C;
-border-radius: 30px;
-
-
-/* newStatsForThisWeek */
-
-position: absolute;
-left: 5.67%;
-right: 52.08%;
-top: 11.7%;
-bottom: 71.78%;
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 700;
-font-size: 10px;
-line-height: 12px;
-text-transform: capitalize;
-
-color: #FBFBFB;
-
-
-
-/* New Records */
-
-position: absolute;
-left: 5.67%;
-right: 72.49%;
-top: 72%;
-bottom: 4.87%;
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 700;
-font-size: 13px;
-line-height: 16px;
-text-transform: capitalize;
-
-color: #FBFBFB;
-
-
-
-/* Go to Your Account */
-
-position: absolute;
-left: 5.69%;
-right: 50.3%;
-top: 25.42%;
-bottom: 35.59%;
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 700;
-font-size: 19px;
-line-height: 23px;
-text-transform: capitalize;
-
-color: #FBFBFB;
-
-
-
-/* NewFeaturesFrame */
-
-position: absolute;
-left: 17.88%;
-right: 24.88%;
-top: 27.51%;
-bottom: 0.79%;
-
-background: #1E3264;
-
-
-/* sickline */
-
-position: absolute;
-width: 279px;
-height: 5px;
-left: 37px;
-top: 84px;
-
-background: #FFFFFF;
-
-
-/* New Features */
-
-position: absolute;
-width: 557px;
-left: 38.93px;
-top: 24.08%;
-bottom: 36.9%;
-
-font-family: 'Helvetica Neue';
-font-style: normal;
-font-weight: 700;
-font-size: 86px;
-line-height: 90%;
-/* or 77px */
-font-feature-settings: 'ss01' on;
-
-color: #FFFFFF;
-
-
-
-/* titlestats */
-
-position: absolute;
-width: 344px;
-height: 26px;
-left: 39px;
-top: 48px;
-
-font-family: 'Helvetica';
-font-style: normal;
-font-weight: 700;
-font-size: 24px;
-line-height: 110%;
-/* or 26px */
-letter-spacing: 0.02em;
-font-feature-settings: 'ss01' on;
-
-color: #FFFFFF;
-
-
-
-/* ChatBot Review Dark Mode More Animations */
-
-position: absolute;
-width: 322px;
-height: 113px;
-left: 36.93px;
-top: calc(50% - 113px/2 + 181.5px);
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 700;
-font-size: 24px;
-line-height: 29px;
-text-transform: capitalize;
-
-color: #FFFFFF;
-
-
-
-/* Frame 36 */
-
-position: absolute;
-left: 75.87%;
-right: 1.62%;
-top: 27.55%;
-bottom: 0.78%;
-
-
-
-/* Gostats 1 */
-
-box-sizing: border-box;
-
-position: absolute;
-left: 0%;
-right: 0%;
-top: 0%;
-bottom: 0%;
-
-background: url(Gostats.png);
-border: 1px solid #000000;

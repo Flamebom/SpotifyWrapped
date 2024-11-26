@@ -1,4 +1,11 @@
 // FULL STACK SECTION
+// Here are the time and languages. You should use these to access the django data base
+const thistime = sessionStorage.getItem("GlobalTime");
+// sample time: 12/25/2024, 7:45:00 PM
+const thislanguage = sessionStorage.getItem("GlobalLanguage");
+
+
+
 // Time 1 is top tracks, Time 2 is recent
 function updateTimes(time1Minutes, time1Seconds, time2Minutes, time2Seconds) {
     // Select the elements for time1 and time2
@@ -28,6 +35,68 @@ function updateTimes(time1Minutes, time1Seconds, time2Minutes, time2Seconds) {
 updateTimes(5000, 30, 2000, 45);
 
 
+
+
+
+
+
+
+
+
+// Function to check if the date is on Christmas or Halloween
+function checkSpecialDate(dateString) {
+    // Parse the date string into a Date object
+    const parsedDate = new Date(dateString);
+
+    // Ensure the date is valid
+    if (isNaN(parsedDate)) {
+        console.error("Invalid date format:", dateString);
+        return;
+    }
+
+    // Extract the month and day from the parsed date
+    const month = parsedDate.getMonth() + 1; // Months are zero-based
+    const day = parsedDate.getDate();
+
+    // Check for Christmas or Halloween
+    if (month === 12 && day === 25) {
+        activateChristmasMode();
+    } else if (month === 10 && day === 31) {
+        activateHalloweenMode();
+    }
+}
+
+// Function to activate Christmas mode
+function activateChristmasMode() {
+    // Add gifts.png to the bottom-right corner
+    const gifts = document.createElement('img');
+    gifts.src = 'img/gifts.png';
+    gifts.style.position = 'absolute';
+    gifts.style.right = '-100px'; // Align to the right edge
+    gifts.style.bottom = '-300px'; // Align to the bottom edge
+    gifts.style.width = '750px'; // Adjust size as needed
+    gifts.style.height = '750px'; // Adjust size as needed
+    document.body.appendChild(gifts);
+
+    // Add stuffs.png to the top-left corner
+    const stuffs = document.createElement('img');
+    stuffs.src = 'img/stuffs.png';
+    stuffs.style.position = 'absolute';
+    stuffs.style.left = '-500px'; // Align to the left edge
+    stuffs.style.top = '-500px'; // Align to the top edge
+    stuffs.style.width = '1000px'; // Adjust size as needed
+    stuffs.style.height = '1000px'; // Adjust size as needed
+    document.body.appendChild(stuffs);
+}
+// Function to activate Halloween mode
+function activateHalloweenMode() {
+    console.log("Activating Halloween Mode!");
+}
+
+// Testing
+console.log("Global Time:", thistime);
+console.log("Global Language:", thislanguage);
+checkSpecialDate(thistime);
 
 
 

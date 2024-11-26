@@ -1,6 +1,7 @@
+
 // Scroll to the very Buttom for FullStack Section
 // Global variable to track the current selected mode
-let currentMode = 'homebar';
+let currentMode = 'youraccountbar';
 
 // Function to set opacity for a given element
 function setOpacity(element, opacity) {
@@ -26,8 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const youraccountbar = document.getElementsByClassName('youraccountbar')[0];
 
     // Initialize default selected mode
-    setOpacity(homebar, 1);
-    setOpacity(youraccountbar, 0.7);
+    setOpacity(homebar, 0.7);
+    setOpacity(youraccountbar, 1.0);
 
     // Add click event listeners
     homebar.addEventListener('click', () => changeMode(homebar, 'homebar'));
@@ -73,26 +74,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 
-  const gostatsImage = document.querySelector('.gostats1');
-  function adjustGoStatsImageHeight() {
-    const newFeaturesFrame = document.querySelector('.newfeaturesframe');
-    const gostatsImage = document.querySelector('.gostats1');
-
-    // Get the height of the newfeaturesframe
-    const newFeaturesFrameHeight = parseFloat(window.getComputedStyle(newFeaturesFrame).height);
-
-    // Set the height of the gostats1 image to match
-    gostatsImage.style.height = `${newFeaturesFrameHeight}px`;
-    gostatsImage.style.objectFit = 'cover'; // Ensures it fills the width even if cropped
-    gostatsImage.style.width = '100%'; // Make it span the full width of its parent (frame36)
-}
-
-// Call the function after the page loads
-window.addEventListener('load', adjustGoStatsImageHeight);
-
-// Adjust on window resize
-window.addEventListener('resize', adjustGoStatsImageHeight);
-
 
 
 function addHoverEffectWithRedirect(elementSelector, hoverStyles, defaultStyles, redirectUrl) {
@@ -112,19 +93,6 @@ function addHoverEffectWithRedirect(elementSelector, hoverStyles, defaultStyles,
 
         // Add redirection on click
         element.addEventListener('click', () => {
-
-            // Create a new Date object representing the current date and time
-            const currentDate = new Date();
-            // Convert the current date and time to a string in the 'America/New_York' time zone
-            const atlantaTimeString = currentDate.toLocaleString('en-US', { timeZone: 'America/New_York' });
-            // Store the Atlanta time string in sessionStorage
-            sessionStorage.setItem("GlobalTime", atlantaTimeString);
-
-
-            const thislanguage = defaultLanguage;
-            sessionStorage.setItem("GlobalLanguage", thislanguage);
-
-
             window.location.href = redirectUrl;
         });
     } else {
@@ -145,13 +113,10 @@ const defaultStyles = {
 };
 
 // Apply hover effect and redirection
-addHoverEffectWithRedirect('.newfeaturesframe', hoverStyles, defaultStyles, 'account.html');
-addHoverEffectWithRedirect('.gotostats', hoverStyles, defaultStyles, 'account.html');
-addHoverEffectWithRedirect('.gostats1', hoverStyles, defaultStyles, 'story2slide1.html');
-addHoverEffectWithRedirect('.youraccountbar', hoverStyles, defaultStyles, 'account.html');
+addHoverEffectWithRedirect('.homebar', hoverStyles, defaultStyles, 'mainhome.html');
 
 
-
+// Function to update and center the name placeholder
 function updateNamePlaceholder(newName) {
     // Select the nameplaceholder element
     const namePlaceholder = document.querySelector('.nameplaceholder');
@@ -160,47 +125,138 @@ function updateNamePlaceholder(newName) {
     if (namePlaceholder) {
         namePlaceholder.textContent = newName.toUpperCase(); // Ensures the name is uppercase
 
-        // Apply centering styles dynamically (if not already in your CSS)
-        const parentElement = namePlaceholder.parentElement; // The wrapper element
-        if (parentElement) {
-            parentElement.style.justifyContent = 'center'; // Horizontal centering
-            parentElement.style.alignItems = 'center'; // Vertical centering
-        }
+        // Ensure centering by applying CSS rules
+        namePlaceholder.style.display = 'flex';
+        namePlaceholder.style.justifyContent = 'center'; // Horizontal centering
+        namePlaceholder.style.alignItems = 'center'; // Vertical centering
+        namePlaceholder.style.textAlign = 'center';
+        namePlaceholder.style.height = '100%'; // Ensure it takes up the full height of its parent
+        namePlaceholder.style.top = '0px'; // Ensure it takes up the full height of its parent
     } else {
         console.error('Element with class "nameplaceholder" not found.');
     }
 }
 
-// Global variable for language
-defaultLanguage = "English";
 
+
+// Function to set z-index for account frame
+function bringAccountFrameToFront() {
+    const accountFrame = document.querySelector(".accountframing");
+    if (accountFrame) {
+        accountFrame.style.zIndex = "1000";
+    }
+}
+
+// Placeholder for dates (Replace with centralized logic later)
+const placeholderDates = [
+    "2024-11-20 12:00",
+    "2024-11-21 14:30",
+    "2024-11-21 15:30",
+    "2024-11-21 16:30",
+    "2024-11-21 17:30",
+    "2024-11-21 18:30",
+    "2024-11-21 19:30",
+    "2024-11-21 20:30",
+    "2024-11-22 16:45",
+    "2024-11-22 17:45",
+    "2024-11-22 18:45",
+    "2024-11-22 19:45",
+    "2024-12-25 19:45"
+];
+
+// Function to create a scrollable list inside account frame
+function createScrollableList() {
+    const accountFrame = document.querySelector(".accountframing");
+    if (!accountFrame) return;
+
+    const listContainer = document.createElement("div");
+    listContainer.style.overflowY = "scroll";
+    listContainer.style.height = "70%"; // Adjust as needed
+    listContainer.style.width = "90%";
+    listContainer.style.margin = "30px auto"; // Increased spacing
+    listContainer.style.fontFamily = "'Inter', sans-serif";
+    listContainer.style.fontWeight = "200"; // Thinner font
+    listContainer.style.fontSize = "14px";
+    listContainer.style.top = "80px";
+    listContainer.style.left = "34px";
+    listContainer.style.position = "absolute";
+    listContainer.style.color = "#FFFFFF";
+    listContainer.style.padding = "10px";
+    listContainer.style.letterSpacing = "10%"; // Increased character spacing
+
+    placeholderDates.forEach(date => {
+        const listItem = document.createElement("div");
+        addHoverEffect100(listItem);
+        listItem.textContent = date;
+        listItem.style.padding = "16px 0"; // Increased spacing between list items
+        listItem.style.cursor = "pointer";
+        listItem.style.borderBottom = "1px solid #333";
+
+        listItem.addEventListener("click", () => {
+            // The Most Important Full Stacks Part. This passes the date to the rest of the pages
+
+            console.log("Parsed date for Django: ", new Date(date).toLocaleString('en-US', { timeZone: 'America/New_York' }));
+            // Set data in sessionStorage
+            const thistime = new Date(date).toLocaleString('en-US', { timeZone: 'America/New_York' });
+            sessionStorage.setItem("GlobalTime", thistime);
+
+            const thislanguage = defaultLanguage;
+            sessionStorage.setItem("GlobalLanguage", thislanguage);
+
+            window.location.href = 'story2slide1.html';
+
+        });
+        listContainer.appendChild(listItem);
+    });
+
+    accountFrame.appendChild(listContainer);
+}
+
+
+
+// Call the functions
+bringAccountFrameToFront();
+createScrollableList();
+
+
+
+// Global variable for language
+let defaultLanguage = "English";
 // Function to initialize click handlers
 function initializeLanguageSelectors() {
-    const languageDivs = document.querySelectorAll("div.English, div.Spanish, div.Chinese");
+    const languageDivs = document.querySelectorAll(".English, .Spanish, .Chinese"); // Fixed query selector
 
     languageDivs.forEach(div => {
         div.style.opacity = div.classList.contains(defaultLanguage) ? "1.0" : "0.7";
 
         div.addEventListener("click", () => {
             // Update global variable
-            defaultLanguage = div.className;
+            defaultLanguage = div.classList[0]; // Retrieve the first class as language identifier
 
             // Update opacity for all language divs
             languageDivs.forEach(innerDiv => {
-                innerDiv.style.opacity = innerDiv.className === defaultLanguage ? "1.0" : "0.7";
+                innerDiv.style.opacity = innerDiv.classList.contains(defaultLanguage) ? "1.0" : "0.7";
             });
         });
     });
 }
-
-// Call the function to set up the event listeners
+// Initialize the language selectors
 initializeLanguageSelectors();
 
+function makeDeleteAccountClickable() {
+    const deleteAccountDiv = document.querySelector('.deleteaccount');
+    addHoverEffect100(deleteAccountDiv);
+    if (deleteAccountDiv) {
+        deleteAccountDiv.style.cursor = 'pointer'; // Add a pointer cursor for better UX
+        deleteAccountDiv.onclick = function () {
+            alert('Delete Account clicked!'); // Replace with desired functionality
+        };
 
+    } 
+}
 
-
-
-
+// Call the function
+makeDeleteAccountClickable();
 
 
 
@@ -212,5 +268,9 @@ initializeLanguageSelectors();
 // Example usage
 updateNamePlaceholder('penguin'); // Changes the text to "penguin"
 // defaultLanguage access the current language using this
+// Global variable for language
+// defaultLanguage
+
+
 
 
