@@ -1,11 +1,76 @@
-// FULL STACK SECTION
-// NO need for full stacks probably
+// Function to access global settings from sessionStorage
+const thistime = sessionStorage.getItem("GlobalTime");
+// sample time: 12/25/2024, 7:45:00 PM
 
+const thislanguage = sessionStorage.getItem("GlobalLanguage");
 
+function getGlobalSettings() {
+    if (!thistime || !thislanguage) {
+        console.warn("Global settings are not set in sessionStorage. Make sure the other script initializes these values.");
+        return { time: null, language: null };
+    }
+    console.log("Retrieved global settings:", { time: thistime, language: thislanguage });
+    return { time: thistime, language: thislanguage };
+}
 
+// Function to check if the date is on Christmas or Halloween
+function checkSpecialDate(dateString) {
+    // Parse the date string into a Date object
+    const parsedDate = new Date(dateString);
 
+    // Ensure the date is valid
+    if (isNaN(parsedDate)) {
+        console.error("Invalid date format:", dateString);
+        return;
+    }
 
+    // Extract the month and day from the parsed date
+    const month = parsedDate.getMonth() + 1; // Months are zero-based
+    const day = parsedDate.getDate();
 
+    // Check for Christmas or Halloween
+    if (month === 12 && day === 25) {
+        activateChristmasMode();
+    } else if (month === 10 && day === 31) {
+        activateHalloweenMode();
+    }
+}
+
+// Function to activate Christmas mode
+function activateChristmasMode() {
+    const backgroundImage = document.querySelector('.backgroundslide1');
+    if (backgroundImage) {
+        backgroundImage.src = 'img/christmasmode.png'; // Set the new image source
+    } else {
+        console.error('Background image with class "backgroundslide1" not found!');
+    }
+
+    // Change text color to white for the welcome message
+    const welcomeText = document.querySelector('.welcometo');
+    if (welcomeText) {
+        welcomeText.style.color = '#FFFFFF'; // Set text color to white
+    } else {
+        console.error('Welcome text with class "welcometo" not found!');
+    }
+
+    // Change text color to white for the summary
+    const summaryText = document.querySelector('.spotifysummary');
+    if (summaryText) {
+        summaryText.style.color = '#FFFFFF'; // Set text color to white
+    } else {
+        console.error('Summary text with class "spotifysummary" not found!');
+    }
+}
+
+// Function to activate Halloween mode
+function activateHalloweenMode() {
+    console.log("Activating Halloween Mode!");
+}
+
+// Testing
+console.log("Global Time:", thistime);
+console.log("Global Language:", thislanguage);
+checkSpecialDate(thistime);
 
 
 

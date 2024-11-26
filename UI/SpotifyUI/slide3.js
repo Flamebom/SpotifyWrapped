@@ -1,6 +1,10 @@
 // Full stack work
 // I have provided sample data structure for you
 
+// Here are the time and languages. You should use these to access the django data base
+const thistime = sessionStorage.getItem("GlobalTime");
+// sample time: 12/25/2024, 7:45:00 PM
+const thislanguage = sessionStorage.getItem("GlobalLanguage");
 // This might be a bit more work but it should make things very clear to understand. Just writea function that parses the data
 // into a list like the following and just call the method.
 
@@ -225,4 +229,58 @@ document.body.addEventListener('click', () => {
 
     window.location.href = 'story2slide4.html';
 });
+
+
+
+
+
+
+
+// Function to check if the date is on Christmas or Halloween
+function checkSpecialDate(dateString) {
+    // Parse the date string into a Date object
+    const parsedDate = new Date(dateString);
+
+    // Ensure the date is valid
+    if (isNaN(parsedDate)) {
+        console.error("Invalid date format:", dateString);
+        return;
+    }
+
+    // Extract the month and day from the parsed date
+    const month = parsedDate.getMonth() + 1; // Months are zero-based
+    const day = parsedDate.getDate();
+
+    // Check for Christmas or Halloween
+    if (month === 12 && day === 25) {
+        activateChristmasMode();
+    } else if (month === 10 && day === 31) {
+        activateHalloweenMode();
+    }
+}
+
+// Function to activate Christmas mode
+function activateChristmasMode() {
+    // Add gifts.png to the bottom-right corner
+    const gifts = document.createElement('img');
+    gifts.src = 'img/gifts.png';
+    gifts.style.position = 'absolute';
+    gifts.style.right = '-100px'; // Align to the right edge
+    gifts.style.bottom = '-300px'; // Align to the bottom edge
+    gifts.style.width = '750px'; // Adjust size as needed
+    gifts.style.height = '750px'; // Adjust size as needed
+    document.body.appendChild(gifts);
+
+}
+// Function to activate Halloween mode
+function activateHalloweenMode() {
+    console.log("Activating Halloween Mode!");
+}
+
+// Testing
+console.log("Global Time:", thistime);
+console.log("Global Language:", thislanguage);
+checkSpecialDate(thistime);
+
+
 
