@@ -1,7 +1,7 @@
 // FULL STACK SECTION
 // Here are the time and languages. You should use these to access the django data base
-const thistime = sessionStorage.getItem("GlobalTime");
 // sample time: 12/25/2024, 7:45:00 PM
+const thistime = sessionStorage.getItem("GlobalTime");
 const thislanguage = sessionStorage.getItem("GlobalLanguage");
 
 
@@ -91,6 +91,25 @@ function activateChristmasMode() {
 // Function to activate Halloween mode
 function activateHalloweenMode() {
     console.log("Activating Halloween Mode!");
+        // Add gifts.png to the bottom-right corner
+        const gifts = document.createElement('img');
+        gifts.src = 'img/orange.png';
+        gifts.style.position = 'absolute';
+        gifts.style.right = '-100px'; // Align to the right edge
+        gifts.style.bottom = '-300px'; // Align to the bottom edge
+        gifts.style.width = '750px'; // Adjust size as needed
+        gifts.style.height = '750px'; // Adjust size as needed
+        document.body.appendChild(gifts);
+    
+        // Add stuffs.png to the top-left corner
+        const stuffs = document.createElement('img');
+        stuffs.src = 'img/orange.png';
+        stuffs.style.position = 'absolute';
+        stuffs.style.left = '-500px'; // Align to the left edge
+        stuffs.style.top = '-500px'; // Align to the top edge
+        stuffs.style.width = '1000px'; // Adjust size as needed
+        stuffs.style.height = '1000px'; // Adjust size as needed
+        document.body.appendChild(stuffs);
 }
 
 // Testing

@@ -64,6 +64,12 @@ function activateChristmasMode() {
 
 // Function to activate Halloween mode
 function activateHalloweenMode() {
+    const backgroundImage = document.querySelector('.backgroundslide1');
+    if (backgroundImage) {
+        backgroundImage.src = 'img/halloweenversion1.png'; // Set the new image source
+    } else {
+        console.error('Background image with class "backgroundslide1" not found!');
+    }
     console.log("Activating Halloween Mode!");
 }
 

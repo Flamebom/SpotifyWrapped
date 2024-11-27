@@ -149,6 +149,7 @@ function bringAccountFrameToFront() {
 
 // Placeholder for dates (Replace with centralized logic later)
 const placeholderDates = [
+    "2024-10-31 12:00",
     "2024-11-20 12:00",
     "2024-11-21 14:30",
     "2024-11-21 15:30",
