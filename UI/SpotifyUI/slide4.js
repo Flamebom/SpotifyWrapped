@@ -1,9 +1,22 @@
+// Full Stacks Section (Code Here)
+// 1. Query the Django database using `thistime` and `thislanguage` to get the Gemini Response.
+//    - Ensure the query is efficient and handles errors gracefully.
+// 2. Parse the `GeminiResponse` string from the database and pass it to the `updateMusicalPersonality` function.
+//    - This should be straightforward, as only the result string needs to be processed.
+// 3. Call the `updateMusicalPersonality` function with the parsed result string.
 const thistime = sessionStorage.getItem("GlobalTime"); // sample time: 12/25/2024, 7:45:00 PM
 const thislanguage = sessionStorage.getItem("GlobalLanguage");
-// Full stacks job
-// parse the geminiReponse to the following function. I have an example down there. Just fill it into there.
+
+// Example usage of the `updateMusicalPersonality` function:
+updateMusicalPersonality("You are a vibrant music explorer who thrives on rhythm and melody, embracing diverse genres with an open heart.");
 
 
+
+
+
+
+
+// UI Sections
 /**
  * Function to update the musical personality section with Gemini's response
  * @param {string} geminiResponse - The Gemini response text
@@ -33,21 +46,6 @@ function updateMusicalPersonality(geminiResponse) {
         youSpentDiv.style.top = "250px"; // Move div 10px upwards
     }
 }
-
-// Example usage of the function
-updateMusicalPersonality("You are a vibrant music explorer who thrives on rhythm and melody, embracing diverse genres with an open heart.");
-
-
-
-
-
-
-
-
-
-
-
-
 
 // Not full stacks part
 checkSpecialDate(thistime);

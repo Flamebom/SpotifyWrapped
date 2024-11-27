@@ -1,5 +1,45 @@
+// TODO: Implement the Full Stacks Section
+// This section should function similarly to the Home Page.
 
-// Scroll to the very Buttom for FullStack Section
+// Responsibilities for the Full Stack Section:
+// 1. Retrieve data from the Django database.
+// 2. Load the username from the database into the `updateNamePlaceholder` function.
+// 3. Parse the creation dates of stored data and populate `placeholderDates` accordingly.
+// 4. Look through the different HREFs and see if any of them need to be reworked
+
+// Additional Task: Implement account deletion (Refer to line 269 for the delete account function).
+// Replace the current alert mechanism with a call to notify the Django database to delete the account.
+
+updateNamePlaceholder('penguin'); // Changes the text to "penguin"
+let defaultLanguage = "English"; // Not For FullStacks
+// Comment this out. For Simplicity I would recommend you to just make a list of the same name. 
+// Don't need to care about the function and everything if you do that.
+const placeholderDates = [
+    "2024-10-31 12:00",
+    "2024-11-20 12:00",
+    "2024-11-21 14:30",
+    "2024-11-21 15:30",
+    "2024-11-21 16:30",
+    "2024-11-21 17:30",
+    "2024-11-21 18:30",
+    "2024-11-21 19:30",
+    "2024-11-21 20:30",
+    "2024-11-22 16:45",
+    "2024-11-22 17:45",
+    "2024-11-22 18:45",
+    "2024-11-22 19:45",
+    "2024-12-25 19:45"
+];
+
+
+
+
+
+
+
+
+
+
 // Global variable to track the current selected mode
 let currentMode = 'youraccountbar';
 
@@ -147,23 +187,7 @@ function bringAccountFrameToFront() {
     }
 }
 
-// Placeholder for dates (Replace with centralized logic later)
-const placeholderDates = [
-    "2024-10-31 12:00",
-    "2024-11-20 12:00",
-    "2024-11-21 14:30",
-    "2024-11-21 15:30",
-    "2024-11-21 16:30",
-    "2024-11-21 17:30",
-    "2024-11-21 18:30",
-    "2024-11-21 19:30",
-    "2024-11-21 20:30",
-    "2024-11-22 16:45",
-    "2024-11-22 17:45",
-    "2024-11-22 18:45",
-    "2024-11-22 19:45",
-    "2024-12-25 19:45"
-];
+
 
 // Function to create a scrollable list inside account frame
 function createScrollableList() {
@@ -222,7 +246,6 @@ createScrollableList();
 
 
 // Global variable for language
-let defaultLanguage = "English";
 // Function to initialize click handlers
 function initializeLanguageSelectors() {
     const languageDivs = document.querySelectorAll(".English, .Spanish, .Chinese"); // Fixed query selector
@@ -259,18 +282,6 @@ function makeDeleteAccountClickable() {
 // Call the function
 makeDeleteAccountClickable();
 
-
-
-
-
-
-
-// Full Stacks Section:
-// Example usage
-updateNamePlaceholder('penguin'); // Changes the text to "penguin"
-// defaultLanguage access the current language using this
-// Global variable for language
-// defaultLanguage
 
 
 

@@ -1,11 +1,30 @@
-// FULL STACK SECTION
-// Here are the time and languages. You should use these to access the django data base
-// sample time: 12/25/2024, 7:45:00 PM
-const thistime = sessionStorage.getItem("GlobalTime");
-const thislanguage = sessionStorage.getItem("GlobalLanguage");
+// FULL STACK SECTION (Code Here)
+// Utilize the stored time and language to access data from the Django database.
+// Example of a stored time format: "12/25/2024, 7:45:00 PM"
+const thistime = sessionStorage.getItem("GlobalTime"); // Retrieve the global time from session storage.
+const thislanguage = sessionStorage.getItem("GlobalLanguage"); // Retrieve the global language from session storage.
+
+// Steps to follow:
+// 1. Use `thistime` and `thislanguage` to query the Django database for the relevant data.
+// 2. Parse the retrieved data and pass it into the `updateTimes` function.
+// 3. Update the times displayed on the frontend using the function.
+// 4. Careful about Href
+
+// Example usage of `updateTimes`:
+// Update time1 to "5000 minutes and 30 seconds" and time2 to "2000 minutes and 45 seconds".
+updateTimes(5000, 30, 2000, 45);
 
 
 
+
+
+
+
+
+
+
+
+// UI Section
 // Time 1 is top tracks, Time 2 is recent
 function updateTimes(time1Minutes, time1Seconds, time2Minutes, time2Seconds) {
     // Select the elements for time1 and time2
@@ -31,8 +50,7 @@ function updateTimes(time1Minutes, time1Seconds, time2Minutes, time2Seconds) {
     }
 }
 
-// Example usage: Update time1 to "5000 minutes and 30 seconds" and time2 to "2000 minutes and 45 seconds"
-updateTimes(5000, 30, 2000, 45);
+
 
 
 

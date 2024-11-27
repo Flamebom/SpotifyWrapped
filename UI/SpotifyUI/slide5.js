@@ -1,8 +1,17 @@
-const thistime = sessionStorage.getItem("GlobalTime");
-const thislanguage = sessionStorage.getItem("GlobalLanguage");
-// For Full Stacks. Literally the same deal as always
+// TODO: Full Stack Implementation (Code Here)
+// 1. Use `thistime` and `thislanguage` from session storage to query the Django database.
+// 2. Fetch the recommended tracks data and parse it into the following structure:
+//    {
+//        name: "Track Name",
+//        artist: "Artist Name",
+//        album_cover: "URL to Album Cover",
+//        preview_url: "URL to Track Preview" (or `null` if no preview is available)
+//    }
+// 3. Ensure the property names and structure match `recommended_tracks` for consistency.
+// 4. Pass the parsed data to the relevant frontend update function and test thoroughly.
 
-// Sample recommended tracks data
+// Example of `recommended_tracks` structure:
+// Can comment this out after implementation
 const recommended_tracks = [
     {
         name: "Track 1",
@@ -24,6 +33,8 @@ const recommended_tracks = [
     }
 ];
 
+
+// UI Part
 // Function to populate recommended tracks directly to the body
 function populateRecommendedTracks(tracks) {
     const body = document.body; // Target the <body> element
