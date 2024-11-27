@@ -1,5 +1,15 @@
+const thistime = sessionStorage.getItem("GlobalTime");
+const thislanguage = sessionStorage.getItem("GlobalLanguage");
+checkSpecialDate(thistime);
+
+// For Full Stacks. Literally the same deal as always
 // Check example usage, you are only updating those values this should be simple
 // Function to update the text for "YouListenedTo242MinutesOfMusicThisYear"
+
+
+
+
+
 function updateMusicMinutes(minutes) {
     const element = document.querySelector(".YouListenedTo242MinutesOfMusicThisYear");
     if (element) {
@@ -34,8 +44,6 @@ updateNewArtists(10); // Update new artists discovered to 10
 
 
 // Not full stacks part
-
-
 const fadeOverlay = document.createElement('div');
 document.body.appendChild(fadeOverlay);
 
@@ -70,4 +78,71 @@ document.body.addEventListener('click', () => {
 
     window.location.href = 'story2slide7.html';
 });
+
+
+
+function getGlobalSettings() {
+    if (!thistime || !thislanguage) {
+        console.warn("Global settings are not set in sessionStorage. Make sure the other script initializes these values.");
+        return { time: null, language: null };
+    }
+    console.log("Retrieved global settings:", { time: thistime, language: thislanguage });
+    return { time: thistime, language: thislanguage };
+}
+
+// Function to check if the date is on Christmas or Halloween
+function checkSpecialDate(dateString) {
+    // Parse the date string into a Date object
+    const parsedDate = new Date(dateString);
+    // Ensure the date is valid
+    if (isNaN(parsedDate)) {
+        console.error("Invalid date format:", dateString);
+        return;
+    }
+    // Extract the month and day from the parsed date
+    const month = parsedDate.getMonth() + 1; // Months are zero-based
+    const day = parsedDate.getDate();
+
+    // Check for Christmas or Halloween
+    if (month === 12 && day === 25) {
+        activateChristmasMode();
+    } else if (month === 10 && day === 31) {
+        activateHalloweenMode();
+    }
+}
+
+// Function to activate Christmas mode
+function activateChristmasMode() {
+    const backgroundImage = document.querySelector('.story2slide6background1');
+    if (backgroundImage) {
+        backgroundImage.src = 'img/christmasversion.png'; // Set the new image source
+    } else {
+        console.error('Background image with class "backgroundslide1" not found!');
+    }
+}
+
+// Function to activate Halloween mode
+function activateHalloweenMode() {
+    const imgElement = document.querySelector('.story2slide6background1');
+    if (imgElement) {
+        imgElement.src = 'img/halloweenversion3.png'; // Set the new image source
+        imgElement.style.width = '100vw'; // Match the viewport width
+        imgElement.style.height = '100vh'; // Match the viewport height
+        imgElement.style.objectFit = 'contain'; // Prevent cropping by scaling the image proportionally
+        imgElement.style.position = 'absolute'; // Position to cover the screen
+        imgElement.style.top = '0';
+        imgElement.style.left = '0';
+        imgElement.style.backgroundColor = "#EE6A26";
+        imgElement.style.zIndex = '-1'; // Push it behind other elements
+        console.log("Halloween image applied without cropping!");
+
+    } else {
+        console.error('Background image with class "backgroundslide1" not found!');
+    }
+}
+
+// Testing
+console.log("Global Time:", thistime);
+console.log("Global Language:", thislanguage);
+
 

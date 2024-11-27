@@ -1,12 +1,11 @@
 // Full stack work
 // I have provided sample data structure for you
-
 // Here are the time and languages. You should use these to access the django data base
-const thistime = sessionStorage.getItem("GlobalTime");
-// sample time: 12/25/2024, 7:45:00 PM
-const thislanguage = sessionStorage.getItem("GlobalLanguage");
 // This might be a bit more work but it should make things very clear to understand. Just writea function that parses the data
 // into a list like the following and just call the method.
+
+const thistime = sessionStorage.getItem("GlobalTime");
+const thislanguage = sessionStorage.getItem("GlobalLanguage");
 
 
 const tracks_data = [
@@ -275,6 +274,15 @@ function activateChristmasMode() {
 // Function to activate Halloween mode
 function activateHalloweenMode() {
     console.log("Activating Halloween Mode!");
+        // Add gifts.png to the bottom-right corner
+        const gifts = document.createElement('img');
+        gifts.src = 'img/ghost.png';
+        gifts.style.position = 'absolute';
+        gifts.style.right = '0px'; // Align to the right edge
+        gifts.style.bottom = '0px'; // Align to the bottom edge
+        gifts.style.width = '300px'; // Adjust size as needed
+        gifts.style.height = '300px'; // Adjust size as needed
+        document.body.appendChild(gifts);
 }
 
 // Testing

@@ -1,4 +1,7 @@
+const thistime = sessionStorage.getItem("GlobalTime");
+const thislanguage = sessionStorage.getItem("GlobalLanguage");
 // For Full Stacks. Literally the same deal as always
+
 // Sample recommended tracks data
 const recommended_tracks = [
     {
@@ -93,20 +96,6 @@ populateRecommendedTracks(recommended_tracks);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Not full stacks part
 
 function adjustLandingPageImage() {
@@ -161,4 +150,63 @@ document.body.addEventListener('click', () => {
 
     window.location.href = 'story2slide6.html';
 });
+
+
+
+function getGlobalSettings() {
+    if (!thistime || !thislanguage) {
+        console.warn("Global settings are not set in sessionStorage. Make sure the other script initializes these values.");
+        return { time: null, language: null };
+    }
+    console.log("Retrieved global settings:", { time: thistime, language: thislanguage });
+    return { time: thistime, language: thislanguage };
+}
+
+// Function to check if the date is on Christmas or Halloween
+function checkSpecialDate(dateString) {
+    // Parse the date string into a Date object
+    const parsedDate = new Date(dateString);
+
+    // Ensure the date is valid
+    if (isNaN(parsedDate)) {
+        console.error("Invalid date format:", dateString);
+        return;
+    }
+
+    // Extract the month and day from the parsed date
+    const month = parsedDate.getMonth() + 1; // Months are zero-based
+    const day = parsedDate.getDate();
+
+    // Check for Christmas or Halloween
+    if (month === 12 && day === 25) {
+        activateChristmasMode();
+    } else if (month === 10 && day === 31) {
+        activateHalloweenMode();
+    }
+}
+
+// Function to activate Christmas mode
+function activateChristmasMode() {
+    const backgroundImage = document.querySelector('.landingpage');
+    if (backgroundImage) {
+        backgroundImage.src = 'img/christmasversion.png'; // Set the new image source
+    } else {
+        console.error('Background image with class "backgroundslide1" not found!');
+    }
+}
+
+// Function to activate Halloween mode
+function activateHalloweenMode() {
+    const backgroundImage = document.querySelector('.landingpage');
+    if (backgroundImage) {
+        backgroundImage.src = 'img/halloweenversion2.png'; // Set the new image source
+    } else {
+        console.error('Background image with class "backgroundslide1" not found!');
+    }
+}
+
+// Testing
+console.log("Global Time:", thistime);
+console.log("Global Language:", thislanguage);
+checkSpecialDate(thistime);
 

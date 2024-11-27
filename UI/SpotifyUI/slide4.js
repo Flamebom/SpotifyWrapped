@@ -1,6 +1,6 @@
-// Full stacks job
 const thistime = sessionStorage.getItem("GlobalTime"); // sample time: 12/25/2024, 7:45:00 PM
 const thislanguage = sessionStorage.getItem("GlobalLanguage");
+// Full stacks job
 // parse the geminiReponse to the following function. I have an example down there. Just fill it into there.
 
 
@@ -142,7 +142,21 @@ function activateChristmasMode() {
 
 // Function to activate Halloween mode
 function activateHalloweenMode() {
-    console.log("Activating Halloween Mode!");
+    const backgroundImage = document.querySelector('.rectanglebackwhite');
+    if (backgroundImage) {
+        backgroundImage.style.background = "#E66C2C"; // Set background color to #173842
+    } else {
+        console.error('Background element with class "rectanglebackwhite" not found!');
+    }
+
+    // Change the text color of .youspent to white
+    const welcomeText = document.querySelector('.youspent');
+    if (welcomeText) {
+        welcomeText.style.color = '#FFFFFF'; // Set text color to white
+        console.log('Text color changed to white!');
+    } else {
+        console.error('Text element with class "youspent" not found!');
+    }
 }
 
 // Testing
