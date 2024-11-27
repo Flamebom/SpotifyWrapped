@@ -1,11 +1,15 @@
-const thistime = sessionStorage.getItem("GlobalTime");
-const thislanguage = sessionStorage.getItem("GlobalLanguage");
-checkSpecialDate(thistime);
+// TODO: Full Stack Implementation (Code Here)
+// 1. Use `thistime` and `thislanguage` from session storage to query the Django database.
+// 2. Parse the retrieved data and update the following values using the provided functions:
+//    - Total minutes listened: `updateMusicMinutes(minutes)`
+//    - Favorite track: `updateFavoriteTrack(trackName)`
+//    - Number of new artists discovered: `updateNewArtists(artistCount)`
+// 3. Ensure the integration is smooth and test for edge cases (e.g., no data or invalid values).
 
-// For Full Stacks. Literally the same deal as always
-// Check example usage, you are only updating those values this should be simple
-// Function to update the text for "YouListenedTo242MinutesOfMusicThisYear"
-
+// Example usage:
+updateMusicMinutes(500); // Update total minutes listened to 500
+updateFavoriteTrack("Bohemian Rhapsody"); // Update favorite track to "Bohemian Rhapsody"
+updateNewArtists(10); // Update new artists discovered to 10
 
 
 
@@ -32,12 +36,6 @@ function updateNewArtists(count) {
         element.textContent = `You discovered ${count} new artists this year—always exploring!`;
     }
 }
-
-// Example usage:
-updateMusicMinutes(500); // Update music minutes to 500
-updateFavoriteTrack("Bohemian Rhapsody"); // Update favorite track to "Bohemian Rhapsody"
-updateNewArtists(10); // Update new artists discovered to 10
-
 
 
 

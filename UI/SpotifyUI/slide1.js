@@ -1,7 +1,14 @@
+// No real full-stack work is required for slide 1 and slide 8. (Code Here)
+// Ensure that the redirection using `href` functions correctly. Check Line 168
+
+
+
+
+
+
+// UI Work
 // Function to access global settings from sessionStorage
 const thistime = sessionStorage.getItem("GlobalTime");
-// sample time: 12/25/2024, 7:45:00 PM
-
 const thislanguage = sessionStorage.getItem("GlobalLanguage");
 
 function getGlobalSettings() {

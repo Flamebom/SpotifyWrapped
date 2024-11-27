@@ -1,4 +1,27 @@
-// Scroll to the very Buttom for FullStack Section
+// Full Stacks Section:
+// Example Usage:
+updateNamePlaceholder('penguin'); // Use Actual Username similar to Accounthome.js
+
+// Notes:
+// - Use `defaultLanguage` to access the current language setting.
+// - Refer to the `if` statement at line 139 to handle API queuing and ensure the returned data is correctly saved to the Django database.
+// - Ensure Django redirects are functioning properly. The `href` logic has already been implemented robustly.
+// - Remember: The page utilizes local cached memory to determine which SpotifyStats entry is queued (based on time) and the requested language.
+
+// TODO: Full Stack Implementation Tasks:
+// 1. Implement API queue functionality:
+//    - Refer to the `if` statement at line 122 for existing logic.
+//    - Queue the API calls appropriately and handle asynchronous responses.
+// 2. Save returned data into the Django database:
+//    - Process the API response.
+//    - Serialize and save the data to the appropriate Django model.
+// 3. Test the integration between the frontend and backend:
+//    - Validate that saved data can be retrieved and displayed accurately.
+// 4. Fix Username display with actual username
+
+
+
+// UI Code
 // Global variable to track the current selected mode
 let currentMode = 'homebar';
 
@@ -113,16 +136,16 @@ function addHoverEffectWithRedirect(elementSelector, hoverStyles, defaultStyles,
         // Add redirection on click
         element.addEventListener('click', () => {
 
-            // Create a new Date object representing the current date and time
-            const currentDate = new Date();
-            // Convert the current date and time to a string in the 'America/New_York' time zone
-            const atlantaTimeString = currentDate.toLocaleString('en-US', { timeZone: 'America/New_York' });
-            // Store the Atlanta time string in sessionStorage
-            sessionStorage.setItem("GlobalTime", atlantaTimeString);
+            if (elementSelector === '.gostats1' && redirectUrl === 'story2slide1.html') {
+                const currentDate = new Date();
+                const atlantaTimeString = currentDate.toLocaleString('en-US', { timeZone: 'America/New_York' });
+                sessionStorage.setItem("GlobalTime", atlantaTimeString);
+                const thislanguage = defaultLanguage;
+                sessionStorage.setItem("GlobalLanguage", thislanguage);
 
-
-            const thislanguage = defaultLanguage;
-            sessionStorage.setItem("GlobalLanguage", thislanguage);
+                // Full Stacks Section. Make it so that API generates new summary and is saved in Django Database
+                // This will ensure code compatibility onwards.
+            }
 
 
             window.location.href = redirectUrl;
@@ -200,17 +223,5 @@ initializeLanguageSelectors();
 
 
 
-
-
-
-
-
-
-
-
-// Full Stacks Section:
-// Example usage
-updateNamePlaceholder('penguin'); // Changes the text to "penguin"
-// defaultLanguage access the current language using this
 
 

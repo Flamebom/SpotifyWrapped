@@ -1,13 +1,21 @@
-// Full stack work
-// I have provided sample data structure for you
-// Here are the time and languages. You should use these to access the django data base
-// This might be a bit more work but it should make things very clear to understand. Just writea function that parses the data
-// into a list like the following and just call the method.
+// FULL STACK SECTION
+// Sample data structure provided for implementation.
 
+// Notes:
+// - Use `thistime` and `thislanguage` to query the Django database for relevant data.
+// - Parse the data into structured arrays (like `tracks_data`, `artists_data`, and `top_genres`) and call the appropriate functions to handle the data.
+// - This approach may require additional parsing logic, but it ensures clarity and maintainability.
+
+
+// Steps to follow:
+// 1. Use `thistime` and `thislanguage` to query the Django database for the relevant data.
+// 2. Parse the retrieved data and create new lists with the same FORMAT and NAME as the sample data structure
+// 3. Careful about Href
+
+// Access stored time and language for database queries
 const thistime = sessionStorage.getItem("GlobalTime");
 const thislanguage = sessionStorage.getItem("GlobalLanguage");
-
-
+// You can Comment this out after implementation
 const tracks_data = [
     {
         name: "Song Title 1",
@@ -53,37 +61,6 @@ const tracks_data = [
 
 
 
-// Dynamically populate the song details
-tracks_data.forEach((track, index) => {
-    const songClass = `song${index + 1}`;
-    const songDiv = document.querySelector(`.${songClass}`);
-    if (songDiv) {
-        // Set up the song element content
-        songDiv.innerHTML = `
-            <div style="width: 90px; height: 50px; color: #22306D; font-size: 40px; font-family: Inter; font-weight: 700; line-height: 40px; word-wrap: break-word">#${index + 1}</div>
-            ${track.album_cover ? `<img src="${track.album_cover}" alt="${track.name}" width="50">` : ''}
-            <div>
-                <div style="font-family: Inter; font-weight: 700; font-size: 18px;">${track.name}</div>
-                <div style="font-family: Inter; font-weight: 600; font-size: 14px;">Duration: ${track.minutes} min ${track.seconds} sec</div>
-            </div>
-        `;
-
-        // Make the entire div clickable if `preview_url` is available
-        if (track.preview_url) {
-            songDiv.style.cursor = "pointer";
-            songDiv.addEventListener("click", () => {
-                window.open(track.preview_url, "_blank");
-            });
-        }
-    }
-});
-
-
-
-
-
-
-
 // Example `artists_data` array
 const artists_data = [
     {
@@ -123,6 +100,39 @@ const artists_data = [
     }
 ];
 
+// Example `top_genres` array
+const top_genres = ["Pop", "Rock", "Jazz", "Hip-Hop", "Electronic"];
+
+
+
+// UI Part
+// Dynamically populate the song details
+tracks_data.forEach((track, index) => {
+    const songClass = `song${index + 1}`;
+    const songDiv = document.querySelector(`.${songClass}`);
+    if (songDiv) {
+        // Set up the song element content
+        songDiv.innerHTML = `
+            <div style="width: 90px; height: 50px; color: #22306D; font-size: 40px; font-family: Inter; font-weight: 700; line-height: 40px; word-wrap: break-word">#${index + 1}</div>
+            ${track.album_cover ? `<img src="${track.album_cover}" alt="${track.name}" width="50">` : ''}
+            <div>
+                <div style="font-family: Inter; font-weight: 700; font-size: 18px;">${track.name}</div>
+                <div style="font-family: Inter; font-weight: 600; font-size: 14px;">Duration: ${track.minutes} min ${track.seconds} sec</div>
+            </div>
+        `;
+
+        // Make the entire div clickable if `preview_url` is available
+        if (track.preview_url) {
+            songDiv.style.cursor = "pointer";
+            songDiv.addEventListener("click", () => {
+                window.open(track.preview_url, "_blank");
+            });
+        }
+    }
+});
+
+
+
 // Dynamically populate artist details
 artists_data.forEach((artist, index) => {
     const artistClass = `artist${index + 1}`;
@@ -154,10 +164,6 @@ artists_data.forEach((artist, index) => {
 });
 
 
-
-
-// Example `top_genres` array
-const top_genres = ["Pop", "Rock", "Jazz", "Hip-Hop", "Electronic"];
 
 // Dynamically populate genres
 top_genres.forEach((genre, index) => {
@@ -193,7 +199,6 @@ top_genres.forEach((genre, index) => {
 
 // Not full stacks part
 
-
 const fadeOverlay = document.createElement('div');
 document.body.appendChild(fadeOverlay);
 
@@ -228,8 +233,6 @@ document.body.addEventListener('click', () => {
 
     window.location.href = 'story2slide4.html';
 });
-
-
 
 
 

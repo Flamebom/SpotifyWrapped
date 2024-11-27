@@ -1,9 +1,14 @@
+// TODO: Full Stack Implementation
+// 1. Use `thistime` and `thislanguage` from session storage to query the Django database.
+// 2. Parse the retrieved data into the `listening_habits` structure below. 
+//    - Use the same structure and property names for consistency and simplicity.
+// 3. Populate the "Last 4 Weeks," "Last 6 Months," and "All Time" sections with the respective track data.
+// 4. Test to ensure data is displayed correctly on the frontend.
 const thistime = sessionStorage.getItem("GlobalTime");
 const thislanguage = sessionStorage.getItem("GlobalLanguage");
 checkSpecialDate(thistime);
-// Same thing 
 
-// Listening habits data
+// Sample `listening_habits` data structure:
 const listening_habits = {
     "Last 4 Weeks": {
         tracks: [
