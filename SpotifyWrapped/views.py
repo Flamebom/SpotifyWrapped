@@ -47,6 +47,13 @@ def login_view(request):
 def spotify_auth(request):
     return redirect(get_auth_url())
 
+def get_context(request):
+    access_token = request.session.get('access_token')
+    if not access_token:
+        return redirect('login')
+
+    context = process_spotify_data(access_token)
+    return context
 
 def profile_view(request):
     """This method renders the profile page.
@@ -63,13 +70,11 @@ def profile_view(request):
         else:
             return render(request, '../UI/SpotifyUI/login.html',
                           {'error': 'Invalid credentials'})
-    access_token = request.session.get('access_token')
-    if not access_token:
-        return redirect('login')
 
-    context = process_spotify_data(access_token)
-    return render(request, '../UI/SpotifyUI/profile.html', context)
+    return render(request, '../UI/SpotifyUI/mainhome.html')
 
+def account_view(request):
+    return render(request, '../UI/SpotifyUI/account.html')
 
 def reset(request):
     """This method allows the user to reset their password.
@@ -89,3 +94,6 @@ def spotify_callback(request):
         return HttpResponse(f"Failed to get token: {error}")
     request.session['access_token'] = access_token
     return redirect('profile')
+
+def stats_view(request):
+    return render(request, '../UI/SpotifyUI/story2slide1.html')

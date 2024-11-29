@@ -30,4 +30,5 @@ urlpatterns = [
     path('toggle-dark-mode/', views.toggle_dark_mode, name='toggle_dark_mode'),
     path('spotify-auth/', views.spotify_auth, name='spotify_auth'),
     path('callback/', views.spotify_callback, name='callback'),
+    path('stats/', views.stats_view, name='stats'),
 ]

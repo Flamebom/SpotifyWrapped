@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81154dd3-6948-420f-b9ab-36f75ef6a8e3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/GeminiAPI/GeminiAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/GeminiAPI/GeminiAPI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SpotifyWrapped/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpotifyWrapped/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpotifyWrapped/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpotifyWrapped/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpotifyWrapped/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpotifyWrapped/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/SpotifyUI/account.html" beforeDir="false" afterPath="$PROJECT_DIR$/UI/SpotifyUI/account.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/SpotifyUI/mainhome.html" beforeDir="false" afterPath="$PROJECT_DIR$/UI/SpotifyUI/mainhome.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +30,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="BranchNov18" />
+        <entry key="$PROJECT_DIR$" value="integration-full-frontend" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -37,35 +41,41 @@
     &quot;assignee&quot;: &quot;ARKNAV&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Flamebom/SpotifyWrapped.git&quot;,
-    &quot;accountId&quot;: &quot;bbc63f23-1cc8-442c-a351-bdc1d7666c10&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Flamebom/SpotifyWrapped.git",
+    "accountId": "67c22e31-736e-43bd-95d4-d0b73a44e099"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="2nGf0HMHbYFAPzwuTyZaZPQniaL" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Django Server.SpotifyWrapped.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;integration-2.0&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Django Server.SpotifyWrapped.executor": "Debug",
+    "Notification.DisplayName-DoNotAsk-Database detector": "Database detector",
+    "Notification.DoNotAsk-Database detector": "true",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Xytai\PycharmProjects\SpotifyWrapped\GeminiAPI" />
@@ -83,7 +93,6 @@
         <env name="DJANGO_SETTINGS_MODULE" value="SpotifyWrapped.settings" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="SDK_NAME" value="Python 3.12 (pythonProject)" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -103,8 +112,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-PY-242.21829.153" />
-        <option value="bundled-python-sdk-464836ebc622-b74155a9e76b-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.21829.153" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-PY-243.21565.199" />
+        <option value="bundled-python-sdk-cab1f2013843-4ae2d6a61b08-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.21565.199" />
       </set>
     </attachedChunks>
   </component>
@@ -120,6 +129,7 @@
       <workItem from="1729536815401" duration="4338000" />
       <workItem from="1730687656104" duration="105000" />
       <workItem from="1731871758416" duration="4061000" />
+      <workItem from="1732835925947" duration="2349000" />
     </task>
     <servers />
   </component>
