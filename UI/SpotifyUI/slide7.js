@@ -148,14 +148,6 @@ function createListeningHabitsFrames(listeningHabits) {
 // Call the function to create frames
 createListeningHabitsFrames(listening_habits);
 
-
-
-
-
-
-
-
-
 // Not full stacks part
 
 function adjustLandingPageImage() {
@@ -209,7 +201,7 @@ document.body.addEventListener('click', () => {
     fadeOverlay.style.display = 'block'; // Ensure the overlay is visible
     fadeOverlay.style.opacity = '1'; // Fade in to black
 
-    window.location.href = 'story2slide8.html';
+    window.location.href = '/page/8/';
 });
 
 

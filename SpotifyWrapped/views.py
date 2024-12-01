@@ -95,5 +95,16 @@ def spotify_callback(request):
     request.session['access_token'] = access_token
     return redirect('profile')
 
-def stats_view(request):
-    return render(request, '../UI/SpotifyUI/story2slide1.html')
+def pages_view(request, page_num):
+    pages = {
+        1: "../UI/SpotifyUI/story2slide1.html",
+        2: "../UI/SpotifyUI/story2slide2.html",
+        3: "../UI/SpotifyUI/story2slide3.html",
+        4: "../UI/SpotifyUI/story2slide4.html",
+        5: "../UI/SpotifyUI/story2slide5.html",
+        6: "../UI/SpotifyUI/story2slide6.html",
+        7: "../UI/SpotifyUI/story2slide7.html",
+        8: "../UI/SpotifyUI/story2slide8.html"
+    }
+    template = pages.get(page_num, "error.html")
+    return render(request, template, {})

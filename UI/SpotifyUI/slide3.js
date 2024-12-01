@@ -231,7 +231,7 @@ document.body.addEventListener('click', () => {
     fadeOverlay.style.display = 'block'; // Ensure the overlay is visible
     fadeOverlay.style.opacity = '1'; // Fade in to black
 
-    window.location.href = 'story2slide4.html';
+    window.location.href = '/page/4/';
 });
 
 

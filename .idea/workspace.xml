@@ -4,13 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81154dd3-6948-420f-b9ab-36f75ef6a8e3" name="Changes" comment="">
+    <list default="true" id="81154dd3-6948-420f-b9ab-36f75ef6a8e3" name="Changes" comment="local">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SpotifyWrapped/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpotifyWrapped/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SpotifyWrapped/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpotifyWrapped/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SpotifyWrapped/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpotifyWrapped/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/SpotifyUI/account.html" beforeDir="false" afterPath="$PROJECT_DIR$/UI/SpotifyUI/account.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/SpotifyUI/accounthome.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/SpotifyUI/accounthome.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/SpotifyUI/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/SpotifyUI/login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/SpotifyUI/mainhome.html" beforeDir="false" afterPath="$PROJECT_DIR$/UI/SpotifyUI/mainhome.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/SpotifyUI/mainhome.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/SpotifyUI/mainhome.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/SpotifyUI/slide1.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/SpotifyUI/slide1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/SpotifyUI/slide2.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/SpotifyUI/slide2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/SpotifyUI/slide3.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/SpotifyUI/slide3.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/SpotifyUI/slide4.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/SpotifyUI/slide4.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/SpotifyUI/slide5.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/SpotifyUI/slide5.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/SpotifyUI/slide6.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/SpotifyUI/slide6.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/SpotifyUI/slide7.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/SpotifyUI/slide7.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/SpotifyUI/slide8.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/SpotifyUI/slide8.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/SpotifyUI/story2slide1.html" beforeDir="false" afterPath="$PROJECT_DIR$/UI/SpotifyUI/story2slide1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/SpotifyUI/story2slide2.html" beforeDir="false" afterPath="$PROJECT_DIR$/UI/SpotifyUI/story2slide2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/SpotifyUI/story2slide3.html" beforeDir="false" afterPath="$PROJECT_DIR$/UI/SpotifyUI/story2slide3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/SpotifyUI/story2slide4.html" beforeDir="false" afterPath="$PROJECT_DIR$/UI/SpotifyUI/story2slide4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/SpotifyUI/story2slide5.html" beforeDir="false" afterPath="$PROJECT_DIR$/UI/SpotifyUI/story2slide5.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/SpotifyUI/story2slide6.html" beforeDir="false" afterPath="$PROJECT_DIR$/UI/SpotifyUI/story2slide6.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/SpotifyUI/story2slide7.html" beforeDir="false" afterPath="$PROJECT_DIR$/UI/SpotifyUI/story2slide7.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/SpotifyUI/story2slide8.html" beforeDir="false" afterPath="$PROJECT_DIR$/UI/SpotifyUI/story2slide8.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +49,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="integration-full-frontend" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -41,12 +60,12 @@
     &quot;assignee&quot;: &quot;ARKNAV&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Flamebom/SpotifyWrapped.git",
-    "accountId": "67c22e31-736e-43bd-95d4-d0b73a44e099"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Flamebom/SpotifyWrapped.git&quot;,
+    &quot;accountId&quot;: &quot;67c22e31-736e-43bd-95d4-d0b73a44e099&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -61,13 +80,14 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Django Server.SpotifyWrapped.executor": "Debug",
+    "Django Server.SpotifyWrapped.executor": "Run",
+    "JavaScript Debug.mainhome.html.executor": "Run",
     "Notification.DisplayName-DoNotAsk-Database detector": "Database detector",
     "Notification.DoNotAsk-Database detector": "true",
     "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "integration-final",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -129,8 +149,19 @@
       <workItem from="1729536815401" duration="4338000" />
       <workItem from="1730687656104" duration="105000" />
       <workItem from="1731871758416" duration="4061000" />
-      <workItem from="1732835925947" duration="2349000" />
+      <workItem from="1732835925947" duration="3522000" />
+      <workItem from="1732996745662" duration="2855000" />
+      <workItem from="1733002484355" duration="17976000" />
     </task>
+    <task id="LOCAL-00001" summary="local">
+      <option name="closed" value="true" />
+      <created>1732838869286</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1732838869286</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,6 +169,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="integrated Gemini api functionality to backend" />
-    <option name="LAST_COMMIT_MESSAGE" value="integrated Gemini api functionality to backend" />
+    <MESSAGE value="local" />
+    <option name="LAST_COMMIT_MESSAGE" value="local" />
   </component>
 </project>

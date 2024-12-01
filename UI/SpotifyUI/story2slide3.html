@@ -27,7 +27,8 @@
   <div class="song5" style="overflow: hidden; position: absolute; display: flex; flex-direction: row; align-items: center; padding: 0px; gap: 16px; width: 358px; height: 50px; left: 0px; top: 320px;"></div>
     </div>
 <div class="yourTopSongs" style="overflow: hidden; position: absolute; width: 165px; height: 36px; left: 28px; top: 137px; font-style: normal; font-weight: 700; font-size: 24px; line-height: 150%; letter-spacing: -0.06em;">Your Top Songs</div>
-<img class="spotifystats" style="overflow: hidden; position: absolute; width: 155px; height: 33px; left: 28px; top: 45px;" src="img/spotifystats.png" />
+{% load static %}
+<img class="spotifystats" style="overflow: hidden; position: absolute; width: 155px; height: 33px; left: 28px; top: 45px;" src="{% static 'SpotifyUI/img/spotifystats.png' %}" />
   </div>
 <div class="artistframe" style="overflow: hidden; position: absolute; box-sizing: border-box; left: 33.33%; right: 33.33%; top: 0%; bottom: 0%; background: #9BEFE2;">
 <div class="artistinnerframe" style="overflow: hidden; position: absolute; width: 358px; height: 572px; left: 32px; top: 143px;">
@@ -97,6 +98,7 @@ var artist4 = document.getElementsByClassName('artist4')[0];
 var genre4 = document.getElementsByClassName('genre4')[0];
 var song4 = document.getElementsByClassName('song4')[0];
 </script>
-<script src='slide3.js'></script>
+{% load static %}
+<script src='{% static 'SpotifyUI/slide3.js' %}'></script>
 </body>
 </html>

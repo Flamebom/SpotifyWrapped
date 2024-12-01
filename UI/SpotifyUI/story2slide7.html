@@ -18,13 +18,15 @@
 </head>
 
 <body style="overflow: hidden; position: absolute; width: 100%; height: 779px;">
-<img class="listeningtaste2" style="overflow: hidden; position: absolute; left: 0%; right: 0%; top: 0%; bottom: 0%;" src="img/listeningtaste2.png" />
+{% load static %}
+<img class="listeningtaste2" style="overflow: hidden; position: absolute; left: 0%; right: 0%; top: 0%; bottom: 0%;" src="{% static 'SpotifyUI/img/listeningtaste2.png' %}" />
 <div class="line" style="overflow: hidden; position: absolute; width: 452px; height: 5px; left: 72px; top: 84px; background: #FFFFFF;"></div>
 <div class="yourListeningHabitsOverTime" style="overflow: hidden; position: absolute; width: 948px; height: 79px; left: 72px; top: 111px; font-style: normal; font-weight: 700; font-size: 48px; line-height: 90%; font-feature-settings: 'ss01' on; color: #FFFFFF;">Your Listening Habits Over Time</div>
 <div class="last4Weeks" style="overflow: hidden; position: absolute; width: 269px; height: 22px; left: calc(50% - 269px/2 - 393.5px); top: calc(50% - 22px/2 - 169.5px); font-style: normal; font-weight: 700; font-size: 24px; line-height: 90%; text-align: center; font-feature-settings: 'ss01' on; color: #FFFFFF;">Last 4 Weeks</div>
 <div class="last6Months" style="overflow: hidden; position: absolute; width: 269px; height: 22px; left: calc(50% - 269px/2 + 10.5px); top: calc(50% - 22px/2 - 169.5px); font-style: normal; font-weight: 700; font-size: 24px; line-height: 90%; text-align: center; font-feature-settings: 'ss01' on; color: #FFFFFF;">Last 6 Months</div>
 <div class="allTime" style="overflow: hidden; position: absolute; width: 269px; height: 22px; left: calc(50% - 269px/2 + 414.5px); top: calc(50% - 22px/2 - 171.5px); font-style: normal; font-weight: 700; font-size: 24px; line-height: 90%; text-align: center; font-feature-settings: 'ss01' on; color: #FFFFFF;">All Time</div>
-<img class="spotifystats" style="overflow: hidden; position: absolute; width: 155px; height: 33px; left: 72px; top: 38px;" src="img/spotifystats.png" />
+{% load static %}
+<img class="spotifystats" style="overflow: hidden; position: absolute; width: 155px; height: 33px; left: 72px; top: 38px;" src="{% static 'SpotifyUI/img/spotifystats.png' %}" />
 <script>
 var last6Months = document.getElementsByClassName('last6Months')[0];
 var yourListeningHabitsOverTime = document.getElementsByClassName('yourListeningHabitsOverTime')[0];
@@ -35,6 +37,7 @@ var line = document.getElementsByClassName('line')[0];
 var spotifystats = document.getElementsByClassName('spotifystats')[0];
 var listeningtaste2 = document.getElementsByClassName('listeningtaste2')[0];
 </script>
-<script src='slide7.js'></script>
+{% load static %}
+<script src='{% static 'SpotifyUI/slide7.js' %}'></script>
 </body>
 </html>

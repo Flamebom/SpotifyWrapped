@@ -37,10 +37,6 @@ function updateNewArtists(count) {
     }
 }
 
-
-
-
-
 // Not full stacks part
 const fadeOverlay = document.createElement('div');
 document.body.appendChild(fadeOverlay);
@@ -74,7 +70,7 @@ document.body.addEventListener('click', () => {
     fadeOverlay.style.display = 'block'; // Ensure the overlay is visible
     fadeOverlay.style.opacity = '1'; // Fade in to black
 
-    window.location.href = 'story2slide7.html';
+    window.location.href = '/page/7/';
 });
 
 

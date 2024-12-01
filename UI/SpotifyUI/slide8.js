@@ -1,11 +1,6 @@
 // No real full-stack work is required for slide 1 and slide 8. (Code Here)
 // Ensure that the redirection using `href` functions correctly. Check Line 128
 
-
-
-
-
-
 // UI Work
 // Function to access global settings from sessionStorage
 const thistime = sessionStorage.getItem("GlobalTime");
@@ -125,6 +120,6 @@ document.body.addEventListener('click', () => {
     fadeOverlay.style.display = 'block'; // Ensure the overlay is visible
     fadeOverlay.style.opacity = '1'; // Fade in to black
 
-    window.location.href = 'mainhome.html';
+    window.location.href = '/profile-page/';
 });
 
