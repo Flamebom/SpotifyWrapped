@@ -11,10 +11,10 @@ from django.contrib.auth import login
 from django import forms
 
 
-
 class UserRegistrationForm(forms.Form):
     email = forms.EmailField(label="Email", max_length=255)
     password = forms.CharField(label="Password", widget=forms.PasswordInput)
+
 
 def register_view(request):
     if request.method == 'POST':
@@ -39,9 +39,11 @@ def register_view_old(request):
         return redirect('home')  # for registration redirect
     return render(request, '../UI/SpotifyUI/register.html')
 
+
 def logout_view(request):
     logout(request)
     return redirect('login')
+
 
 def delete_account_view(request):
     if request.method == 'POST':
@@ -50,6 +52,7 @@ def delete_account_view(request):
         return redirect('login')  # for redirect to login post-account deletion
     return render(request, 'delete_account.html')
 
+
 def toggle_dark_mode(request):
     user = request.user
     user.is_dark_mode = not user.is_dark_mode  # Toggle the boolean field
@@ -57,11 +60,14 @@ def toggle_dark_mode(request):
     # Return the new state
     return JsonResponse({'is_dark_mode': user.is_dark_mode})
 
+
 def login_view(request):
     return render(request, '../UI/SpotifyUI/login.html')
 
+
 def spotify_auth(request):
     return redirect(get_auth_url())
+
 
 def profile_view(request):
     """This method renders the profile page.
@@ -82,8 +88,10 @@ def profile_view(request):
 
     return render(request, '../UI/SpotifyUI/mainhome.html')
 
+
 def account_view(request):
     return render(request, '../UI/SpotifyUI/account.html')
+
 
 def reset(request):
     """This method allows the user to reset their password.
@@ -91,6 +99,7 @@ def reset(request):
     Returns the reset password page.
     """
     return render(request, '../UI/SpotifyUI/resetpassword.html', {})
+
 
 def spotify_callback(request):
     """Handle Spotify callback and retrieve access token."""
@@ -105,6 +114,7 @@ def spotify_callback(request):
 
     request.session['context'] = process_spotify_data(access_token)
     return redirect('profile')
+
 
 def pages_view(request, page_num):
     pages = {
