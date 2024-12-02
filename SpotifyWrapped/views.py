@@ -1,5 +1,7 @@
 from django.http import JsonResponse, HttpResponse
 from django.contrib.auth import authenticate, login, logout
+from django.utils.translation import activate
+
 from .models import User
 from django.shortcuts import redirect, render
 from SpotifyWrapped.spotify_data import (
@@ -77,6 +79,24 @@ def reset(request):
     Returns the reset password page.
     """
     return render(request, '../UI/SpotifyUI/resetpassword.html', {})
+
+
+def language_toggle(request):
+    """
+    Change the application's language and reload the current page.
+    """
+    # Get the language from the POST request
+    # Default to English if none is selected
+    lang_code = request.POST.get('language', 'en')
+
+    # Activate the selected language
+    activate(lang_code)
+
+    # Save the language in the session for persistence
+    request.session['django_language'] = lang_code
+
+    # Redirect back to the page the user was on
+    return redirect(request.META.get('HTTP_REFERER', '/'))
 
 
 def spotify_callback(request):
