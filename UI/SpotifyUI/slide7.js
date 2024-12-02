@@ -143,7 +143,7 @@ function createListeningHabitsFrames(listeningHabits) {
 }
 
 // Call the function to create frames
-createListeningHabitsFrames(listening_habits);
+
 
 // Not full stacks part
 

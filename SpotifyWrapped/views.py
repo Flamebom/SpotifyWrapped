@@ -1,7 +1,7 @@
 from django.http import JsonResponse, HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.utils.translation import activate
-
+import json
 from .models import User, SpotifyWrapped
 from django.shortcuts import redirect, render
 from SpotifyWrapped.spotify_data import (
@@ -12,7 +12,7 @@ from SpotifyWrapped.spotify_data import (
 
 from django.contrib.auth import login
 from django import forms
-from django.utils.timezone import localtime
+from django.utils.timezone import now
 
 
 class UserRegistrationForm(forms.Form):
@@ -79,6 +79,7 @@ def toggle_dark_mode(request):
 def view_wrapped(request):
     wrapped_list = SpotifyWrapped.objects.filter(
         user=request.user).order_by('-year')
+    print(wrapped_list)
     return render(request, '../UI/SpotifyUI/account.html',
                   {'wrapped_list': wrapped_list})
 
@@ -173,3 +174,60 @@ def pages_view(request, page_num):
     else:
         # print(request.session.get('context'))
         return render(request, template, request.session.get('context'))
+
+# Function to save the current time as a key and save a JSON response as
+# the value
+
+
+def save_json_response(request):
+    if request.method == 'POST':
+        # Assuming we receive a JSON response in the body
+        response = json.loads(request.body)
+
+        # Get the user (ensure they are logged in)
+        user = request.user
+
+        # Get the current time as the key
+        current_time = now().strftime('%Y-%m-%d %H:%M:%S')
+
+        # Create or update SpotifyWrapped entry with the user's data
+        wrapped_entry, created = SpotifyWrapped.objects.get_or_create(
+            user=user, year=2024  # Adjust as necessary
+        )
+
+        # Save the response data with the current time as the key
+        wrapped_entry.save_json_response(current_time, response)
+
+        return JsonResponse(
+            {'status': 'success', 'message': 'Data saved successfully'}, status=200)
+
+    return JsonResponse(
+        {'status': 'error', 'message': 'Invalid request'}, status=400)
+
+# Function to get all available keys (timestamps)
+
+
+def get_all_keys(request):
+    user = request.user
+    wrapped_entries = SpotifyWrapped.objects.filter(user=user)
+
+    all_keys = []
+    for wrapped in wrapped_entries:
+        all_keys.extend(wrapped.response_data.keys())
+
+    return JsonResponse({'keys': list(set(all_keys))}, status=200)
+
+# Function to get the value for a specific key
+
+
+def get_value_for_key(request, key):
+    user = request.user
+    wrapped_entries = SpotifyWrapped.objects.filter(user=user)
+
+    # Iterate through all entries and check if the key exists
+    for wrapped in wrapped_entries:
+        if key in wrapped.response_data:
+            return JsonResponse({key: wrapped.response_data[key]}, status=200)
+
+    return JsonResponse(
+        {'status': 'error', 'message': 'Key not found'}, status=404)

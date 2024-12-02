@@ -32,4 +32,7 @@ urlpatterns = [
     path('spotify-auth/', views.spotify_auth, name='spotify_auth'),
     path('callback/', views.spotify_callback, name='callback'),
     path('page/<int:page_num>/', views.pages_view, name='pages'),
+    path('save_json_response/', views.save_json_response, name='save_json_response'),
+    path('get_all_keys/', views.get_all_keys, name='get_all_keys'),
+    path('get_value_for_key/<str:key>/', views.get_value_for_key, name='get_value_for_key'),
 ]
