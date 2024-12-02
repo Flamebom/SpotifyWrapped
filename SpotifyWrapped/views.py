@@ -9,10 +9,32 @@ from SpotifyWrapped.spotify_data import (
     get_token,
     process_spotify_data,
 )
+
+from django.contrib.auth import login
+from django import forms
 from django.utils.timezone import localtime
 
 
+class UserRegistrationForm(forms.Form):
+    email = forms.EmailField(label="Email", max_length=255)
+    password = forms.CharField(label="Password", widget=forms.PasswordInput)
+
+
 def register_view(request):
+    if request.method == 'POST':
+        form = UserRegistrationForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            password = form.cleaned_data['password']
+            user = User.objects.create_user(email=email, password=password)
+            login(request, user)
+            return redirect('home')
+    else:
+        form = UserRegistrationForm()
+    return render(request, 'SpotifyUI/register.html', {'form': form})
+
+
+def register_view_old(request):
     if request.method == 'POST':
         email = request.POST['email']
         password = request.POST['password']
@@ -74,6 +96,7 @@ def profile_view(request):
 
     Returns the user's profile page.
     """
+
     if request.method == 'POST':
         email = request.POST['email']
         password = request.POST['password']
@@ -84,12 +107,12 @@ def profile_view(request):
         else:
             return render(request, '../UI/SpotifyUI/login.html',
                           {'error': 'Invalid credentials'})
-    access_token = request.session.get('access_token')
-    if not access_token:
-        return redirect('login')
 
-    context = process_spotify_data(access_token)
-    return render(request, '../UI/SpotifyUI/profile.html', context)
+    return render(request, '../UI/SpotifyUI/mainhome.html')
+
+
+def account_view(request):
+    return render(request, '../UI/SpotifyUI/account.html')
 
 
 def reset(request):
@@ -127,4 +150,26 @@ def spotify_callback(request):
     if error:
         return HttpResponse(f"Failed to get token: {error}")
     request.session['access_token'] = access_token
+    access_token = request.session.get('access_token')
+
+    request.session['context'] = process_spotify_data(access_token)
     return redirect('profile')
+
+
+def pages_view(request, page_num):
+    pages = {
+        1: "../UI/SpotifyUI/story2slide1.html",
+        2: "../UI/SpotifyUI/story2slide2.html",
+        3: "../UI/SpotifyUI/story2slide3.html",
+        4: "../UI/SpotifyUI/story2slide4.html",
+        5: "../UI/SpotifyUI/story2slide5.html",
+        6: "../UI/SpotifyUI/story2slide6.html",
+        7: "../UI/SpotifyUI/story2slide7.html",
+        8: "../UI/SpotifyUI/story2slide8.html"
+    }
+    template = pages.get(page_num, "error.html")
+    if page_num == 1 or page_num == 8:
+        return render(request, template, {})
+    else:
+        # print(request.session.get('context'))
+        return render(request, template, request.session.get('context'))

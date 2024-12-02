@@ -12,17 +12,8 @@ const thislanguage = sessionStorage.getItem("GlobalLanguage"); // Retrieve the g
 
 // Example usage of `updateTimes`:
 // Update time1 to "5000 minutes and 30 seconds" and time2 to "2000 minutes and 45 seconds".
-updateTimes(5000, 30, 2000, 45);
 
-
-
-
-
-
-
-
-
-
+// updateTimes(total_listening_minutes, total_listening_seconds, 2000, 45);
 
 // UI Section
 // Time 1 is top tracks, Time 2 is recent
@@ -49,17 +40,6 @@ function updateTimes(time1Minutes, time1Seconds, time2Minutes, time2Seconds) {
         console.error('Element .time2 not found!');
     }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 // Function to check if the date is on Christmas or Halloween
 function checkSpecialDate(dateString) {
@@ -135,20 +115,6 @@ console.log("Global Time:", thistime);
 console.log("Global Language:", thislanguage);
 checkSpecialDate(thistime);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Ensure that the Inter font is loaded and applied to the body
 document.head.innerHTML += `
 <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
@@ -223,7 +189,7 @@ document.body.addEventListener('click', () => {
     fadeOverlay.style.display = 'block'; // Ensure the overlay is visible
     fadeOverlay.style.opacity = '1'; // Fade in to black
 
-    window.location.href = 'story2slide3.html';
+    window.location.href = '/page/3/';
 });
 
 

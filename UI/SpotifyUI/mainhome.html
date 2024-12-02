@@ -50,7 +50,8 @@
 <div class="chatbotReviewDarkModeMoreAnimations" style="overflow: hidden; position: absolute; width: 322px; height: 113px; left: 36.93px; top: calc(50% - 113px/2 + 181.5px); font-style: normal; font-weight: 700; font-size: 24px; line-height: 29px; text-transform: capitalize; color: #FFFFFF;">ChatBot Review<br/>Dark Mode<br/>More Animations</div>
   </div>
 <div class="frame36" style="overflow: hidden; position: absolute; left: 75.87%; right: 1.62%; top: 27.55%; bottom: 0.78%;">
-<img class="gostats1" style="overflow: hidden; position: absolute; box-sizing: border-box; left: 0%; right: 0%; top: 0%; bottom: 0%; border: 1px solid #000000;" src="img/gostats1.png" />
+{% load static %}
+<img class="gostats1" style="overflow: hidden; position: absolute; box-sizing: border-box; left: 0%; right: 0%; top: 0%; bottom: 0%; border: 1px solid #000000;" src="{% static 'SpotifyUI/img/gostats1.png' %}" />
   </div>
 <script>
 var sickline = document.getElementsByClassName('sickline')[0];
@@ -80,6 +81,7 @@ var newfeaturesframe = document.getElementsByClassName('newfeaturesframe')[0];
 var spotifystats = document.getElementsByClassName('spotifystats')[0];
 var gostats1 = document.getElementsByClassName('gostats1')[0];
 </script>
-<script src='mainhome.js'></script>
+{% load static %}
+<script src="{% static 'SpotifyUI/mainhome.js' %}"></script>
 </body>
 </html>

@@ -8,12 +8,6 @@ const thistime = sessionStorage.getItem("GlobalTime"); // sample time: 12/25/202
 const thislanguage = sessionStorage.getItem("GlobalLanguage");
 
 // Example usage of the `updateMusicalPersonality` function:
-updateMusicalPersonality("You are a vibrant music explorer who thrives on rhythm and melody, embracing diverse genres with an open heart.");
-
-
-
-
-
 
 
 // UI Sections
@@ -81,7 +75,7 @@ document.body.addEventListener('click', () => {
     fadeOverlay.style.display = 'block'; // Ensure the overlay is visible
     fadeOverlay.style.opacity = '1'; // Fade in to black
 
-    window.location.href = 'story2slide5.html';
+    window.location.href = '/page/5/';
 });
 
 

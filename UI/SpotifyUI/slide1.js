@@ -1,11 +1,6 @@
 // No real full-stack work is required for slide 1 and slide 8. (Code Here)
 // Ensure that the redirection using `href` functions correctly. Check Line 168
 
-
-
-
-
-
 // UI Work
 // Function to access global settings from sessionStorage
 const thistime = sessionStorage.getItem("GlobalTime");
@@ -85,10 +80,6 @@ console.log("Global Time:", thistime);
 console.log("Global Language:", thislanguage);
 checkSpecialDate(thistime);
 
-
-
-
-
 // Ensure that the Inter font is loaded and applied to the body
 document.head.innerHTML += `
 <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
@@ -130,7 +121,6 @@ window.onload = () => {
     }
 };
 
-
 const fadeOverlay = document.createElement('div');
 document.body.appendChild(fadeOverlay);
 
@@ -163,10 +153,8 @@ document.body.addEventListener('click', () => {
     fadeOverlay.style.display = 'block'; // Ensure the overlay is visible
     fadeOverlay.style.opacity = '1'; // Fade in to black
 
-    window.location.href = 'story2slide2.html';
+    window.location.href = '/page/2/';
 });
-
-
 
 // Select the background image element
 const backgroundImage = document.querySelector('.backgroundslide1');
