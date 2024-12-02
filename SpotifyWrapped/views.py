@@ -11,6 +11,7 @@ from SpotifyWrapped.spotify_data import (
 )
 from django.utils.timezone import localtime
 
+
 def register_view(request):
     if request.method == 'POST':
         email = request.POST['email']
@@ -19,6 +20,7 @@ def register_view(request):
         login(request, user)
         return redirect('home')  # for registration redirect
     return render(request, '../UI/SpotifyUI/register.html')
+
 
 def create_wrapped_list(user):
     wrapped_times = []
@@ -29,6 +31,8 @@ def create_wrapped_list(user):
         wrapped_times.append(creation_time)
 
     return wrapped_times
+
+
 def logout_view(request):
     logout(request)
     return redirect('login')
@@ -49,9 +53,14 @@ def toggle_dark_mode(request):
     # Return the new state
     return JsonResponse({'is_dark_mode': user.is_dark_mode})
 
+
 def view_wrapped(request):
-    wrapped_list = SpotifyWrapped.objects.filter(user=request.user).order_by('-year')
-    return render(request, '../UI/SpotifyUI/account.html', {'wrapped_list': wrapped_list})
+    wrapped_list = SpotifyWrapped.objects.filter(
+        user=request.user).order_by('-year')
+    return render(request, '../UI/SpotifyUI/account.html',
+                  {'wrapped_list': wrapped_list})
+
+
 def login_view(request):
     return render(request, '../UI/SpotifyUI/login.html')
 

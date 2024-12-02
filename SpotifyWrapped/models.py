@@ -48,5 +48,6 @@ class SpotifyWrapped(models.Model):
     top_songs = models.TextField()  # Could store as JSON, list, or plain text
     top_artists = models.TextField()  # Similar to top_songs
     created_at = models.DateTimeField(auto_now_add=True)
+
     def __str__(self):
         return f"{self.user.email}'s Spotify Wrapped for {self.year}"
