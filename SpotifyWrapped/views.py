@@ -9,7 +9,7 @@ from SpotifyWrapped.spotify_data import (
     get_token,
     process_spotify_data,
 )
-
+from django.utils.timezone import localtime
 
 def register_view(request):
     if request.method == 'POST':
@@ -20,7 +20,15 @@ def register_view(request):
         return redirect('home')  # for registration redirect
     return render(request, '../UI/SpotifyUI/register.html')
 
+def create_wrapped_list(user):
+    wrapped_times = []
+    wrapped_entries = SpotifyWrapped.objects.filter(user=user)
 
+    for wrapped in wrapped_entries:
+        creation_time = wrapped.created_at
+        wrapped_times.append(creation_time)
+
+    return wrapped_times
 def logout_view(request):
     logout(request)
     return redirect('login')
