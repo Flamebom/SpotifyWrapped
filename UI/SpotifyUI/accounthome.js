@@ -10,7 +10,7 @@
 // Additional Task: Implement account deletion (Refer to line 269 for the delete account function).
 // Replace the current alert mechanism with a call to notify the Django database to delete the account.
 
-updateNamePlaceholder('penguin'); // Changes the text to "penguin"
+ // Changes the text to "penguin"
 let defaultLanguage = "English"; // Not For FullStacks
 // Comment this out. For Simplicity I would recommend you to just make a list of the same name. 
 // Don't need to care about the function and everything if you do that.
@@ -30,15 +30,6 @@ const placeholderDates = [
     "2024-11-22 19:45",
     "2024-12-25 19:45"
 ];
-
-
-
-
-
-
-
-
-
 
 // Global variable to track the current selected mode
 let currentMode = 'youraccountbar';
@@ -75,9 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
     youraccountbar.addEventListener('click', () => changeMode(youraccountbar, 'youraccountbar'));
 });
 
-
-
-
 function addHoverEffect70(element) {
     element.style.cursor = 'pointer';
     element.addEventListener('mouseenter', function () {
@@ -113,8 +101,6 @@ document.addEventListener("DOMContentLoaded", function() {
       window.location.href = "https://kharanshsingh.wixsite.com/atlfoodfinder-team-w";
     });
   });
-
-
 
 function addHoverEffectWithRedirect(elementSelector, hoverStyles, defaultStyles, redirectUrl) {
     // Select the element
@@ -153,8 +139,7 @@ const defaultStyles = {
 };
 
 // Apply hover effect and redirection
-addHoverEffectWithRedirect('.homebar', hoverStyles, defaultStyles, 'mainhome.html');
-
+addHoverEffectWithRedirect('.homebar', hoverStyles, defaultStyles, "/profile-page/");
 
 // Function to update and center the name placeholder
 function updateNamePlaceholder(newName) {
@@ -177,8 +162,6 @@ function updateNamePlaceholder(newName) {
     }
 }
 
-
-
 // Function to set z-index for account frame
 function bringAccountFrameToFront() {
     const accountFrame = document.querySelector(".accountframing");
@@ -186,8 +169,6 @@ function bringAccountFrameToFront() {
         accountFrame.style.zIndex = "1000";
     }
 }
-
-
 
 // Function to create a scrollable list inside account frame
 function createScrollableList() {
@@ -220,9 +201,9 @@ function createScrollableList() {
         listItem.addEventListener("click", () => {
             // The Most Important Full Stacks Part. This passes the date to the rest of the pages
 
-            console.log("Parsed date for Django: ", new Date(date).toLocaleString('en-US', { timeZone: 'America/New_York' }));
+            console.log("Parsed date for Django: ", new Date(date).toLocaleString('en-US', {timeZone: 'America/New_York'}));
             // Set data in sessionStorage
-            const thistime = new Date(date).toLocaleString('en-US', { timeZone: 'America/New_York' });
+            const thistime = new Date(date).toLocaleString('en-US', {timeZone: 'America/New_York'});
             sessionStorage.setItem("GlobalTime", thistime);
 
             const thislanguage = defaultLanguage;
@@ -237,13 +218,9 @@ function createScrollableList() {
     accountFrame.appendChild(listContainer);
 }
 
-
-
 // Call the functions
 bringAccountFrameToFront();
 createScrollableList();
-
-
 
 // Global variable for language
 // Function to initialize click handlers
@@ -264,6 +241,7 @@ function initializeLanguageSelectors() {
         });
     });
 }
+
 // Initialize the language selectors
 initializeLanguageSelectors();
 
@@ -281,8 +259,3 @@ function makeDeleteAccountClickable() {
 
 // Call the function
 makeDeleteAccountClickable();
-
-
-
-
-

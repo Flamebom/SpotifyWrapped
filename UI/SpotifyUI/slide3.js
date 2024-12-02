@@ -15,99 +15,96 @@
 // Access stored time and language for database queries
 const thistime = sessionStorage.getItem("GlobalTime");
 const thislanguage = sessionStorage.getItem("GlobalLanguage");
+
 // You can Comment this out after implementation
-const tracks_data = [
-    {
-        name: "Song Title 1",
-        artist: "Artist Name 1",
-        album_cover: "https://via.placeholder.com/50",
-        minutes: 3,
-        seconds: 45,
-        preview_url: "https://example.com/preview1"
-    },
-    {
-        name: "Song Title 2",
-        artist: "Artist Name 2",
-        album_cover: "https://via.placeholder.com/50",
-        minutes: 4,
-        seconds: 12,
-        preview_url: "https://example.com/preview2"
-    },
-    {
-        name: "Song Title 3",
-        artist: "Artist Name 3",
-        album_cover: "https://via.placeholder.com/50",
-        minutes: 5,
-        seconds: 30,
-        preview_url: "https://example.com/preview3"
-    },
-    {
-        name: "Song Title 4",
-        artist: "Artist Name 4",
-        album_cover: "https://via.placeholder.com/50",
-        minutes: 2,
-        seconds: 50,
-        preview_url: "https://example.com/preview4"
-    },
-    {
-        name: "Song Title 5",
-        artist: "Artist Name 5",
-        album_cover: "https://via.placeholder.com/50",
-        minutes: 4,
-        seconds: 20,
-        preview_url: "https://example.com/preview5"
-    }
-];
-
-
-
-// Example `artists_data` array
-const artists_data = [
-    {
-        name: "Artist Name 1",
-        image: "https://via.placeholder.com/50",
-        genres: ["Pop", "Rock"],
-        top_track_name: "Top Track 1",
-        top_track_preview: "https://example.com/preview1"
-    },
-    {
-        name: "Artist Name 2",
-        image: "https://via.placeholder.com/50",
-        genres: ["Jazz", "Blues"],
-        top_track_name: "Top Track 2",
-        top_track_preview: "https://example.com/preview2"
-    },
-    {
-        name: "Artist Name 3",
-        image: "https://via.placeholder.com/50",
-        genres: ["Classical", "Instrumental"],
-        top_track_name: "Top Track 3",
-        top_track_preview: "https://example.com/preview3"
-    },
-    {
-        name: "Artist Name 4",
-        image: "https://via.placeholder.com/50",
-        genres: ["Hip-Hop", "Rap"],
-        top_track_name: "Top Track 4",
-        top_track_preview: "https://example.com/preview4"
-    },
-    {
-        name: "Artist Name 5",
-        image: "https://via.placeholder.com/50",
-        genres: ["Electronic", "Dance"],
-        top_track_name: "Top Track 5",
-        top_track_preview: "https://example.com/preview5"
-    }
-];
-
-// Example `top_genres` array
-const top_genres = ["Pop", "Rock", "Jazz", "Hip-Hop", "Electronic"];
-
-
+// const tracks_data = [
+//     {
+//         name: "Song Title 1",
+//         artist: "Artist Name 1",
+//         album_cover: "https://via.placeholder.com/50",
+//         minutes: 3,
+//         seconds: 45,
+//         preview_url: "https://example.com/preview1"
+//     },
+//     {
+//         name: "Song Title 2",
+//         artist: "Artist Name 2",
+//         album_cover: "https://via.placeholder.com/50",
+//         minutes: 4,
+//         seconds: 12,
+//         preview_url: "https://example.com/preview2"
+//     },
+//     {
+//         name: "Song Title 3",
+//         artist: "Artist Name 3",
+//         album_cover: "https://via.placeholder.com/50",
+//         minutes: 5,
+//         seconds: 30,
+//         preview_url: "https://example.com/preview3"
+//     },
+//     {
+//         name: "Song Title 4",
+//         artist: "Artist Name 4",
+//         album_cover: "https://via.placeholder.com/50",
+//         minutes: 2,
+//         seconds: 50,
+//         preview_url: "https://example.com/preview4"
+//     },
+//     {
+//         name: "Song Title 5",
+//         artist: "Artist Name 5",
+//         album_cover: "https://via.placeholder.com/50",
+//         minutes: 4,
+//         seconds: 20,
+//         preview_url: "https://example.com/preview5"
+//     }
+// ];
+//
+// // Example `artists_data` array
+// const artists_data = [
+//     {
+//         name: "Artist Name 1",
+//         image: "https://via.placeholder.com/50",
+//         genres: ["Pop", "Rock"],
+//         top_track_name: "Top Track 1",
+//         top_track_preview: "https://example.com/preview1"
+//     },
+//     {
+//         name: "Artist Name 2",
+//         image: "https://via.placeholder.com/50",
+//         genres: ["Jazz", "Blues"],
+//         top_track_name: "Top Track 2",
+//         top_track_preview: "https://example.com/preview2"
+//     },
+//     {
+//         name: "Artist Name 3",
+//         image: "https://via.placeholder.com/50",
+//         genres: ["Classical", "Instrumental"],
+//         top_track_name: "Top Track 3",
+//         top_track_preview: "https://example.com/preview3"
+//     },
+//     {
+//         name: "Artist Name 4",
+//         image: "https://via.placeholder.com/50",
+//         genres: ["Hip-Hop", "Rap"],
+//         top_track_name: "Top Track 4",
+//         top_track_preview: "https://example.com/preview4"
+//     },
+//     {
+//         name: "Artist Name 5",
+//         image: "https://via.placeholder.com/50",
+//         genres: ["Electronic", "Dance"],
+//         top_track_name: "Top Track 5",
+//         top_track_preview: "https://example.com/preview5"
+//     }
+// ];
+//
+// // Example `top_genres` array
+// const top_genres = ["Pop", "Rock", "Jazz", "Hip-Hop", "Electronic"];
 
 // UI Part
 // Dynamically populate the song details
-tracks_data.forEach((track, index) => {
+function tracks_populate(track, index) {
     const songClass = `song${index + 1}`;
     const songDiv = document.querySelector(`.${songClass}`);
     if (songDiv) {
@@ -129,12 +126,10 @@ tracks_data.forEach((track, index) => {
             });
         }
     }
-});
-
-
+}
 
 // Dynamically populate artist details
-artists_data.forEach((artist, index) => {
+function artists_populate(artist, index) {
     const artistClass = `artist${index + 1}`;
     const artistDiv = document.querySelector(`.${artistClass}`);
     if (artistDiv) {
@@ -161,12 +156,10 @@ artists_data.forEach((artist, index) => {
             });
         }
     }
-});
-
-
+}
 
 // Dynamically populate genres
-top_genres.forEach((genre, index) => {
+function genres_populate(genre, index) {
     const genreClass = `genre${index + 1}`;
     const genreDiv = document.querySelector(`.${genreClass}`);
     if (genreDiv) {
@@ -175,25 +168,7 @@ top_genres.forEach((genre, index) => {
             <div style="font-family: Inter; font-weight: 900; font-size: 32px;">${genre}</div>
         `;
     }
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
 
@@ -231,7 +206,7 @@ document.body.addEventListener('click', () => {
     fadeOverlay.style.display = 'block'; // Ensure the overlay is visible
     fadeOverlay.style.opacity = '1'; // Fade in to black
 
-    window.location.href = 'story2slide4.html';
+    window.location.href = '/page/4/';
 });
 
 

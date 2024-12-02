@@ -6,14 +6,6 @@
 //    - Number of new artists discovered: `updateNewArtists(artistCount)`
 // 3. Ensure the integration is smooth and test for edge cases (e.g., no data or invalid values).
 
-// Example usage:
-updateMusicMinutes(500); // Update total minutes listened to 500
-updateFavoriteTrack("Bohemian Rhapsody"); // Update favorite track to "Bohemian Rhapsody"
-updateNewArtists(10); // Update new artists discovered to 10
-
-
-
-
 function updateMusicMinutes(minutes) {
     const element = document.querySelector(".YouListenedTo242MinutesOfMusicThisYear");
     if (element) {
@@ -36,10 +28,6 @@ function updateNewArtists(count) {
         element.textContent = `You discovered ${count} new artists this year—always exploring!`;
     }
 }
-
-
-
-
 
 // Not full stacks part
 const fadeOverlay = document.createElement('div');
@@ -74,7 +62,7 @@ document.body.addEventListener('click', () => {
     fadeOverlay.style.display = 'block'; // Ensure the overlay is visible
     fadeOverlay.style.opacity = '1'; // Fade in to black
 
-    window.location.href = 'story2slide7.html';
+    window.location.href = '/page/7/';
 });
 
 
@@ -142,5 +130,3 @@ function activateHalloweenMode() {
 // Testing
 console.log("Global Time:", thistime);
 console.log("Global Language:", thislanguage);
-
-

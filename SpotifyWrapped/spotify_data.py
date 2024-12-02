@@ -101,16 +101,6 @@ def get_user_saved_albums(access_token, limit=5):
     return get_spotify_data("me/albums", access_token, params={'limit': limit})
 
 
-def get_recommendations(seed_artists, seed_tracks, access_token, limit=5):
-    """Get recommendations based on seed artists and tracks."""
-    params = {
-        'seed_artists': ','.join(seed_artists),
-        'seed_tracks': ','.join(seed_tracks),
-        'limit': limit
-    }
-    return get_spotify_data("recommendations", access_token, params=params)
-
-
 def get_recently_played(access_token, limit=50):
     """Retrieve the user's recently played tracks."""
     return get_spotify_data(
@@ -128,7 +118,6 @@ def process_spotify_data(access_token):
     albums_data = []
     top_genres = []
     listening_habits = {}
-    recommended_tracks = []
     total_listening_time = 0
     total_recently_played_time = 0
 
@@ -159,7 +148,6 @@ def process_spotify_data(access_token):
                 "duration": duration_seconds,
                 "minutes": minutes,
                 "seconds": seconds,
-                "preview_url": track.get('preview_url'),
                 "album_cover": track['album']['images'][0]['url'] if track['album']['images'] else None,
             }
             tracks_data.append(track_info)
@@ -184,10 +172,8 @@ def process_spotify_data(access_token):
             if top_track_data.get('tracks'):
                 top_track = top_track_data['tracks'][0]
                 artist_info['top_track_name'] = top_track.get('name')
-                artist_info['top_track_preview'] = top_track.get('preview_url')
             else:
                 artist_info['top_track_name'] = None
-                artist_info['top_track_preview'] = None
             artists_data.append(artist_info)
             # Count genres
             for genre in artist.get('genres', []):
@@ -215,23 +201,11 @@ def process_spotify_data(access_token):
                 "name": track['name'],
                 "artist": ', '.join(artist['name'] for artist in track['artists']),
                 "album_cover": track['album']['images'][0]['url'] if track['album']['images'] else None,
-                "preview_url": track.get('preview_url'),
             }
             for track in top_tracks.get('items', [])
         ]
-        # Top artists
-        top_artists = get_user_top_artists(
-            access_token, time_range=time_range, limit=5)
-        artists = [
-            {
-                "name": artist['name'],
-                "image": artist['images'][0]['url'] if artist['images'] else None,
-            }
-            for artist in top_artists.get('items', [])
-        ]
         listening_habits[label] = {
             'tracks': tracks,
-            'artists': artists,
         }
 
     # User's playlists
@@ -259,26 +233,6 @@ def process_spotify_data(access_token):
                 "release_date": album['release_date'],
             }
             albums_data.append(album_info)
-
-    # Recommendations based on top tracks and artists
-    if tracks_data and artists_data:
-        seed_artists = [artist['id']
-                        for artist in top_artists_long_term.get('items', [])][:2]
-        seed_tracks = [track['id']
-                       for track in top_tracks_long_term.get('items', [])][:2]
-        recommendations = get_recommendations(
-            seed_artists, seed_tracks, access_token, limit=5)
-        if recommendations.get('tracks'):
-            recommended_tracks = [
-                {
-                    "name": track['name'],
-                    "artist": ', '.join(
-                        artist['name'] for artist in track['artists']),
-                    "preview_url": track.get('preview_url'),
-                    "album_cover": track['album']['images'][0]['url'] if track['album']['images'] else None,
-                } for track in recommendations.get(
-                    'tracks',
-                    [])]
 
     # Recently played tracks for total listening time approximation
     recently_played = get_recently_played(access_token, limit=50)
@@ -345,7 +299,6 @@ def process_spotify_data(access_token):
         'tracks_data': tracks_data,
         'artists_data': artists_data,
         'top_genres': top_genres,
-        'recommended_tracks': recommended_tracks,
         'playlists_data': playlists_data,
         'albums_data': albums_data,
         'listening_habits': listening_habits,

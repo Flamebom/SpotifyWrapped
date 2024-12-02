@@ -20,8 +20,10 @@
 <body style="overflow: hidden; position: absolute; width: 100%; height: 785px; background: #000000;">
 <div class="rectanglebackwhite" style="overflow: hidden; position: absolute; left: 0%; right: 0.34%; top: 12.74%; bottom: 0%; background: #FFFFFF;"></div>
 <div class="youspent" style="overflow: hidden; position: absolute; width: 450px; height: 500px; left: calc(50% - 383px/2 - 265px); top: calc(50% - 160px/2 + 23.5px); font-style: normal; font-weight: 700; font-size: 40px; line-height: 100%; text-align: center; letter-spacing: -0.05em;">You spent the most time in hip hop, vibing to its tracks for many minutes.</div>
-<img class="spotifystats" style="overflow: hidden; position: absolute; width: 155px; height: 33px; right: 65px; top: 32px;" src="img/spotifystats.png" />
-<img class="colorcool" style="overflow: hidden; position: absolute; width: 473px; right: 29px; top: 15.67%; bottom: 9.81%;" src="img/colorcool.png" />
+{% load static %}
+<img class="spotifystats" style="overflow: hidden; position: absolute; width: 155px; height: 33px; right: 65px; top: 32px;" src="{% static 'SpotifyUI/img/spotifystats.png' %}" />
+{% load static %}
+<img class="colorcool" style="overflow: hidden; position: absolute; width: 473px; right: 29px; top: 15.67%; bottom: 9.81%;" src="{% static 'SpotifyUI/img/colorcool.png' %}" />
 <script>
 var spotifystats = document.getElementsByClassName('spotifystats')[0];
 var rectanglebackwhite = document.getElementsByClassName('rectanglebackwhite')[0];
@@ -29,6 +31,11 @@ var youspent = document.getElementsByClassName('youspent')[0];
 var story2slide4 = document.getElementsByClassName('story2slide4')[0];
 var colorcool = document.getElementsByClassName('colorcool')[0];
 </script>
-<script src='slide4.js'></script>
+{% load static %}
+<script src='{% static 'SpotifyUI/slide4.js' %}'></script>
+<script>
+    const geminiDesc = {{ gemini_description }};
+    updateMusicalPersonality(geminiDesc);
+</script>
 </body>
 </html>
