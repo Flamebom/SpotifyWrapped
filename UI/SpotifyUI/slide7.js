@@ -9,42 +9,41 @@ const thislanguage = sessionStorage.getItem("GlobalLanguage");
 checkSpecialDate(thistime);
 
 // Sample `listening_habits` data structure:
-const listening_habits = {
-    "Last 4 Weeks": {
-        tracks: [
-            { name: "Track A", artist: "Artist A", album_cover: "https://via.placeholder.com/50", preview_url: "https://example.com/previewA" },
-            { name: "Track B", artist: "Artist B", album_cover: "https://via.placeholder.com/50", preview_url: "https://example.com/previewB" },
-            { name: "Track A", artist: "Artist A", album_cover: "https://via.placeholder.com/50", preview_url: "https://example.com/previewA" },
-            { name: "Track B", artist: "Artist B", album_cover: "https://via.placeholder.com/50", preview_url: "https://example.com/previewB" },
-            { name: "Track A", artist: "Artist A", album_cover: "https://via.placeholder.com/50", preview_url: "https://example.com/previewA" }
-        ]
-    },
-    "Last 6 Months": {
-        tracks: [
-            { name: "Track C", artist: "Artist C", album_cover: "https://via.placeholder.com/50", preview_url: "https://example.com/previewC" },
-            { name: "Track C", artist: "Artist C", album_cover: "https://via.placeholder.com/50", preview_url: "https://example.com/previewC" },
-            { name: "Track C", artist: "Artist C", album_cover: "https://via.placeholder.com/50", preview_url: "https://example.com/previewC" },
-            { name: "Track C", artist: "Artist C", album_cover: "https://via.placeholder.com/50", preview_url: "https://example.com/previewC" },
-            { name: "Track C", artist: "Artist C", album_cover: "https://via.placeholder.com/50", preview_url: "https://example.com/previewC" }
-        ]
-    },
-    "All Time": {
-        tracks: [
-            { name: "Track D", artist: "Artist D", album_cover: "https://via.placeholder.com/50", preview_url: "https://example.com/previewD" }, 
-            { name: "Track D", artist: "Artist D", album_cover: "https://via.placeholder.com/50", preview_url: "https://example.com/previewD" }, 
-            { name: "Track D", artist: "Artist D", album_cover: "https://via.placeholder.com/50", preview_url: "https://example.com/previewD" }, 
-            { name: "Track D", artist: "Artist D", album_cover: "https://via.placeholder.com/50", preview_url: "https://example.com/previewD" }, 
-            { name: "Track D", artist: "Artist D", album_cover: "https://via.placeholder.com/50", preview_url: "https://example.com/previewD" }
-        ]
-    }
-};
+// const listening_habits = {
+//     "Last 4 Weeks": {
+//         tracks: [
+//             { name: "Track A", artist: "Artist A", album_cover: "https://via.placeholder.com/50", preview_url: "https://example.com/previewA" },
+//             { name: "Track B", artist: "Artist B", album_cover: "https://via.placeholder.com/50", preview_url: "https://example.com/previewB" },
+//             { name: "Track A", artist: "Artist A", album_cover: "https://via.placeholder.com/50", preview_url: "https://example.com/previewA" },
+//             { name: "Track B", artist: "Artist B", album_cover: "https://via.placeholder.com/50", preview_url: "https://example.com/previewB" },
+//             { name: "Track A", artist: "Artist A", album_cover: "https://via.placeholder.com/50", preview_url: "https://example.com/previewA" }
+//         ]
+//     },
+//     "Last 6 Months": {
+//         tracks: [
+//             { name: "Track C", artist: "Artist C", album_cover: "https://via.placeholder.com/50", preview_url: "https://example.com/previewC" },
+//             { name: "Track C", artist: "Artist C", album_cover: "https://via.placeholder.com/50", preview_url: "https://example.com/previewC" },
+//             { name: "Track C", artist: "Artist C", album_cover: "https://via.placeholder.com/50", preview_url: "https://example.com/previewC" },
+//             { name: "Track C", artist: "Artist C", album_cover: "https://via.placeholder.com/50", preview_url: "https://example.com/previewC" },
+//             { name: "Track C", artist: "Artist C", album_cover: "https://via.placeholder.com/50", preview_url: "https://example.com/previewC" }
+//         ]
+//     },
+//     "All Time": {
+//         tracks: [
+//             { name: "Track D", artist: "Artist D", album_cover: "https://via.placeholder.com/50", preview_url: "https://example.com/previewD" },
+//             { name: "Track D", artist: "Artist D", album_cover: "https://via.placeholder.com/50", preview_url: "https://example.com/previewD" },
+//             { name: "Track D", artist: "Artist D", album_cover: "https://via.placeholder.com/50", preview_url: "https://example.com/previewD" },
+//             { name: "Track D", artist: "Artist D", album_cover: "https://via.placeholder.com/50", preview_url: "https://example.com/previewD" },
+//             { name: "Track D", artist: "Artist D", album_cover: "https://via.placeholder.com/50", preview_url: "https://example.com/previewD" }
+//         ]
+//     }
+// };
 
 // Function to create listening habits frames
 function createListeningHabitsFrames(listeningHabits) {
     const body = document.body;
 
-
-        // Select all relevant elements
+    // Select all relevant elements
     const element4Weeks = document.querySelector('.last4Weeks');
     const element6Months = document.querySelector('.last6Months');
     const elementAllTime = document.querySelector('.allTime');
@@ -60,8 +59,6 @@ function createListeningHabitsFrames(listeningHabits) {
         "Last 6 Months": { left: leftValue6, top: "220px" },
         "All Time": { left: leftValueAllTime, top: "220px" }
     };
-
-
 
     Object.keys(listeningHabits).forEach((timeLabel) => {
         const data = listeningHabits[timeLabel];

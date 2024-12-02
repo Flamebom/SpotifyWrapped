@@ -34,5 +34,13 @@ var story2slide6 = document.getElementsByClassName('story2slide6')[0];
 </script>
 {% load static %}
 <script src='{% static 'SpotifyUI/slide6.js' %}'></script>
+<script>
+    const newArtist = {{ new_artist_count }};
+    const topTrack = {{ top_track_name }};
+    const totalMusic = {{ total_minutes_listened }};
+    updateMusicMinutes(totalMusic);
+    updateFavoriteTrack(topTrack);
+    updateNewArtists(newArtist);
+</script>
 </body>
 </html>

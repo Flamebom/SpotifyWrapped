@@ -10,7 +10,7 @@
 // Additional Task: Implement account deletion (Refer to line 269 for the delete account function).
 // Replace the current alert mechanism with a call to notify the Django database to delete the account.
 
-updateNamePlaceholder('penguin'); // Changes the text to "penguin"
+ // Changes the text to "penguin"
 let defaultLanguage = "English"; // Not For FullStacks
 // Comment this out. For Simplicity I would recommend you to just make a list of the same name. 
 // Don't need to care about the function and everything if you do that.

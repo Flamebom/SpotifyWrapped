@@ -6,14 +6,6 @@
 //    - Number of new artists discovered: `updateNewArtists(artistCount)`
 // 3. Ensure the integration is smooth and test for edge cases (e.g., no data or invalid values).
 
-// Example usage:
-updateMusicMinutes(500); // Update total minutes listened to 500
-updateFavoriteTrack("Bohemian Rhapsody"); // Update favorite track to "Bohemian Rhapsody"
-updateNewArtists(10); // Update new artists discovered to 10
-
-
-
-
 function updateMusicMinutes(minutes) {
     const element = document.querySelector(".YouListenedTo242MinutesOfMusicThisYear");
     if (element) {
@@ -138,5 +130,3 @@ function activateHalloweenMode() {
 // Testing
 console.log("Global Time:", thistime);
 console.log("Global Language:", thislanguage);
-
-

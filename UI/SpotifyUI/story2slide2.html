@@ -48,5 +48,14 @@ var recentpl = document.getElementsByClassName('recentpl')[0];
 </script>
 {% load static %}
 <script src='{% static 'SpotifyUI/slide2.js' %}'></script>
+<script>
+    // Pass the context values from Django to JavaScript
+    const total_listening_minutes = {{ total_listening_minutes }};
+    const total_listening_seconds = {{ total_listening_seconds }};
+    const total_recently_played_minutes = {{ total_recently_played_minutes }}
+    const total_recently_played_seconds = {{ total_recently_played_seconds }}
+    // Call the updateTimes function with these values
+    updateTimes(total_listening_minutes, total_listening_seconds, total_recently_played_minutes, total_recently_played_seconds);
+</script>
 </body>
 </html>

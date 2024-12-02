@@ -12,7 +12,8 @@ const thislanguage = sessionStorage.getItem("GlobalLanguage"); // Retrieve the g
 
 // Example usage of `updateTimes`:
 // Update time1 to "5000 minutes and 30 seconds" and time2 to "2000 minutes and 45 seconds".
-updateTimes(5000, 30, 2000, 45);
+
+// updateTimes(total_listening_minutes, total_listening_seconds, 2000, 45);
 
 // UI Section
 // Time 1 is top tracks, Time 2 is recent

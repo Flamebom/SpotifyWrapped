@@ -100,5 +100,26 @@ var song4 = document.getElementsByClassName('song4')[0];
 </script>
 {% load static %}
 <script src='{% static 'SpotifyUI/slide3.js' %}'></script>
+<script>
+    // Pass the context values from Django to JavaScript
+    let tracks_data;
+    let artists_data;
+    let top_genres;
+    tracks_data = {{ tracks_data|safe }};
+    artists_data = {{ artists_data|safe }};
+    top_genres = {{ top_genres|safe }};
+
+    tracks_data.forEach((track, index) => {
+        tracks_populate(track, index);
+    });
+
+    artists_data.forEach((artist, index) => {
+        artists_populate(artist, index);
+    });
+
+    top_genres.forEach((genre, index) => {
+        genres_populate(genre, index);
+    });
+</script>
 </body>
 </html>

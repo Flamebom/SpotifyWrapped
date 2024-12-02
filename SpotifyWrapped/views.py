@@ -7,9 +7,30 @@ from SpotifyWrapped.spotify_data import (
     get_token,
     process_spotify_data,
 )
+from django.contrib.auth import login
+from django import forms
 
+
+
+class UserRegistrationForm(forms.Form):
+    email = forms.EmailField(label="Email", max_length=255)
+    password = forms.CharField(label="Password", widget=forms.PasswordInput)
 
 def register_view(request):
+    if request.method == 'POST':
+        form = UserRegistrationForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            password = form.cleaned_data['password']
+            user = User.objects.create_user(email=email, password=password)
+            login(request, user)
+            return redirect('home')
+    else:
+        form = UserRegistrationForm()
+    return render(request, 'SpotifyUI/register.html', {'form': form})
+
+
+def register_view_old(request):
     if request.method == 'POST':
         email = request.POST['email']
         password = request.POST['password']
@@ -18,11 +39,9 @@ def register_view(request):
         return redirect('home')  # for registration redirect
     return render(request, '../UI/SpotifyUI/register.html')
 
-
 def logout_view(request):
     logout(request)
     return redirect('login')
-
 
 def delete_account_view(request):
     if request.method == 'POST':
@@ -31,7 +50,6 @@ def delete_account_view(request):
         return redirect('login')  # for redirect to login post-account deletion
     return render(request, 'delete_account.html')
 
-
 def toggle_dark_mode(request):
     user = request.user
     user.is_dark_mode = not user.is_dark_mode  # Toggle the boolean field
@@ -39,27 +57,18 @@ def toggle_dark_mode(request):
     # Return the new state
     return JsonResponse({'is_dark_mode': user.is_dark_mode})
 
-
 def login_view(request):
     return render(request, '../UI/SpotifyUI/login.html')
 
-
 def spotify_auth(request):
     return redirect(get_auth_url())
-
-def get_context(request):
-    access_token = request.session.get('access_token')
-    if not access_token:
-        return redirect('login')
-
-    context = process_spotify_data(access_token)
-    return context
 
 def profile_view(request):
     """This method renders the profile page.
 
     Returns the user's profile page.
     """
+
     if request.method == 'POST':
         email = request.POST['email']
         password = request.POST['password']
@@ -83,7 +92,6 @@ def reset(request):
     """
     return render(request, '../UI/SpotifyUI/resetpassword.html', {})
 
-
 def spotify_callback(request):
     """Handle Spotify callback and retrieve access token."""
     code = request.GET.get('code')
@@ -93,6 +101,9 @@ def spotify_callback(request):
     if error:
         return HttpResponse(f"Failed to get token: {error}")
     request.session['access_token'] = access_token
+    access_token = request.session.get('access_token')
+
+    request.session['context'] = process_spotify_data(access_token)
     return redirect('profile')
 
 def pages_view(request, page_num):
@@ -107,4 +118,8 @@ def pages_view(request, page_num):
         8: "../UI/SpotifyUI/story2slide8.html"
     }
     template = pages.get(page_num, "error.html")
-    return render(request, template, {})
+    if page_num == 1 or page_num == 8:
+        return render(request, template, {})
+    else:
+        # print(request.session.get('context'))
+        return render(request, template, request.session.get('context'))

@@ -133,7 +133,7 @@ addHoverEffect(forgotyourpass);  // Hover effect for forgot your password
 
 // Set up click event for signup button to redirect to signup page
 signup1.addEventListener('click', function () {
-    window.location.href = 'register.html'; // Redirect to signup page
+    window.location.href = '/register/'; // Redirect to signup page
     console.log("Redirecting to signup page");
 });
 

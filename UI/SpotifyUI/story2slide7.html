@@ -39,5 +39,25 @@ var listeningtaste2 = document.getElementsByClassName('listeningtaste2')[0];
 </script>
 {% load static %}
 <script src='{% static 'SpotifyUI/slide7.js' %}'></script>
+<script>
+    const listening_habits = {
+        {% for time_period, data in listening_habits.items %}
+        "{{ time_period }}": {
+            tracks: [
+                {% for track in data.tracks %}
+                {
+                    name: "{{ track.name|escapejs }}",
+                    artist: "{{ track.artist|escapejs }}",
+                    album_cover: "{{ track.album_cover|escapejs }}",
+                    preview_url: "{{ track.preview_url|default:''|escapejs }}"
+                }{% if not forloop.last %},{% endif %}
+                {% endfor %}
+            ]
+        }{% if not forloop.last %},{% endif %}
+        {% endfor %}
+    };
+    console.log(listening_habits);
+    createListeningHabitsFrames(listening_habits);
+</script>
 </body>
 </html>
