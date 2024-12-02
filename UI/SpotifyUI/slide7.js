@@ -55,9 +55,9 @@ function createListeningHabitsFrames(listeningHabits) {
 
     // Define positions for frames
     const framePositions = {
-        "Last 4 Weeks": { left: leftValue4, top: "220px" },
-        "Last 6 Months": { left: leftValue6, top: "220px" },
-        "All Time": { left: leftValueAllTime, top: "220px" }
+        "Last 4 weeks": { left: leftValue4, top: "220px" },
+        "Last 6 months": { left: leftValue6, top: "220px" },
+        "All time": { left: leftValueAllTime, top: "220px" }
     };
 
     Object.keys(listeningHabits).forEach((timeLabel) => {
