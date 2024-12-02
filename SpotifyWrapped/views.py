@@ -14,6 +14,7 @@ from django.contrib.auth import login
 from django import forms
 from django.utils.timezone import localtime
 
+
 class UserRegistrationForm(forms.Form):
     email = forms.EmailField(label="Email", max_length=255)
     password = forms.CharField(label="Password", widget=forms.PasswordInput)
