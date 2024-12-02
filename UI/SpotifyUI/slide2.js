@@ -68,7 +68,7 @@ function checkSpecialDate(dateString) {
 function activateChristmasMode() {
     // Add gifts.png to the bottom-right corner
     const gifts = document.createElement('img');
-    gifts.src = 'img/gifts.png';
+    gifts.src = '../UI/SpotifyUI/img/gifts.png';
     gifts.style.position = 'absolute';
     gifts.style.right = '-100px'; // Align to the right edge
     gifts.style.bottom = '-300px'; // Align to the bottom edge
@@ -78,7 +78,7 @@ function activateChristmasMode() {
 
     // Add stuffs.png to the top-left corner
     const stuffs = document.createElement('img');
-    stuffs.src = 'img/stuffs.png';
+    stuffs.src = '../UI/SpotifyUI/img/stuffs.png';
     stuffs.style.position = 'absolute';
     stuffs.style.left = '-500px'; // Align to the left edge
     stuffs.style.top = '-500px'; // Align to the top edge
@@ -91,7 +91,7 @@ function activateHalloweenMode() {
     console.log("Activating Halloween Mode!");
         // Add gifts.png to the bottom-right corner
         const gifts = document.createElement('img');
-        gifts.src = 'img/orange.png';
+        gifts.src = '../UI/SpotifyUI/img/orange.png';
         gifts.style.position = 'absolute';
         gifts.style.right = '-100px'; // Align to the right edge
         gifts.style.bottom = '-300px'; // Align to the bottom edge
@@ -101,7 +101,7 @@ function activateHalloweenMode() {
     
         // Add stuffs.png to the top-left corner
         const stuffs = document.createElement('img');
-        stuffs.src = 'img/orange.png';
+        stuffs.src = '../UI/SpotifyUI/img/orange.png';
         stuffs.style.position = 'absolute';
         stuffs.style.left = '-500px'; // Align to the left edge
         stuffs.style.top = '-500px'; // Align to the top edge
