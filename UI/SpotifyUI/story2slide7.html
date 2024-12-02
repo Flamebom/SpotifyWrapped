@@ -39,6 +39,7 @@ var listeningtaste2 = document.getElementsByClassName('listeningtaste2')[0];
 </script>
 {% load static %}
 <script src='{% static 'SpotifyUI/slide7.js' %}'></script>
+<script src='{% static 'SpotifyUI/slide7.js' %}'></script>
 <script>
     const listening_habits = {
         {% for time_period, data in listening_habits.items %}
@@ -56,8 +57,21 @@ var listeningtaste2 = document.getElementsByClassName('listeningtaste2')[0];
         }{% if not forloop.last %},{% endif %}
         {% endfor %}
     };
-    console.log(listening_habits);
-    createListeningHabitsFrames(listening_habits);
+
+    // Convert data structure into the desired format
+    const formattedListeningHabits = {};
+    Object.keys(listening_habits).forEach((time_period) => {
+        formattedListeningHabits[time_period] = {
+            tracks: listening_habits[time_period].tracks.map(track => ({
+                name: track.name,
+                artist: track.artist,
+                album_cover: track.album_cover,
+                preview_url: track.preview_url || ''
+            }))
+        };
+    });
+
+    createListeningHabitsFrames(formattedListeningHabits);
 </script>
 </body>
 </html>

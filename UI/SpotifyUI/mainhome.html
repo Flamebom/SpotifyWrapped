@@ -23,14 +23,17 @@
     </div>
 </div>
 <div class="sideframe" style="overflow: hidden; position: absolute; width: 241px; left: 0px; top: 0%; bottom: 0%; background: #000000;">
-    <img class="spotifystats" style="overflow: hidden; position: absolute; width: 155px; height: 33px; left: 43px; top: 25px;" src="img/spotifystats.png" />
+    {% load static %}
+    <img class="spotifystats" style="overflow: hidden; position: absolute; width: 155px; height: 33px; left: 43px; top: 25px;" src="{% static 'SpotifyUI/img/spotifystats.png' %}" />
     <div class="homebar" style="overflow: hidden; position: absolute; width: 221px; height: 39.39px; left: 10px; top: 101px; border-radius: 4px;">
         <div class="home" style="overflow: hidden; position: absolute; width: 161px; height: 23px; left: 55px; top: 8px; font-style: normal; font-weight: 700; font-size: 13px; line-height: 22px; display: flex; align-items: center; color: #FFFFFF;">{{ _('Home') }}</div>
-        <img class="homeicon" style="overflow: hidden; position: absolute; width: 20px; height: 21px; left: 17px; top: 8px;" src="img/homeicon.png" />
+        {% load static %}
+        <img class="homeicon" style="overflow: hidden; position: absolute; width: 20px; height: 21px; left: 17px; top: 8px;" src="{% static 'SpotifyUI/img/homeicon.png' %}" />
     </div>
     <div class="youraccountbar" style="overflow: hidden; position: absolute; width: 234px; height: 40px; left: 10px; top: 147px; border-radius: 4px;">
         <div class="yourAccount" style="overflow: hidden; position: absolute; width: 162px; height: 23px; left: 56px; top: 8px; font-style: normal; font-weight: 700; font-size: 13px; line-height: 22px; display: flex; align-items: center; color: #FFFFFF;">{{ _('Your Account') }}</div>
-        <img class="houseicon" style="overflow: hidden; position: absolute; width: 20px; height: 20px; left: 19px; top: 10px;" src="img/houseicon.png" />
+        {% load static %}
+        <img class="houseicon" style="overflow: hidden; position: absolute; width: 20px; height: 20px; left: 19px; top: 10px;" src="{% static 'SpotifyUI/img/houseicon.png' %}" />
     </div>
 </div>
 <div class="English" style="overflow: hidden; position: absolute; width: 184px; height: 23px; left: 42px; bottom: 162px; font-style: normal; font-weight: 700; font-size: 13px; line-height: 22px; display: flex; align-items: center; color: #FFFFFF; opacity: 0.7;">{{ _('English') }}</div>
@@ -83,5 +86,9 @@ var gostats1 = document.getElementsByClassName('gostats1')[0];
 </script>
 {% load static %}
 <script src="{% static 'SpotifyUI/mainhome.js' %}"></script>
+<script>
+    const name = {{ user_name }};
+    updateNamePlaceholder(name); // Use Actual Username similar to Accounthome.js
+</script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 // Full Stacks Section:
 // Example Usage:
-updateNamePlaceholder('penguin'); // Use Actual Username similar to Accounthome.js
+
 
 // Notes:
 // - Use `defaultLanguage` to access the current language setting.

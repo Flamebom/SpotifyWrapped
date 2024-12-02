@@ -71,7 +71,7 @@ var houseicon = document.getElementsByClassName('houseicon')[0];
 {% load static %}
 <script src="{% static 'SpotifyUI/accounthome.js' %}"></script>
 <script>
-    const accountName = {{ user_name }}
+    const accountName = {{ user_name }};
     updateNamePlaceholder(accountName);
 </script>
 </body>

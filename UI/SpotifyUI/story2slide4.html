@@ -34,7 +34,7 @@ var colorcool = document.getElementsByClassName('colorcool')[0];
 {% load static %}
 <script src='{% static 'SpotifyUI/slide4.js' %}'></script>
 <script>
-    const geminiDesc = {{ gemini_description }};
+    const geminiDesc = "{{ gemini_description }}";
     updateMusicalPersonality(geminiDesc);
 </script>
 </body>

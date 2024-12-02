@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.db import models
+import json
 
 
 class UserManager(BaseUserManager):
@@ -49,5 +50,13 @@ class SpotifyWrapped(models.Model):
     top_artists = models.TextField()  # Similar to top_songs
     created_at = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
+    # We will add a new field to store JSON data
+    response_data = models.JSONField(default=dict)
+
+    def str(self):
         return f"{self.user.email}'s Spotify Wrapped for {self.year}"
+
+    # Method to save JSON response data with the current time as the key
+    def save_json_response(self, key, response):
+        self.response_data[key] = response
+        self.save()
