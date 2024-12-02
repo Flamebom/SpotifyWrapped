@@ -14,6 +14,7 @@ from django.contrib.auth import login
 from django import forms
 from django.utils.timezone import now
 
+
 class UserRegistrationForm(forms.Form):
     email = forms.EmailField(label="Email", max_length=255)
     password = forms.CharField(label="Password", widget=forms.PasswordInput)
@@ -174,7 +175,10 @@ def pages_view(request, page_num):
         # print(request.session.get('context'))
         return render(request, template, request.session.get('context'))
 
-# Function to save the current time as a key and save a JSON response as the value
+# Function to save the current time as a key and save a JSON response as
+# the value
+
+
 def save_json_response(request):
     if request.method == 'POST':
         # Assuming we receive a JSON response in the body
@@ -194,11 +198,15 @@ def save_json_response(request):
         # Save the response data with the current time as the key
         wrapped_entry.save_json_response(current_time, response)
 
-        return JsonResponse({'status': 'success', 'message': 'Data saved successfully'}, status=200)
+        return JsonResponse(
+            {'status': 'success', 'message': 'Data saved successfully'}, status=200)
 
-    return JsonResponse({'status': 'error', 'message': 'Invalid request'}, status=400)
+    return JsonResponse(
+        {'status': 'error', 'message': 'Invalid request'}, status=400)
 
 # Function to get all available keys (timestamps)
+
+
 def get_all_keys(request):
     user = request.user
     wrapped_entries = SpotifyWrapped.objects.filter(user=user)
@@ -210,6 +218,8 @@ def get_all_keys(request):
     return JsonResponse({'keys': list(set(all_keys))}, status=200)
 
 # Function to get the value for a specific key
+
+
 def get_value_for_key(request, key):
     user = request.user
     wrapped_entries = SpotifyWrapped.objects.filter(user=user)
@@ -219,4 +229,5 @@ def get_value_for_key(request, key):
         if key in wrapped.response_data:
             return JsonResponse({key: wrapped.response_data[key]}, status=200)
 
-    return JsonResponse({'status': 'error', 'message': 'Key not found'}, status=404)
+    return JsonResponse(
+        {'status': 'error', 'message': 'Key not found'}, status=404)
