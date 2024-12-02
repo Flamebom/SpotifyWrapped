@@ -2,7 +2,7 @@ from django.http import JsonResponse, HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.utils.translation import activate
 
-from .models import User
+from .models import User, SpotifyWrapped
 from django.shortcuts import redirect, render
 from SpotifyWrapped.spotify_data import (
     get_auth_url,
@@ -31,7 +31,7 @@ def delete_account_view(request):
         user = request.user
         user.delete()
         return redirect('login')  # for redirect to login post-account deletion
-    return render(request, 'delete_account.html')
+    return render(request, '../UI/SpotifyUI/login.html')
 
 
 def toggle_dark_mode(request):
@@ -41,7 +41,9 @@ def toggle_dark_mode(request):
     # Return the new state
     return JsonResponse({'is_dark_mode': user.is_dark_mode})
 
-
+def view_wrapped(request):
+    wrapped_list = SpotifyWrapped.objects.filter(user=request.user).order_by('-year')
+    return render(request, '../UI/SpotifyUI/account.html', {'wrapped_list': wrapped_list})
 def login_view(request):
     return render(request, '../UI/SpotifyUI/login.html')
 
