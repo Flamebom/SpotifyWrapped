@@ -1,6 +1,6 @@
 // Full Stacks Section:
 // Example Usage:
-updateNamePlaceholder('penguin'); // Use Actual Username similar to Accounthome.js
+
 
 // Notes:
 // - Use `defaultLanguage` to access the current language setting.
@@ -56,9 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
     homebar.addEventListener('click', () => changeMode(homebar, 'homebar'));
     youraccountbar.addEventListener('click', () => changeMode(youraccountbar, 'youraccountbar'));
 });
-
-
-
 
 function addHoverEffect70(element) {
     element.style.cursor = 'pointer';
@@ -142,13 +139,12 @@ function addHoverEffectWithRedirect(elementSelector, hoverStyles, defaultStyles,
                 sessionStorage.setItem("GlobalTime", atlantaTimeString);
                 const thislanguage = defaultLanguage;
                 sessionStorage.setItem("GlobalLanguage", thislanguage);
-
+                window.location.href = "/page/1/"
                 // Full Stacks Section. Make it so that API generates new summary and is saved in Django Database
                 // This will ensure code compatibility onwards.
+            } else if (redirectUrl === 'account.html') {
+                window.location.href = "/account-page/";
             }
-
-
-            window.location.href = redirectUrl;
         });
     } else {
         console.error(`Element with selector "${elementSelector}" not found.`);
@@ -218,10 +214,3 @@ function initializeLanguageSelectors() {
 
 // Call the function to set up the event listeners
 initializeLanguageSelectors();
-
-
-
-
-
-
-

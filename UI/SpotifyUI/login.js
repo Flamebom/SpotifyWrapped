@@ -133,7 +133,7 @@ addHoverEffect(forgotyourpass);  // Hover effect for forgot your password
 
 // Set up click event for signup button to redirect to signup page
 signup1.addEventListener('click', function () {
-    window.location.href = 'register.html'; // Redirect to signup page
+    window.location.href = '/register/'; // Redirect to signup page
     console.log("Redirecting to signup page");
 });
 
@@ -160,6 +160,6 @@ login1.addEventListener('click', function () {
     } else {
         wrongPasswordMessage.style.display = 'none';  // Hide validation message
         console.log("All fields are filled. Proceeding with login.");
-        window.location.href = "http://localhost:8000/spotify-auth/";
+        window.location.href = "spotify-auth/";
     }
 });

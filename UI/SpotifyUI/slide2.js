@@ -12,17 +12,8 @@ const thislanguage = sessionStorage.getItem("GlobalLanguage"); // Retrieve the g
 
 // Example usage of `updateTimes`:
 // Update time1 to "5000 minutes and 30 seconds" and time2 to "2000 minutes and 45 seconds".
-updateTimes(5000, 30, 2000, 45);
 
-
-
-
-
-
-
-
-
-
+// updateTimes(total_listening_minutes, total_listening_seconds, 2000, 45);
 
 // UI Section
 // Time 1 is top tracks, Time 2 is recent
@@ -49,17 +40,6 @@ function updateTimes(time1Minutes, time1Seconds, time2Minutes, time2Seconds) {
         console.error('Element .time2 not found!');
     }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 // Function to check if the date is on Christmas or Halloween
 function checkSpecialDate(dateString) {
@@ -88,7 +68,7 @@ function checkSpecialDate(dateString) {
 function activateChristmasMode() {
     // Add gifts.png to the bottom-right corner
     const gifts = document.createElement('img');
-    gifts.src = 'img/gifts.png';
+    gifts.src = '../UI/SpotifyUI/img/gifts.png';
     gifts.style.position = 'absolute';
     gifts.style.right = '-100px'; // Align to the right edge
     gifts.style.bottom = '-300px'; // Align to the bottom edge
@@ -98,7 +78,7 @@ function activateChristmasMode() {
 
     // Add stuffs.png to the top-left corner
     const stuffs = document.createElement('img');
-    stuffs.src = 'img/stuffs.png';
+    stuffs.src = '../UI/SpotifyUI/img/stuffs.png';
     stuffs.style.position = 'absolute';
     stuffs.style.left = '-500px'; // Align to the left edge
     stuffs.style.top = '-500px'; // Align to the top edge
@@ -111,7 +91,7 @@ function activateHalloweenMode() {
     console.log("Activating Halloween Mode!");
         // Add gifts.png to the bottom-right corner
         const gifts = document.createElement('img');
-        gifts.src = 'img/orange.png';
+        gifts.src = '../UI/SpotifyUI/img/orange.png';
         gifts.style.position = 'absolute';
         gifts.style.right = '-100px'; // Align to the right edge
         gifts.style.bottom = '-300px'; // Align to the bottom edge
@@ -121,7 +101,7 @@ function activateHalloweenMode() {
     
         // Add stuffs.png to the top-left corner
         const stuffs = document.createElement('img');
-        stuffs.src = 'img/orange.png';
+        stuffs.src = '../UI/SpotifyUI/img/orange.png';
         stuffs.style.position = 'absolute';
         stuffs.style.left = '-500px'; // Align to the left edge
         stuffs.style.top = '-500px'; // Align to the top edge
@@ -134,20 +114,6 @@ function activateHalloweenMode() {
 console.log("Global Time:", thistime);
 console.log("Global Language:", thislanguage);
 checkSpecialDate(thistime);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // Ensure that the Inter font is loaded and applied to the body
 document.head.innerHTML += `
@@ -223,7 +189,7 @@ document.body.addEventListener('click', () => {
     fadeOverlay.style.display = 'block'; // Ensure the overlay is visible
     fadeOverlay.style.opacity = '1'; // Fade in to black
 
-    window.location.href = 'story2slide3.html';
+    window.location.href = '/page/3/';
 });
 
 

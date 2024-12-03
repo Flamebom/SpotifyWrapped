@@ -18,11 +18,13 @@
 </head>
 
 <body style="overflow: hidden; position: absolute; width: 100%; height: 664px;">
-<img class="story2slide6background1" style="overflow: hidden; position: absolute; left: 0%; right: 0%; top: -1.05%; bottom: 0%; background: #FF00FF;" src="img/story2slide6background.png" />
+{% load static %}
+<img class="story2slide6background1" style="overflow: hidden; position: absolute; left: 0%; right: 0%; top: -1.05%; bottom: 0%; background: #FF00FF;" src="{% static 'SpotifyUI/img/story2slide6background.png' %}" />
   <div class="YouListenedTo242MinutesOfMusicThisYear" style="width: 1083px; left: 95px; top: 389px; position: absolute; color: white; font-size: 24px; font-family: Helvetica Neue; font-weight: 700; line-height: 21.60px; word-wrap: break-word">You listened to 242 minutes of music this year!</div>
   <div class="YourFavoriteTrack16WasPlayedManyTimes" style="width: 1083px; left: 95px; top: 425px; position: absolute; color: white; font-size: 24px; font-family: Helvetica Neue; font-weight: 700; line-height: 21.60px; word-wrap: break-word">Your favorite track, 16, was played many times!</div>
   <div class="YouDiscovered5NewArtistsThisYearAlwaysExploring" style="width: 1083px; left: 95px; top: 461px; position: absolute; color: white; font-size: 24px; font-family: Helvetica Neue; font-weight: 700; line-height: 21.60px; word-wrap: break-word">You discovered 5 new artists this year—always exploring!</div>
-<img class="spotifystats5" style="overflow: hidden; position: absolute; width: 155px; height: 33px; right: 54px; top: 50px;" src="img/spotifystats.png" />
+{% load static %}
+<img class="spotifystats5" style="overflow: hidden; position: absolute; width: 155px; height: 33px; right: 54px; top: 50px;" src="{% static 'SpotifyUI/img/spotifystats.png' %}" />
 <div class="milestones" style="overflow: hidden; position: absolute; width: 1052px; height: 43px; left: 95px; top: 332px; font-style: normal; font-weight: 700; font-size: 48px; line-height: 90%; font-feature-settings: 'ss01' on; color: #FFFFFF;">Milestones </div>
 <script>
 var story2slide6background1 = document.getElementsByClassName('story2slide6background1')[0];
@@ -30,6 +32,15 @@ var spotifystats5 = document.getElementsByClassName('spotifystats5')[0];
 var milestones = document.getElementsByClassName('milestones')[0];
 var story2slide6 = document.getElementsByClassName('story2slide6')[0];
 </script>
-<script src='slide6.js'></script>
+{% load static %}
+<script src='{% static 'SpotifyUI/slide6.js' %}'></script>
+<script>
+    const newArtist = {{ new_artist_count }};
+    const topTrack = {{ top_track_name }};
+    const totalMusic = {{ total_minutes_listened }};
+    updateMusicMinutes(totalMusic);
+    updateFavoriteTrack(topTrack);
+    updateNewArtists(newArtist);
+</script>
 </body>
 </html>
